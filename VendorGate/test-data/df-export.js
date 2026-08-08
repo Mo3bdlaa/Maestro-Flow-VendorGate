@@ -8,9 +8,9 @@ const { execFileSync } = require('child_process');
 const fs = require('fs');
 
 const ENTITIES = {
-  Vendor: 'a78eb607-7792-f111-b338-000d3ab4d3b7',
-  VendorDocument: 'd350af0d-7792-f111-b338-000d3ab4d3b7',
-  ScreeningList: '65efc4bd-7b92-f111-b338-000d3ab4d3b7',
+  Vendor: '7d12060c-3d93-f111-9b33-6045bdd6d6ea',
+  VendorDocument: '9312060c-3d93-f111-9b33-6045bdd6d6ea',
+  ScreeningList: 'b312060c-3d93-f111-9b33-6045bdd6d6ea',
 };
 
 // DF audit columns — server-managed, never importable.

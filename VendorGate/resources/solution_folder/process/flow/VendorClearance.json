@@ -16,10 +16,10 @@
     "runtimeDependencies": [
       {
         "bindingType": "connection",
-        "bindingKey": "127fb909-ac85-4c93-938f-135ab0398a6c",
+        "bindingKey": "0c89d875-23ba-425a-af78-801786c50537",
         "bindingValues": {
           "connectionId": {
-            "defaultValue": "127fb909-ac85-4c93-938f-135ab0398a6c",
+            "defaultValue": "0c89d875-23ba-425a-af78-801786c50537",
             "isExpression": false
           }
         },
@@ -31,16 +31,16 @@
         },
         "resourceKind": "Connection",
         "resourceType": "uipath-uipath-dataservice",
-        "resourceKey": "127fb909-ac85-4c93-938f-135ab0398a6c",
+        "resourceKey": "0c89d875-23ba-425a-af78-801786c50537",
         "resourceName": "mohamed.shaker@barqsystems.com",
-        "folderKey": "cd671762-f695-48f8-ac4b-f849efe70464"
+        "folderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1"
       },
       {
         "bindingType": "connection",
-        "bindingKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
+        "bindingKey": "87fce6c9-d681-4f42-b246-ca0959034a22",
         "bindingValues": {
           "connectionId": {
-            "defaultValue": "9e6b90f5-2b61-49f1-afda-c90061443385",
+            "defaultValue": "87fce6c9-d681-4f42-b246-ca0959034a22",
             "isExpression": false
           }
         },
@@ -52,16 +52,16 @@
         },
         "resourceKind": "Connection",
         "resourceType": "uipath-uipath-airdk",
-        "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
+        "resourceKey": "87fce6c9-d681-4f42-b246-ca0959034a22",
         "resourceName": "UiPath GenAI Activities",
-        "folderKey": "e030afee-a5ae-496a-97c8-1aaa3fff1256"
+        "folderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1"
       },
       {
         "bindingType": "EventTrigger",
-        "bindingKey": "127fb909-ac85-4c93-938f-135ab0398a6c_start",
+        "bindingKey": "0c89d875-23ba-425a-af78-801786c50537_start",
         "bindingValues": {
           "connectionId": {
-            "defaultValue": "127fb909-ac85-4c93-938f-135ab0398a6c",
+            "defaultValue": "0c89d875-23ba-425a-af78-801786c50537",
             "isExpression": false
           },
           "entryPointUniqueId": {

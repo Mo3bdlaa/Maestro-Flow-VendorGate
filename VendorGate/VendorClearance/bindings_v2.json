@@ -3,11 +3,11 @@
   "resources": [
     {
       "resource": "connection",
-      "key": "127fb909-ac85-4c93-938f-135ab0398a6c",
-      "id": "connection127fb909-ac85-4c93-938f-135ab0398a6c",
+      "key": "0c89d875-23ba-425a-af78-801786c50537",
+      "id": "connection0c89d875-23ba-425a-af78-801786c50537",
       "value": {
         "ConnectionId": {
-          "defaultValue": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "defaultValue": "0c89d875-23ba-425a-af78-801786c50537",
           "isExpression": false,
           "displayName": "uipath-uipath-dataservice connection"
         }
@@ -22,11 +22,11 @@
     },
     {
       "resource": "connection",
-      "key": "9e6b90f5-2b61-49f1-afda-c90061443385",
-      "id": "connection9e6b90f5-2b61-49f1-afda-c90061443385",
+      "key": "87fce6c9-d681-4f42-b246-ca0959034a22",
+      "id": "connection87fce6c9-d681-4f42-b246-ca0959034a22",
       "value": {
         "ConnectionId": {
-          "defaultValue": "9e6b90f5-2b61-49f1-afda-c90061443385",
+          "defaultValue": "87fce6c9-d681-4f42-b246-ca0959034a22",
           "isExpression": false,
           "displayName": "uipath-uipath-airdk connection"
         }
@@ -41,11 +41,11 @@
     },
     {
       "resource": "EventTrigger",
-      "key": "127fb909-ac85-4c93-938f-135ab0398a6c_start",
-      "id": "EventTrigger127fb909-ac85-4c93-938f-135ab0398a6c_start",
+      "key": "0c89d875-23ba-425a-af78-801786c50537_start",
+      "id": "EventTrigger0c89d875-23ba-425a-af78-801786c50537_start",
       "value": {
         "ConnectionId": {
-          "defaultValue": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "defaultValue": "0c89d875-23ba-425a-af78-801786c50537",
           "isExpression": false
         },
         "EntryPointUniqueId": {

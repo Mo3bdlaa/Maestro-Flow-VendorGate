@@ -9,12 +9,12 @@ const root = process.argv[2];
 
 const MAP = {
   // DF activity connection: Vendor Gate -> VendorGate Run
-  '127fb909-ac85-4c93-938f-135ab0398a6c': '7ab4be89-9b69-474d-b123-0a1efd597341',
+  '0c89d875-23ba-425a-af78-801786c50537': '7ab4be89-9b69-474d-b123-0a1efd597341',
   // GenAI/airdk connection: ACME Project -> VendorGate Run
-  '9e6b90f5-2b61-49f1-afda-c90061443385': 'e8dbdd2a-5fa7-48dc-934b-bc22ecefacb1',
+  '87fce6c9-d681-4f42-b246-ca0959034a22': 'e8dbdd2a-5fa7-48dc-934b-bc22ecefacb1',
   // folder keys: Vendor Gate + ACME Project -> VendorGate Run
-  'cd671762-f695-48f8-ac4b-f849efe70464': '1ec1d1ab-7f34-4c16-832d-3d3828f27fc4',
-  'e030afee-a5ae-496a-97c8-1aaa3fff1256': '1ec1d1ab-7f34-4c16-832d-3d3828f27fc4',
+  'f919e064-57e8-4d56-9a55-c92796fb53c1': '1ec1d1ab-7f34-4c16-832d-3d3828f27fc4',
+  'f919e064-57e8-4d56-9a55-c92796fb53c1': '1ec1d1ab-7f34-4c16-832d-3d3828f27fc4',
   // rename trigger -> new trigger-resource hash -> installer creates a FRESH
   // IS registration (the old one was destroyed by the 1.2.0 upgrade; enable 404s)
   'Vendor Submitted (Portal - Data Fabric)': 'Vendor Submitted via Portal (Data Fabric)',
@@ -59,7 +59,7 @@ b.resources = b.resources.filter((r) => {
 b.resources.forEach((r) => { if (r.resource === 'connection') r.resource = 'Connection'; });
 // trigger must run on its OWN connection or the installer dict-crashes on the
 // duplicate (Connection, id) pair with the activity connection
-const TRIG_CONN = 'dd1acfd8-4e03-47b0-b55b-ea92ea0c5dde';
+const TRIG_CONN = '2e6b6652-3d79-47dc-b719-2c65bc32d10d';
 const et = b.resources.find((r) => r.resource === 'EventTrigger');
 if (et) {
   et.key = TRIG_CONN + '_start';
@@ -113,9 +113,9 @@ if (!have('e8dbdd2a-5fa7-48dc-934b-bc22ecefacb1')) {
 }
 const etDep = p.resource.runtimeDependencies.find((d) => d.bindingType === 'EventTrigger');
 if (etDep) {
-  etDep.bindingKey = 'dd1acfd8-4e03-47b0-b55b-ea92ea0c5dde_start';
+  etDep.bindingKey = '2e6b6652-3d79-47dc-b719-2c65bc32d10d_start';
   if (etDep.bindingValues && etDep.bindingValues.connectionId)
-    etDep.bindingValues.connectionId.defaultValue = 'dd1acfd8-4e03-47b0-b55b-ea92ea0c5dde';
+    etDep.bindingValues.connectionId.defaultValue = '2e6b6652-3d79-47dc-b719-2c65bc32d10d';
 }
 fs.writeFileSync(pPath, JSON.stringify(p, null, 2));
 p.resource.runtimeDependencies.forEach((d) =>

@@ -535,15 +535,15 @@
       "display": {
         "label": "Sanctions & Debarment Lookup (Data Fabric)",
         "subLabel": "",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "source": "7c1a9e42-3d5f-4b8a-9e2c-6f0d8b3a5c71",
         "detail": {
           "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "connectionId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionResourceId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionFolderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1",
           "method": "POST",
           "endpoint": "/v2/{entityName}/qer",
           "pathParameters": {
@@ -587,15 +587,15 @@
       "display": {
         "label": "Adverse Media Web Search",
         "subLabel": "",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/d93eefff0af32b964a4ce6fe3823de1d4c7ed71962c6f878520b57ebf8f4497a.svg"
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/d93eefff0af32b964a4ce6fe3823de1d4c7ed71962c6f878520b57ebf8f4497a.svg"
       },
       "inputs": {
         "source": "2f8b4c6d-9a1e-4d3f-8c5b-7e2a9f4d6b83",
         "detail": {
           "connector": "uipath-uipath-airdk",
-          "connectionId": "9e6b90f5-2b61-49f1-afda-c90061443385",
-          "connectionResourceId": "9e6b90f5-2b61-49f1-afda-c90061443385",
-          "connectionFolderKey": "e030afee-a5ae-496a-97c8-1aaa3fff1256",
+          "connectionId": "87fce6c9-d681-4f42-b246-ca0959034a22",
+          "connectionResourceId": "87fce6c9-d681-4f42-b246-ca0959034a22",
+          "connectionFolderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1",
           "method": "POST",
           "endpoint": "/v2/webSearch",
           "bodyParameters": {
@@ -1491,14 +1491,14 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Set action_required + queryDeadline",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
           "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "connectionId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionResourceId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionFolderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1",
           "method": "PUT",
           "endpoint": "/v2/{entityName}/UpdateEntityRecord",
           "bodyParameters": {
@@ -1575,14 +1575,14 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Provision Vendor Master",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
           "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "connectionId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionResourceId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionFolderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1",
           "method": "PUT",
           "endpoint": "/v2/{entityName}/UpdateEntityRecord",
           "bodyParameters": {
@@ -1660,14 +1660,14 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Compensation - Revert Vendor Master",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
           "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "connectionId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionResourceId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionFolderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1",
           "method": "PUT",
           "endpoint": "/v2/{entityName}/UpdateEntityRecord",
           "bodyParameters": {
@@ -1743,14 +1743,14 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Set Rejected",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
           "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "connectionId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionResourceId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionFolderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1",
           "method": "PUT",
           "endpoint": "/v2/{entityName}/UpdateEntityRecord",
           "bodyParameters": {
@@ -1825,14 +1825,14 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Record Escalation",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
           "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "connectionId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionResourceId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionFolderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1",
           "method": "PUT",
           "endpoint": "/v2/{entityName}/UpdateEntityRecord",
           "bodyParameters": {
@@ -1907,14 +1907,14 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Persist Screening Result",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
           "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "connectionId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionResourceId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionFolderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1",
           "method": "PUT",
           "endpoint": "/v2/{entityName}/UpdateEntityRecord",
           "bodyParameters": {
@@ -2006,16 +2006,16 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Vendor Submitted (Portal - Data Fabric)",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "entryPointId": "141f87b3-d481-43d4-8dab-19391ebee2ff",
         "isDefaultEntryPoint": true,
         "detail": {
           "connector": "uipath-uipath-dataservice",
-          "connectionId": "dd1acfd8-4e03-47b0-b55b-ea92ea0c5dde",
-          "connectionResourceId": "dd1acfd8-4e03-47b0-b55b-ea92ea0c5dde",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "connectionId": "2e6b6652-3d79-47dc-b719-2c65bc32d10d",
+          "connectionResourceId": "2e6b6652-3d79-47dc-b719-2c65bc32d10d",
+          "connectionFolderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1",
           "eventParameters": {},
           "objectName": "Vendor",
           "eventType": "CREATED",
@@ -2043,14 +2043,14 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Set Status - Extracting",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
           "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "connectionId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionResourceId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionFolderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1",
           "method": "PUT",
           "endpoint": "/v2/{entityName}/UpdateEntityRecord",
           "bodyParameters": {
@@ -2125,14 +2125,14 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Fetch Submitted Documents",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
           "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "connectionId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionResourceId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionFolderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1",
           "method": "POST",
           "endpoint": "/v2/{entityName}/qer",
           "queryParameters": {
@@ -2295,14 +2295,14 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Fetch New Vendor Row",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
           "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "connectionId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionResourceId": "0c89d875-23ba-425a-af78-801786c50537",
+          "connectionFolderKey": "f919e064-57e8-4d56-9a55-c92796fb53c1",
           "method": "POST",
           "endpoint": "/v2/{entityName}/qer",
           "queryParameters": {
@@ -3902,7 +3902,7 @@
       "display": {
         "label": "Query Entity Records",
         "description": "Retrieves a list of records for the selected Entity from Data Fabric, according to specified filters.",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
         "sourceDisplayName": "UiPath Data Fabric",
         "shape": "circle"
       },
@@ -4073,7 +4073,7 @@
       "display": {
         "label": "Web Search",
         "description": "Web search executes a search of the public domain using a natural language search query. The search results are available in the output. Web search offers near-real time search results, but certain time sensitive data like stock prices or weather will not consistently be current. There could be a few days lag. Be sure to pass in date/time and/or location as arguments in the query if required.",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/d93eefff0af32b964a4ce6fe3823de1d4c7ed71962c6f878520b57ebf8f4497a.svg",
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/d93eefff0af32b964a4ce6fe3823de1d4c7ed71962c6f878520b57ebf8f4497a.svg",
         "sourceDisplayName": "UiPath GenAI Activities",
         "shape": "circle"
       },
@@ -5351,7 +5351,7 @@
       "display": {
         "label": "Update Entity Record",
         "description": "Updates an existing record in a Data Fabric entity",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
         "sourceDisplayName": "UiPath Data Fabric"
       },
       "handleConfiguration": [
@@ -5568,7 +5568,7 @@
       "display": {
         "label": "Record Created",
         "description": "Trigger when a new record is added in UiPath Data Fabric.",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
         "sourceDisplayName": "UiPath Data Fabric",
         "shape": "circle"
       },
@@ -5740,7 +5740,7 @@
       "display": {
         "label": "Query Entity Records",
         "description": "Retrieves a list of records for the selected Entity from Data Fabric, according to specified filters.",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
         "sourceDisplayName": "UiPath Data Fabric"
       },
       "handleConfiguration": [
@@ -6995,8 +6995,8 @@
       "name": "uipath-uipath-dataservice connection",
       "type": "string",
       "resource": "connection",
-      "resourceKey": "127fb909-ac85-4c93-938f-135ab0398a6c",
-      "default": "127fb909-ac85-4c93-938f-135ab0398a6c",
+      "resourceKey": "0c89d875-23ba-425a-af78-801786c50537",
+      "default": "0c89d875-23ba-425a-af78-801786c50537",
       "propertyAttribute": "ConnectionId"
     },
     {
@@ -7004,8 +7004,8 @@
       "name": "FolderKey",
       "type": "string",
       "resource": "connection",
-      "resourceKey": "127fb909-ac85-4c93-938f-135ab0398a6c",
-      "default": "cd671762-f695-48f8-ac4b-f849efe70464",
+      "resourceKey": "0c89d875-23ba-425a-af78-801786c50537",
+      "default": "f919e064-57e8-4d56-9a55-c92796fb53c1",
       "propertyAttribute": "FolderKey"
     },
     {
@@ -7013,8 +7013,8 @@
       "name": "uipath-uipath-airdk connection",
       "type": "string",
       "resource": "connection",
-      "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
-      "default": "fcd25ecf-785b-49d5-9bfc-5abf0cbb5750",
+      "resourceKey": "87fce6c9-d681-4f42-b246-ca0959034a22",
+      "default": "87fce6c9-d681-4f42-b246-ca0959034a22",
       "propertyAttribute": "ConnectionId"
     }
   ],

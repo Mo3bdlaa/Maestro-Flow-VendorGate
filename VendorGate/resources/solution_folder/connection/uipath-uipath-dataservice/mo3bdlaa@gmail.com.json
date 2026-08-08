@@ -1,7 +1,7 @@
 {
   "docVersion": "1.0.0",
   "resource": {
-    "name": "mohamed.shaker@barqsystems.com",
+    "name": "mo3bdlaa@gmail.com",
     "kind": "connection",
     "type": "uipath-uipath-dataservice",
     "apiVersion": "integrationservice.uipath.com/v1",
@@ -15,14 +15,14 @@
     ],
     "spec": {
       "connectorName": "UiPath Data Fabric",
-      "name": "mohamed.shaker@barqsystems.com",
+      "name": "mo3bdlaa@gmail.com",
       "authenticationType": "AuthenticateAfterDeployment",
       "connectorVersion": "1.70.0",
       "connectorKey": "uipath-uipath-dataservice",
       "pollingInterval": 5
     },
     "locks": [],
-    "key": "127fb909-ac85-4c93-938f-135ab0398a6c",
+    "key": "0c89d875-23ba-425a-af78-801786c50537",
     "files": []
   }
 }

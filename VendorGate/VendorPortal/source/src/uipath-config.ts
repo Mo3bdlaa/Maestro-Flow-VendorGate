@@ -1,6 +1,6 @@
 // Data Fabric entity ids for the VendorGate solution.
-export const VENDOR_ENTITY_ID = 'a78eb607-7792-f111-b338-000d3ab4d3b7';
-export const VENDOR_DOCUMENT_ENTITY_ID = 'd350af0d-7792-f111-b338-000d3ab4d3b7';
+export const VENDOR_ENTITY_ID = '7d12060c-3d93-f111-9b33-6045bdd6d6ea';
+export const VENDOR_DOCUMENT_ENTITY_ID = '9312060c-3d93-f111-9b33-6045bdd6d6ea';
 
 // Vendor.status is a choice field; Data Fabric returns the numberId, not the name.
 export type StageTone = 'progress' | 'attention' | 'good' | 'bad';

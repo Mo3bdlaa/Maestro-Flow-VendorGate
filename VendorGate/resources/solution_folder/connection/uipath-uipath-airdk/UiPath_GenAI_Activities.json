@@ -17,12 +17,12 @@
       "connectorName": "UiPath GenAI Activities",
       "name": "UiPath GenAI Activities",
       "authenticationType": "AuthenticateAfterDeployment",
-      "connectorVersion": "1.81.0",
+      "connectorVersion": "1.82.1",
       "connectorKey": "uipath-uipath-airdk",
       "pollingInterval": 5
     },
     "locks": [],
-    "key": "9e6b90f5-2b61-49f1-afda-c90061443385",
+    "key": "87fce6c9-d681-4f42-b246-ca0959034a22",
     "files": []
   }
 }

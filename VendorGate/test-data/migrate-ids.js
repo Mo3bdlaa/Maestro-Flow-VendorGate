@@ -22,7 +22,7 @@ const pairs = Object.entries({ ...(map.ids || {}), ...(map.text || {}) })
 if (!pairs.length) throw new Error('map contains no substitutions');
 
 const ROOT = path.resolve(__dirname, '..');
-const SKIP_DIRS = new Set(['node_modules', '.git', 'dist', '.uipath', 'out', '.agent-builder']);
+const SKIP_DIRS = new Set(['node_modules', '.git', 'dist', '.uipath', 'out', '.agent-builder', 'tenants']);
 const EXT = new Set(['.json', '.flow', '.ts', '.tsx', '.js', '.uipx', '.md', '.bpmn', '.html']);
 
 // Read-only guards protect the flow and the screening tool file from the

@@ -5,8 +5,9 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
-const VENDOR_ENTITY = 'a78eb607-7792-f111-b338-000d3ab4d3b7';
-const DOC_ENTITY = 'd350af0d-7792-f111-b338-000d3ab4d3b7';
+
+const VENDOR_ENTITY = '7d12060c-3d93-f111-9b33-6045bdd6d6ea';
+const DOC_ENTITY = '9312060c-3d93-f111-9b33-6045bdd6d6ea';
 
 const payload = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
 
@@ -32,7 +33,7 @@ const chunks = sections.map((s, i) => {
 function insert(entityId, record) {
   const tmp = path.join(os.tmpdir(), 'df-row-' + Math.random().toString(36).slice(2) + '.json');
   fs.writeFileSync(tmp, JSON.stringify(record));
-  const out = execFileSync('uip', ['df', 'records', 'insert', entityId, '-f', tmp, '--output', 'json'], {
+  const out = execFileSync('uip', ['df', 'records', 'insert', entityId, '-f', tmp, '--output', 'json'].concat(process.env.VG_PROFILE?['--profile',process.env.VG_PROFILE]:[]), {
     shell: true,
     encoding: 'utf8',
   });
