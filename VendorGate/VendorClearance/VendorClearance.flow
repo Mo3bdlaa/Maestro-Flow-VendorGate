@@ -263,14 +263,14 @@
               "label": "What we need corrected",
               "type": "text",
               "direction": "input",
-              "binding": "vars.caseSummary.output.issueLines"
+              "binding": "vars.queryNote.output.issueLines"
             },
             {
               "id": "variants",
               "label": "Entity name consistency",
               "type": "text",
               "direction": "input",
-              "binding": "vars.caseSummary.output.variantLine"
+              "binding": "vars.queryNote.output.variantLine"
             },
             {
               "id": "vendorResponse",
@@ -398,7 +398,7 @@
               "label": "Outstanding issues the vendor never answered",
               "type": "text",
               "direction": "input",
-              "binding": "vars.caseSummary.output.issueLines"
+              "binding": "vars.queryNote.output.issueLines"
             },
             {
               "id": "escalationNote",
@@ -2508,6 +2508,50 @@
           "var": "error"
         }
       }
+    },
+    {
+      "id": "queryNote",
+      "type": "core.action.script",
+      "typeVersion": "1.1",
+      "display": {
+        "label": "Build Vendor Query Note",
+        "icon": "code"
+      },
+      "inputs": {
+        "script": "// The vendor query and escalation forms sit on the issues branch, which runs\n// before screening — so they cannot read the post-screening case file.\nconst v = $vars.validationAgent.output || {};\nconst issues = v.issues || [];\nconst variants = v.nameVariants || [];\nreturn {\n  issueLines: issues.length\n    ? issues.map(i => '- [' + (i.severity || 'info').toUpperCase() + '] ' + (i.docType || 'packet') + '.' + (i.field || '') + ': ' + (i.note || '')).join('\\n')\n    : 'No specific issues recorded.',\n  variantLine: variants.length > 1\n    ? 'Entity name is not consistent across documents: ' + variants.join(' | ')\n    : 'Entity name is consistent across all documents.',\n  blockingCount: issues.filter(i => i.severity === 'blocking').length\n};"
+      },
+      "outputs": {
+        "output": {
+          "type": "object",
+          "description": "The return value of the script",
+          "source": "=result.response",
+          "var": "output",
+          "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "properties": {
+              "issueLines": {
+                "type": "string",
+                "description": "Validation issues, one per line"
+              },
+              "variantLine": {
+                "type": "string",
+                "description": "Entity-name consistency across documents"
+              },
+              "blockingCount": {
+                "type": "number",
+                "description": "Count of blocking issues"
+              }
+            }
+          }
+        },
+        "error": {
+          "type": "object",
+          "description": "Error information if the script fails",
+          "source": "=Error",
+          "var": "error"
+        }
+      }
     }
   ],
   "edges": [
@@ -2536,7 +2580,7 @@
       "id": "e-markAction-vendorQuery",
       "sourceNodeId": "setActionRequiredQuerydeadline1",
       "sourcePort": "output",
-      "targetNodeId": "vendorQuery",
+      "targetNodeId": "queryNote",
       "targetPort": "input"
     },
     {
@@ -2880,6 +2924,13 @@
       "sourceNodeId": "caseSummary",
       "sourcePort": "success",
       "targetNodeId": "tierSwitch",
+      "targetPort": "input"
+    },
+    {
+      "id": "e-queryNote-vendorQuery",
+      "sourceNodeId": "queryNote",
+      "sourcePort": "success",
+      "targetNodeId": "vendorQuery",
       "targetPort": "input"
     }
   ],
@@ -6986,6 +7037,42 @@
           "nodeId": "caseSummary",
           "outputId": "error"
         }
+      },
+      {
+        "id": "queryNote.output",
+        "type": "object",
+        "description": "Vendor query note",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "issueLines": {
+              "type": "string",
+              "description": "Validation issues, one per line"
+            },
+            "variantLine": {
+              "type": "string",
+              "description": "Entity-name consistency across documents"
+            },
+            "blockingCount": {
+              "type": "number",
+              "description": "Count of blocking issues"
+            }
+          }
+        },
+        "binding": {
+          "nodeId": "queryNote",
+          "outputId": "output"
+        }
+      },
+      {
+        "id": "queryNote.error",
+        "type": "object",
+        "description": "Error information if the script fails",
+        "binding": {
+          "nodeId": "queryNote",
+          "outputId": "error"
+        }
       }
     ]
   },
@@ -7530,6 +7617,17 @@
         "position": {
           "x": 3264,
           "y": 400
+        },
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "collapsed": false
+      },
+      "queryNote": {
+        "position": {
+          "x": 2960,
+          "y": -176
         },
         "size": {
           "width": 96,
