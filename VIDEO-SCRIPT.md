@@ -107,8 +107,13 @@ Scroll the README:
   a stalled canvas does not.
 - **Don't complete vendor B's resubmission task on camera** — the form carries no
   corrected data; the flow would re-flag identical issues. Narrate the loop.
+- **Never start a run with the canvas Run button.** Studio Web regenerates the
+  screening tool's config as it launches the run — numbers become strings and
+  the pinned entity resets to `Vendor` — so the screening agent crashes or
+  silently reports no sanctions hit. Start every run from the terminal with
+  `uip maestro flow debug .` and watch it on the canvas.
 - **Don't click "Add a connection"** on HITL outcome warnings in the canvas.
-- **Don't edit the tool node** (Sanctions & Debarment Lookup) in the canvas.
+- **Don't edit or open the tool node** (Sanctions & Debarment Lookup) in the canvas.
 - **Don't reuse a vendorId** in any live run.
 
 ## After recording
