@@ -248,14 +248,14 @@
               "label": "Vendor reference",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.vendorId"
+              "binding": "vars.pickVendor.output.vendorId"
             },
             {
               "id": "legalname",
               "label": "Legal entity name",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.legalName"
+              "binding": "vars.pickVendor.output.legalName"
             },
             {
               "id": "issuesummary",
@@ -363,14 +363,14 @@
               "label": "Vendor reference",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.vendorId"
+              "binding": "vars.pickVendor.output.vendorId"
             },
             {
               "id": "legalname",
               "label": "Legal entity name",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.legalName"
+              "binding": "vars.pickVendor.output.legalName"
             },
             {
               "id": "openissues",
@@ -669,21 +669,21 @@
               "label": "Vendor reference",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.vendorId"
+              "binding": "vars.pickVendor.output.vendorId"
             },
             {
               "id": "legalname",
               "label": "Legal entity name",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.legalName"
+              "binding": "vars.pickVendor.output.legalName"
             },
             {
               "id": "country",
               "label": "Country",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.country"
+              "binding": "vars.pickVendor.output.country"
             },
             {
               "id": "riskscore",
@@ -816,21 +816,21 @@
               "label": "Vendor reference",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.vendorId"
+              "binding": "vars.pickVendor.output.vendorId"
             },
             {
               "id": "legalname",
               "label": "Legal entity name",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.legalName"
+              "binding": "vars.pickVendor.output.legalName"
             },
             {
               "id": "country",
               "label": "Country",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.country"
+              "binding": "vars.pickVendor.output.country"
             },
             {
               "id": "riskscore",
@@ -945,21 +945,21 @@
               "label": "Vendor reference",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.vendorId"
+              "binding": "vars.pickVendor.output.vendorId"
             },
             {
               "id": "legalname",
               "label": "Legal entity name",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.legalName"
+              "binding": "vars.pickVendor.output.legalName"
             },
             {
               "id": "country",
               "label": "Country",
               "type": "text",
               "direction": "input",
-              "binding": "vars.start.output.country"
+              "binding": "vars.pickVendor.output.country"
             },
             {
               "id": "riskscore",
