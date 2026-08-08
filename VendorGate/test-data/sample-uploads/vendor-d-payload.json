@@ -1,0 +1,7 @@
+{
+  "vendorId": "VND-D-0001",
+  "legalName": "Oasis Falcon Logistics LLC",
+  "country": "AE",
+  "docsJson": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Oasis Falcon Logistics LLC\",\"licenceNo\":\"DXB-881204\",\"issueDate\":\"2024-11-01\",\"expiryDate\":\"2027-10-31\",\"jurisdiction\":\"Dubai, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Oasis Falcon Logistics LLC\",\"policyNo\":\"PL-20441\",\"coverageAmount\":3000000,\"expiryDate\":\"2027-08-15\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Oasis Falcon Logistics LLC\",\"iban\":\"AE910440007712345678901\",\"bankName\":\"FAB\",\"swift\":\"NBADAEAA\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Oasis Falcon Logistics LLC\",\"standard\":\"ISO 28000:2022\",\"certificateNo\":\"SCS-77120\",\"expiryDate\":\"2028-02-28\"}]",
+  "packetText": ""
+}

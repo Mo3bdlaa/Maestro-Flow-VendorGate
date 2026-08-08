@@ -60,7 +60,7 @@
         "label": "stickyNote"
       },
       "inputs": {
-        "color": "purple",
+        "color": "red",
         "content": "4 - SCREENING & RISK\nAgent calls live tools: OFAC-seeded Data Fabric register + adverse-media web search. Deterministic risk score in code; sanctions can never route below high."
       }
     },
@@ -72,7 +72,7 @@
         "label": "stickyNote"
       },
       "inputs": {
-        "color": "green",
+        "color": "purple",
         "content": "5 - RISK-TIERED APPROVALS\nLow auto-clears. Medium: single approver. High: parallel Legal + Security, both must return. Rejection is persisted."
       }
     },
@@ -84,7 +84,7 @@
         "label": "stickyNote"
       },
       "inputs": {
-        "color": "red",
+        "color": "green",
         "content": "6 - PROVISIONING + COMPENSATION\nVendor master written, portal API called. Failure rolls the record back to Failed - executed live, not just drawn."
       }
     },

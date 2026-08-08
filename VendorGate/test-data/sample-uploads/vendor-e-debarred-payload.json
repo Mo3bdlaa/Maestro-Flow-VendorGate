@@ -1,0 +1,7 @@
+{
+  "vendorId": "VND-E-0001",
+  "legalName": "Quantum Facility Services F.Z.E.",
+  "country": "AE",
+  "docsJson": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Quantum Facility Services F.Z.E.\",\"licenceNo\":\"SHJ-449021\",\"issueDate\":\"2023-06-12\",\"expiryDate\":\"2027-06-11\",\"jurisdiction\":\"Sharjah, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Quantum Facility Services F.Z.E.\",\"policyNo\":\"PL-33098\",\"coverageAmount\":1200000,\"expiryDate\":\"2027-03-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Quantum Facility Services F.Z.E.\",\"iban\":\"AE560330001199887766554\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Quantum Facility Services F.Z.E.\",\"standard\":\"ISO 41001:2018\",\"certificateNo\":\"FMS-90233\",\"expiryDate\":\"2027-09-30\"}]",
+  "packetText": ""
+}
