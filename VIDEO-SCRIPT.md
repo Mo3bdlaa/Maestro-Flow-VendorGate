@@ -34,7 +34,7 @@ In the **portal**, fill the submission form and attach the vendor-a PDFs. Submit
 > packet lands in Data Fabric. Nobody starts a job."
 
 Switch to **Orchestrator → VendorGate Run → instances**. A new instance appears
-on its own (poll interval ~5 minutes — cut here if needed).
+on its own within about **five seconds** — no waiting, no cut needed.
 > "A Data Fabric *Record Created* trigger starts the process. It claims the new
 > submission, moves it to extracting, pulls the documents back out, assembles the
 > packet, and hands it to the extraction agent — every step you're seeing ran on
