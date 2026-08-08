@@ -12,11 +12,9 @@
     "type": "object",
     "properties": {
       "buildPacket__output__packetText": {
-        "type": "string",
         "description": "Bound from $vars.buildPacket.output.packetText"
       },
       "buildPacket__output__docsJson": {
-        "type": "string",
         "description": "Bound from $vars.buildPacket.output.docsJson"
       }
     }

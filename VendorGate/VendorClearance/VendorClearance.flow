@@ -166,16 +166,16 @@
             "description": "Bound from $vars.extractDocs.output.docsJson"
           },
           {
-            "id": "pickVendor__output__country",
+            "id": "buildPacket__output__country",
             "type": "string",
-            "binding": "=$vars.pickVendor.output.country",
-            "description": "Bound from $vars.pickVendor.output.country"
+            "binding": "=$vars.buildPacket.output.country",
+            "description": "Bound from $vars.buildPacket.output.country"
           },
           {
-            "id": "pickVendor__output__legalName",
+            "id": "buildPacket__output__legalName",
             "type": "string",
-            "binding": "=$vars.pickVendor.output.legalName",
-            "description": "Bound from $vars.pickVendor.output.legalName"
+            "binding": "=$vars.buildPacket.output.legalName",
+            "description": "Bound from $vars.buildPacket.output.legalName"
           }
         ],
         "agentOutputVariables": [
@@ -442,16 +442,16 @@
         "source": "47e795d6-ca08-4c0d-b1a9-47071a08b775",
         "agentInputVariables": [
           {
-            "id": "pickVendor__output__legalName",
+            "id": "buildPacket__output__legalName",
             "type": "string",
-            "binding": "=$vars.pickVendor.output.legalName",
-            "description": "Bound from $vars.pickVendor.output.legalName"
+            "binding": "=$vars.buildPacket.output.legalName",
+            "description": "Bound from $vars.buildPacket.output.legalName"
           },
           {
-            "id": "pickVendor__output__country",
+            "id": "buildPacket__output__country",
             "type": "string",
-            "binding": "=$vars.pickVendor.output.country",
-            "description": "Bound from $vars.pickVendor.output.country"
+            "binding": "=$vars.buildPacket.output.country",
+            "description": "Bound from $vars.buildPacket.output.country"
           },
           {
             "id": "validationAgent__output__nameVariants",
@@ -613,7 +613,30 @@
           "type": "object",
           "description": "The return value of the script",
           "source": "=result.response",
-          "var": "output"
+          "var": "output",
+          "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "required": [
+              "score",
+              "tier",
+              "blockingIssues"
+            ],
+            "properties": {
+              "score": {
+                "type": "number",
+                "description": "Deterministic risk score, 0-100"
+              },
+              "tier": {
+                "type": "string",
+                "description": "low | medium | high"
+              },
+              "blockingIssues": {
+                "type": "number",
+                "description": "Count of blocking validation issues"
+              }
+            }
+          }
         },
         "error": {
           "type": "object",
@@ -1981,14 +2004,49 @@
         "icon": "code"
       },
       "inputs": {
-        "script": "// Assemble the raw packet from VendorDocument rows written by the portal.\nconst trig = $vars.pickVendor.output || {};\nconst res = $vars.fetchSubmittedDocuments1.output || {};\nlet rows = res.value || res.records || res.items || (Array.isArray(res) ? res : []);\nif (!Array.isArray(rows)) rows = [];\nconst vid = trig.vendorId || trig.VendorId || '';\nconst mine = rows.filter(r => (r.vendorId || r.VendorId) === vid);\n// newest row per docType wins - resubmissions append corrected documents\nconst byType = {};\nfor (const r of mine) { const t = String(r.docType != null ? r.docType : r.DocType); byType[t] = r; }\nconst names = ['trade_licence','insurance','bank_letter','iso_cert'];\nconst sections = [];\nlet structured = [];\nfor (const key of Object.keys(byType)) {\n  const r = byType[key];\n  const ef = r.extractedFields || r.ExtractedFields || '';\n  let obj = null;\n  try { obj = typeof ef === 'string' && ef.trim() ? JSON.parse(ef) : (typeof ef === 'object' ? ef : null); } catch (e) { obj = null; }\n  const idx = Number(r.docType != null ? r.docType : r.DocType);\n  const label = names[idx] || ('doc_' + key);\n  if (obj && obj.rawText) {\n    sections.push('=== ' + label + ' ===\\n' + obj.rawText);\n  } else if (obj) {\n    structured = structured.concat(Array.isArray(obj) ? obj : [obj]);\n  } else if (typeof ef === 'string' && ef.trim()) {\n    sections.push('=== ' + label + ' ===\\n' + ef);\n  }\n}\nreturn {\n  packetText: sections.join('\\n\\n'),\n  docsJson: structured.length ? JSON.stringify(structured) : '',\n  docCount: Object.keys(byType).length\n};"
+        "script": "// Assemble the raw packet from VendorDocument rows written by the portal.\nconst trig = $vars.pickVendor.output || {};\nconst res = $vars.fetchSubmittedDocuments1.output || {};\nlet rows = res.value || res.records || res.items || (Array.isArray(res) ? res : []);\nif (!Array.isArray(rows)) rows = [];\nconst vid = trig.vendorId || trig.VendorId || '';\nconst mine = rows.filter(r => (r.vendorId || r.VendorId) === vid);\n// newest row per docType wins - resubmissions append corrected documents\nconst byType = {};\nfor (const r of mine) { const t = String(r.docType != null ? r.docType : r.DocType); byType[t] = r; }\nconst names = ['trade_licence','insurance','bank_letter','iso_cert'];\nconst sections = [];\nlet structured = [];\nfor (const key of Object.keys(byType)) {\n  const r = byType[key];\n  const ef = r.extractedFields || r.ExtractedFields || '';\n  let obj = null;\n  try { obj = typeof ef === 'string' && ef.trim() ? JSON.parse(ef) : (typeof ef === 'object' ? ef : null); } catch (e) { obj = null; }\n  const idx = Number(r.docType != null ? r.docType : r.DocType);\n  const label = names[idx] || ('doc_' + key);\n  if (obj && obj.rawText) {\n    sections.push('=== ' + label + ' ===\\n' + obj.rawText);\n  } else if (obj) {\n    structured = structured.concat(Array.isArray(obj) ? obj : [obj]);\n  } else if (typeof ef === 'string' && ef.trim()) {\n    sections.push('=== ' + label + ' ===\\n' + ef);\n  }\n}\nreturn {\n  vendorId: vid,\n  legalName: trig.legalName || trig.LegalName || '',\n  country: trig.country || trig.Country || '',\n  packetText: sections.join('\\n\\n'),\n  docsJson: structured.length ? JSON.stringify(structured) : '',\n  docCount: Object.keys(byType).length\n};"
       },
       "outputs": {
         "output": {
           "type": "object",
           "description": "The return value of the script",
           "source": "=result.response",
-          "var": "output"
+          "var": "output",
+          "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "required": [
+              "packetText",
+              "docsJson",
+              "docCount"
+            ],
+            "properties": {
+              "packetText": {
+                "type": "string",
+                "description": "Raw packet text assembled from the submitted documents"
+              },
+              "docsJson": {
+                "type": "string",
+                "description": "Pre-structured documents when the submission carried them"
+              },
+              "docCount": {
+                "type": "number",
+                "description": "Number of distinct document types found"
+              },
+              "vendorId": {
+                "type": "string",
+                "description": "Vendor reference as shown to the supplier"
+              },
+              "legalName": {
+                "type": "string",
+                "description": "Legal entity name as submitted"
+              },
+              "country": {
+                "type": "string",
+                "description": "Country as submitted"
+              }
+            }
+          }
         },
         "error": {
           "type": "object",
@@ -2099,7 +2157,44 @@
           "type": "object",
           "description": "The return value of the script",
           "source": "=result.response",
-          "var": "output"
+          "var": "output",
+          "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "required": [
+              "found"
+            ],
+            "properties": {
+              "found": {
+                "type": "boolean",
+                "description": "True when an unprocessed portal submission was claimed"
+              },
+              "Id": {
+                "type": "string",
+                "description": "Data Fabric record id of the claimed Vendor row"
+              },
+              "vendorId": {
+                "type": "string",
+                "description": "Vendor reference as shown to the supplier"
+              },
+              "legalName": {
+                "type": "string",
+                "description": "Legal entity name as submitted"
+              },
+              "country": {
+                "type": "string",
+                "description": "Country as submitted"
+              },
+              "contactEmail": {
+                "type": "string",
+                "description": "Supplier contact address"
+              },
+              "status": {
+                "type": "number",
+                "description": "Vendor status at claim time"
+              }
+            }
+          }
         },
         "error": {
           "type": "object",
@@ -5719,6 +5814,29 @@
         "binding": {
           "nodeId": "riskScore",
           "outputId": "output"
+        },
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "required": [
+            "score",
+            "tier",
+            "blockingIssues"
+          ],
+          "properties": {
+            "score": {
+              "type": "number",
+              "description": "Deterministic risk score, 0-100"
+            },
+            "tier": {
+              "type": "string",
+              "description": "low | medium | high"
+            },
+            "blockingIssues": {
+              "type": "number",
+              "description": "Count of blocking validation issues"
+            }
+          }
         }
       },
       {
@@ -6340,6 +6458,41 @@
         "binding": {
           "nodeId": "buildPacket",
           "outputId": "output"
+        },
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "required": [
+            "packetText",
+            "docsJson",
+            "docCount"
+          ],
+          "properties": {
+            "packetText": {
+              "type": "string",
+              "description": "Raw packet text assembled from the submitted documents"
+            },
+            "docsJson": {
+              "type": "string",
+              "description": "Pre-structured documents when the submission carried them"
+            },
+            "docCount": {
+              "type": "number",
+              "description": "Number of distinct document types found"
+            },
+            "vendorId": {
+              "type": "string",
+              "description": "Vendor reference as shown to the supplier"
+            },
+            "legalName": {
+              "type": "string",
+              "description": "Legal entity name as submitted"
+            },
+            "country": {
+              "type": "string",
+              "description": "Country as submitted"
+            }
+          }
         }
       },
       {
@@ -6410,6 +6563,43 @@
         "binding": {
           "nodeId": "pickVendor",
           "outputId": "output"
+        },
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "required": [
+            "found"
+          ],
+          "properties": {
+            "found": {
+              "type": "boolean",
+              "description": "True when an unprocessed portal submission was claimed"
+            },
+            "Id": {
+              "type": "string",
+              "description": "Data Fabric record id of the claimed Vendor row"
+            },
+            "vendorId": {
+              "type": "string",
+              "description": "Vendor reference as shown to the supplier"
+            },
+            "legalName": {
+              "type": "string",
+              "description": "Legal entity name as submitted"
+            },
+            "country": {
+              "type": "string",
+              "description": "Country as submitted"
+            },
+            "contactEmail": {
+              "type": "string",
+              "description": "Supplier contact address"
+            },
+            "status": {
+              "type": "number",
+              "description": "Vendor status at claim time"
+            }
+          }
         }
       },
       {
