@@ -167,14 +167,14 @@
           {
             "id": "start__output__country",
             "type": "string",
-            "binding": "=$vars.start.output.country",
-            "description": "Bound from $vars.start.output.country"
+            "binding": "=$vars.pickVendor.output.country",
+            "description": "Bound from $vars.pickVendor.output.country"
           },
           {
             "id": "start__output__legalName",
             "type": "string",
-            "binding": "=$vars.start.output.legalName",
-            "description": "Bound from $vars.start.output.legalName"
+            "binding": "=$vars.pickVendor.output.legalName",
+            "description": "Bound from $vars.pickVendor.output.legalName"
           }
         ],
         "agentOutputVariables": [
@@ -443,14 +443,14 @@
           {
             "id": "start__output__legalName",
             "type": "string",
-            "binding": "=$vars.start.output.legalName",
-            "description": "Bound from $vars.start.output.legalName"
+            "binding": "=$vars.pickVendor.output.legalName",
+            "description": "Bound from $vars.pickVendor.output.legalName"
           },
           {
             "id": "start__output__country",
             "type": "string",
-            "binding": "=$vars.start.output.country",
-            "description": "Bound from $vars.start.output.country"
+            "binding": "=$vars.pickVendor.output.country",
+            "description": "Bound from $vars.pickVendor.output.country"
           },
           {
             "id": "validationAgent__output__nameVariants",
@@ -1108,8 +1108,8 @@
             },
             "body": {
               "action": "provision_vendor_portal_account",
-              "vendorId": "=js:$vars.start.output.vendorId",
-              "legalName": "=js:$vars.start.output.legalName",
+              "vendorId": "=js:$vars.pickVendor.output.vendorId",
+              "legalName": "=js:$vars.pickVendor.output.legalName",
               "riskTier": "=js:$vars.riskScore.output.tier",
               "riskScore": "=js:$vars.riskScore.output.score"
             }
@@ -1251,7 +1251,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.start.output.Id"
+            "recordId": "=js:$vars.pickVendor.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1336,7 +1336,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.start.output.Id"
+            "recordId": "=js:$vars.pickVendor.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1419,7 +1419,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.start.output.Id"
+            "recordId": "=js:$vars.pickVendor.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1501,7 +1501,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.start.output.Id"
+            "recordId": "=js:$vars.pickVendor.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1583,7 +1583,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.start.output.Id"
+            "recordId": "=js:$vars.pickVendor.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1668,7 +1668,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.start.output.Id"
+            "recordId": "=js:$vars.pickVendor.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1756,8 +1756,8 @@
         "isDefaultEntryPoint": true,
         "detail": {
           "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "connectionId": "dd1acfd8-4e03-47b0-b55b-ea92ea0c5dde",
+          "connectionResourceId": "dd1acfd8-4e03-47b0-b55b-ea92ea0c5dde",
           "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
           "eventParameters": {},
           "objectName": "Vendor",
@@ -1801,7 +1801,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.start.output.Id"
+            "recordId": "=js:$vars.pickVendor.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1952,13 +1952,13 @@
       "type": "core.logic.decision",
       "typeVersion": "1.2",
       "display": {
-        "label": "Portal Submission?",
+        "label": "New Portal Submission?",
         "icon": "trending-up-down"
       },
       "inputs": {
-        "expression": "!!($vars.start.output.contactEmail) && Number($vars.start.output.status) === 0",
-        "trueLabel": "Portal submission",
-        "falseLabel": "Import / backfill - ignore"
+        "expression": "$vars.pickVendor.output.found === true",
+        "trueLabel": "Claimed submission",
+        "falseLabel": "Nothing to process - ignore"
       }
     },
     {
@@ -1980,7 +1980,118 @@
         "icon": "code"
       },
       "inputs": {
-        "script": "// Assemble the raw packet from VendorDocument rows written by the portal.\nconst trig = $vars.start.output || {};\nconst res = $vars.fetchSubmittedDocuments1.output || {};\nlet rows = res.value || res.records || res.items || (Array.isArray(res) ? res : []);\nif (!Array.isArray(rows)) rows = [];\nconst vid = trig.vendorId || trig.VendorId || '';\nconst mine = rows.filter(r => (r.vendorId || r.VendorId) === vid);\n// newest row per docType wins - resubmissions append corrected documents\nconst byType = {};\nfor (const r of mine) { const t = String(r.docType != null ? r.docType : r.DocType); byType[t] = r; }\nconst names = ['trade_licence','insurance','bank_letter','iso_cert'];\nconst sections = [];\nlet structured = [];\nfor (const key of Object.keys(byType)) {\n  const r = byType[key];\n  const ef = r.extractedFields || r.ExtractedFields || '';\n  let obj = null;\n  try { obj = typeof ef === 'string' && ef.trim() ? JSON.parse(ef) : (typeof ef === 'object' ? ef : null); } catch (e) { obj = null; }\n  const idx = Number(r.docType != null ? r.docType : r.DocType);\n  const label = names[idx] || ('doc_' + key);\n  if (obj && obj.rawText) {\n    sections.push('=== ' + label + ' ===\\n' + obj.rawText);\n  } else if (obj) {\n    structured = structured.concat(Array.isArray(obj) ? obj : [obj]);\n  } else if (typeof ef === 'string' && ef.trim()) {\n    sections.push('=== ' + label + ' ===\\n' + ef);\n  }\n}\nreturn {\n  packetText: sections.join('\\n\\n'),\n  docsJson: structured.length ? JSON.stringify(structured) : '',\n  docCount: Object.keys(byType).length\n};"
+        "script": "// Assemble the raw packet from VendorDocument rows written by the portal.\nconst trig = $vars.pickVendor.output || {};\nconst res = $vars.fetchSubmittedDocuments1.output || {};\nlet rows = res.value || res.records || res.items || (Array.isArray(res) ? res : []);\nif (!Array.isArray(rows)) rows = [];\nconst vid = trig.vendorId || trig.VendorId || '';\nconst mine = rows.filter(r => (r.vendorId || r.VendorId) === vid);\n// newest row per docType wins - resubmissions append corrected documents\nconst byType = {};\nfor (const r of mine) { const t = String(r.docType != null ? r.docType : r.DocType); byType[t] = r; }\nconst names = ['trade_licence','insurance','bank_letter','iso_cert'];\nconst sections = [];\nlet structured = [];\nfor (const key of Object.keys(byType)) {\n  const r = byType[key];\n  const ef = r.extractedFields || r.ExtractedFields || '';\n  let obj = null;\n  try { obj = typeof ef === 'string' && ef.trim() ? JSON.parse(ef) : (typeof ef === 'object' ? ef : null); } catch (e) { obj = null; }\n  const idx = Number(r.docType != null ? r.docType : r.DocType);\n  const label = names[idx] || ('doc_' + key);\n  if (obj && obj.rawText) {\n    sections.push('=== ' + label + ' ===\\n' + obj.rawText);\n  } else if (obj) {\n    structured = structured.concat(Array.isArray(obj) ? obj : [obj]);\n  } else if (typeof ef === 'string' && ef.trim()) {\n    sections.push('=== ' + label + ' ===\\n' + ef);\n  }\n}\nreturn {\n  packetText: sections.join('\\n\\n'),\n  docsJson: structured.length ? JSON.stringify(structured) : '',\n  docCount: Object.keys(byType).length\n};"
+      },
+      "outputs": {
+        "output": {
+          "type": "object",
+          "description": "The return value of the script",
+          "source": "=result.response",
+          "var": "output"
+        },
+        "error": {
+          "type": "object",
+          "description": "Error information if the script fails",
+          "source": "=Error",
+          "var": "error"
+        }
+      }
+    },
+    {
+      "id": "fetchNewVendorRow1",
+      "type": "uipath.connector.uipath-uipath-dataservice.query-entity-records",
+      "typeVersion": "1.0.0",
+      "display": {
+        "label": "Fetch New Vendor Row",
+        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+      },
+      "inputs": {
+        "detail": {
+          "connector": "uipath-uipath-dataservice",
+          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "method": "POST",
+          "endpoint": "/v2/{entityName}/qer",
+          "queryParameters": {
+            "limit": 1000,
+            "expansionLevel": 1
+          },
+          "pathParameters": {
+            "entityName": "Vendor"
+          },
+          "uiPathActivityTypeId": "703065b9-a310-33b8-9d4d-12df0a6f520b",
+          "errorState": {
+            "issues": []
+          },
+          "configuration": "=jsonString:{\"essentialConfiguration\":{\"instanceParameters\":{\"connectorKey\":\"uipath-uipath-dataservice\",\"objectName\":\"QueryEntityRecordsCurated\",\"httpMethod\":\"POST\",\"activityType\":\"Curated\",\"version\":\"1.0.0\",\"supportsStreaming\":false,\"subType\":\"standard\"},\"objectName\":\"QueryEntityRecordsCurated\",\"operation\":\"list\",\"httpMethod\":\"POST\",\"path\":\"/v2/{entityName}/qer\",\"packageVersion\":\"1.0.0\",\"connectorVersion\":null,\"executionType\":null,\"customFieldsRequestDetails\":null,\"unifiedTypesCompatible\":true}}",
+          "inputMetadata": {
+            "operation": "list",
+            "pagination": {
+              "maxPageSize": 1000
+            }
+          }
+        }
+      },
+      "outputs": {
+        "output": {
+          "type": "object",
+          "description": "The return value of the connector.",
+          "source": "=result.response",
+          "var": "output"
+        },
+        "error": {
+          "type": "object",
+          "description": "Error information if the node fails",
+          "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "required": [
+              "code",
+              "message",
+              "detail",
+              "category",
+              "status"
+            ],
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Error code as a string"
+              },
+              "message": {
+                "type": "string",
+                "description": "High-level error message"
+              },
+              "detail": {
+                "type": "string",
+                "description": "Detailed error description"
+              },
+              "category": {
+                "type": "string",
+                "description": "Error category"
+              },
+              "status": {
+                "type": "integer",
+                "description": "HTTP status code"
+              }
+            },
+            "additionalProperties": false
+          },
+          "source": "=Error",
+          "var": "error"
+        }
+      }
+    },
+    {
+      "id": "pickVendor",
+      "type": "core.action.script",
+      "typeVersion": "1.1",
+      "display": {
+        "label": "Claim Newest Submission",
+        "icon": "code"
+      },
+      "inputs": {
+        "script": "// The trigger only signals 'a Vendor row was created'. Claim the newest\n// unprocessed portal submission; races self-heal because each instance\n// claims one row and immediately moves it out of status 0.\nconst res = $vars.fetchNewVendorRow1.output || {};\nlet rows = res.value || res.records || res.items || (Array.isArray(res) ? res : []);\nif (!Array.isArray(rows)) rows = [];\nconst get = (r, a, b) => r[a] != null ? r[a] : r[b];\nconst cands = rows.filter(r => Number(get(r,'status','Status')) === 0 && (get(r,'contactEmail','ContactEmail') || '').length > 0);\ncands.sort((a, b) => String(get(a,'CreateTime','createTime') || '').localeCompare(String(get(b,'CreateTime','createTime') || '')));\nconst v = cands.length ? cands[cands.length - 1] : null;\nif (!v) return { found: false };\nreturn {\n  found: true,\n  Id: get(v,'Id','id'),\n  vendorId: get(v,'vendorId','VendorId'),\n  legalName: get(v,'legalName','LegalName'),\n  country: get(v,'country','Country'),\n  contactEmail: get(v,'contactEmail','ContactEmail'),\n  status: Number(get(v,'status','Status'))\n};"
       },
       "outputs": {
         "output": {
@@ -2304,7 +2415,7 @@
       "id": "e-start-guard",
       "sourceNodeId": "start",
       "sourcePort": "output",
-      "targetNodeId": "portalGuard",
+      "targetNodeId": "fetchNewVendorRow1",
       "targetPort": "input"
     },
     {
@@ -2347,6 +2458,20 @@
       "sourceNodeId": "vendorQuery",
       "sourcePort": "outcome-resubmitted",
       "targetNodeId": "fetchSubmittedDocuments1",
+      "targetPort": "input"
+    },
+    {
+      "id": "e-fetchVendor-pick",
+      "sourceNodeId": "fetchNewVendorRow1",
+      "sourcePort": "output",
+      "targetNodeId": "pickVendor",
+      "targetPort": "input"
+    },
+    {
+      "id": "e-pick-guard",
+      "sourceNodeId": "pickVendor",
+      "sourcePort": "success",
+      "targetNodeId": "portalGuard",
       "targetPort": "input"
     }
   ],
@@ -6225,6 +6350,24 @@
         }
       },
       {
+        "id": "portalGuard.matchedCase",
+        "type": "string",
+        "description": "The label of the matched branch (true/false label)",
+        "binding": {
+          "nodeId": "portalGuard",
+          "outputId": "matchedCase"
+        }
+      },
+      {
+        "id": "portalGuard.matchedCaseId",
+        "type": "string",
+        "description": "The branch that was taken (true or false)",
+        "binding": {
+          "nodeId": "portalGuard",
+          "outputId": "matchedCaseId"
+        }
+      },
+      {
         "id": "buildPacket.output",
         "type": "object",
         "description": "The return value of the script",
@@ -6243,21 +6386,73 @@
         }
       },
       {
-        "id": "portalGuard.matchedCase",
-        "type": "string",
-        "description": "The label of the matched branch (true/false label)",
+        "id": "fetchNewVendorRow1.output",
+        "type": "object",
+        "description": "The return value of the connector.",
         "binding": {
-          "nodeId": "portalGuard",
-          "outputId": "matchedCase"
+          "nodeId": "fetchNewVendorRow1",
+          "outputId": "output"
         }
       },
       {
-        "id": "portalGuard.matchedCaseId",
-        "type": "string",
-        "description": "The branch that was taken (true or false)",
+        "id": "fetchNewVendorRow1.error",
+        "type": "object",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "required": [
+            "code",
+            "message",
+            "detail",
+            "category",
+            "status"
+          ],
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "Error code as a string"
+            },
+            "message": {
+              "type": "string",
+              "description": "High-level error message"
+            },
+            "detail": {
+              "type": "string",
+              "description": "Detailed error description"
+            },
+            "category": {
+              "type": "string",
+              "description": "Error category"
+            },
+            "status": {
+              "type": "integer",
+              "description": "HTTP status code"
+            }
+          },
+          "additionalProperties": false
+        },
+        "description": "Error information if the node fails",
         "binding": {
-          "nodeId": "portalGuard",
-          "outputId": "matchedCaseId"
+          "nodeId": "fetchNewVendorRow1",
+          "outputId": "error"
+        }
+      },
+      {
+        "id": "pickVendor.output",
+        "type": "object",
+        "description": "The return value of the script",
+        "binding": {
+          "nodeId": "pickVendor",
+          "outputId": "output"
+        }
+      },
+      {
+        "id": "pickVendor.error",
+        "type": "object",
+        "description": "Error information if the script fails",
+        "binding": {
+          "nodeId": "pickVendor",
+          "outputId": "error"
         }
       }
     ]
@@ -6372,7 +6567,7 @@
       },
       "extractDocs": {
         "position": {
-          "x": 720,
+          "x": 944,
           "y": 0
         },
         "size": {
@@ -6724,7 +6919,7 @@
       },
       "setStatusExtracting1": {
         "position": {
-          "x": 304,
+          "x": 560,
           "y": 0
         },
         "size": {
@@ -6735,7 +6930,7 @@
       },
       "fetchSubmittedDocuments1": {
         "position": {
-          "x": 432,
+          "x": 688,
           "y": 0
         },
         "size": {
@@ -6746,7 +6941,7 @@
       },
       "portalGuard": {
         "position": {
-          "x": 176,
+          "x": 432,
           "y": 0
         },
         "size": {
@@ -6757,7 +6952,7 @@
       },
       "endIgnored": {
         "position": {
-          "x": 176,
+          "x": 432,
           "y": 176
         },
         "size": {
@@ -6768,7 +6963,29 @@
       },
       "buildPacket": {
         "position": {
-          "x": 576,
+          "x": 816,
+          "y": 0
+        },
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "collapsed": false
+      },
+      "fetchNewVendorRow1": {
+        "position": {
+          "x": 176,
+          "y": 0
+        },
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "collapsed": false
+      },
+      "pickVendor": {
+        "position": {
+          "x": 304,
           "y": 0
         },
         "size": {
