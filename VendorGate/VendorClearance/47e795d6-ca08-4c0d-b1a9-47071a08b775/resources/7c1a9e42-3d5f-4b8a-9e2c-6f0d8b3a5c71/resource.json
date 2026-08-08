@@ -34,7 +34,7 @@
     "toolDescription": "Retrieves the sanctions and debarment register from the ScreeningList Data Fabric entity. Each record has: entityName, listType ('sanctions' or 'debarment'), country, reason. Call with no queryExpression to retrieve the full register for fuzzy matching.",
     "method": "POST",
     "connection": {
-      "id": "0c89d875-23ba-425a-af78-801786c50537",
+      "id": "2e6b6652-3d79-47dc-b719-2c65bc32d10d",
       "name": "UiPath Data Fabric",
       "elementInstanceId": 0,
       "apiBaseUri": "",
@@ -46,7 +46,7 @@
         "image": ""
       },
       "folder": {
-        "key": "f919e064-57e8-4d56-9a55-c92796fb53c1",
+        "key": "b60714c6-57c3-494d-ab77-5f72178856de",
         "path": ""
       }
     },

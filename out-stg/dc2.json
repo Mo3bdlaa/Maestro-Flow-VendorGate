@@ -1,0 +1,64 @@
+{
+  "resources": [
+    {
+      "kind": "process",
+      "name": "VendorClearance",
+      "resourceKey": "37fdcb89-ef1e-4749-afc9-2420f00d749f",
+      "folderPaths": [
+        "solution_folder"
+      ],
+      "configuration": {
+        "description": null,
+        "packageName": "VendorGate.flow.VendorClearance",
+        "inputArguments": null,
+        "hiddenForAttendedUser": false,
+        "alwaysRunning": false,
+        "autoStartProcess": false,
+        "retentionAction": "Delete",
+        "retentionPeriod": 30,
+        "retentionBucketRef": null,
+        "staleRetentionAction": "Delete",
+        "staleRetentionPeriod": 180,
+        "staleRetentionBucketRef": null,
+        "connections": null,
+        "tags": []
+      }
+    },
+    {
+      "kind": "trigger",
+      "name": "VendorClearance_Vendor Submitted (Portal - Data Fabric)-Vendor Submitted (Portal - Data Fabric)",
+      "resourceKey": "f8776006-0a90-31df-3a21-43860c258581",
+      "folderPaths": [
+        "solution_folder"
+      ],
+      "configuration": {
+        "description": null,
+        "enabled": false,
+        "runAsMe": false,
+        "inputArguments": null,
+        "jobPriorityValue": "Inherited",
+        "runtimeType": "Unattended",
+        "resumeOnSameContext": false,
+        "stopStrategy": "None",
+        "stopJobAfterDays": 0,
+        "stopJobAfterHours": 0,
+        "stopJobAfterMinutes": 0,
+        "scheduleAutomaticKill": false,
+        "killJobAfterDays": 0,
+        "killJobAfterHours": 0,
+        "killJobAfterMinutes": 0,
+        "generateAlertIfJobStuck": false,
+        "alertPendingJobAfterDays": 0,
+        "alertPendingJobAfterHours": 0,
+        "alertPendingJobAfterMinutes": 0,
+        "generateAlertIfJobNotCompleted": false,
+        "alertRunningJobAfterDays": 0,
+        "alertRunningJobAfterHours": 0,
+        "alertRunningJobAfterMinutes": 0,
+        "executionBasedTriggerDisabling": false,
+        "consecutiveJobFailuresThreshold": 0,
+        "jobFailuresGracePeriodInHours": 0
+      }
+    }
+  ]
+}
