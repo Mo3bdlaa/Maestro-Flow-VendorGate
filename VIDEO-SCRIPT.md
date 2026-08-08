@@ -8,6 +8,8 @@ Before recording (5 min):
       → `Shared/VendorGate Run` → Processes/Instances · ③ Action Center tasks ·
       ④ portal https://moshaker.uipath.host/vendor-portal (signed in) ·
       ⑤ terminal in `VendorGate/`
+- [ ] Run `node test-data/preflight.js` from `VendorGate/` — repairs the screening
+      tool file and verifies the cloud copy. Do this LAST before recording.
 - [ ] Run the eval sets from the canvas FIRST (agent node → Evaluations → Run) so
       you can show results, not promises.
 - [ ] Terminal ready with the studio run, as the agent-path fallback:
