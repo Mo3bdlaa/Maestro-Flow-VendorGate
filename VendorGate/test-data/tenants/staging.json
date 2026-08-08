@@ -17,6 +17,8 @@
     "https://cloud.uipath.com/moshaker/DefaultTenant": "https://staging.uipath.com/shakertechs/Shaker_Techs",
     "orgName: 'moshaker'": "orgName: 'shakertechs'",
     "tenantName: 'DefaultTenant'": "tenantName: 'Shaker_Techs'",
-    "baseUrl: 'https://api.uipath.com'": "baseUrl: 'https://staging.api.uipath.com'"
+    "baseUrl: 'https://api.uipath.com'": "baseUrl: 'https://staging.api.uipath.com'",
+    "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/",
+    "https://cloud.uipath.com/elements_/": "https://staging.uipath.com/elements_/"
   }
 }

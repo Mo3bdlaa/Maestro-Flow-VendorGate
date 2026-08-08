@@ -180,7 +180,7 @@
   "guardrail": {
     "policies": []
   },
-  "iconUrl": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+  "iconUrl": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
   "id": "7c1a9e42-3d5f-4b8a-9e2c-6f0d8b3a5c71",
   "isEnabled": true,
   "canvasNodeId": "toolScreeningList"

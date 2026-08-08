@@ -535,7 +535,7 @@
       "display": {
         "label": "Sanctions & Debarment Lookup (Data Fabric)",
         "subLabel": "",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "source": "7c1a9e42-3d5f-4b8a-9e2c-6f0d8b3a5c71",
@@ -587,7 +587,7 @@
       "display": {
         "label": "Adverse Media Web Search",
         "subLabel": "",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/d93eefff0af32b964a4ce6fe3823de1d4c7ed71962c6f878520b57ebf8f4497a.svg"
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/d93eefff0af32b964a4ce6fe3823de1d4c7ed71962c6f878520b57ebf8f4497a.svg"
       },
       "inputs": {
         "source": "2f8b4c6d-9a1e-4d3f-8c5b-7e2a9f4d6b83",
@@ -1342,7 +1342,7 @@
       "typeVersion": "2.3",
       "display": {
         "label": "Provision Vendor Portal API",
-        "icon": "https://cloud.uipath.com/elements_/scaleunit_/a6827719-5651-4da8-a093-6b3e05f247c7/v3/element/elements/uipath-uipath-http/image"
+        "icon": "https://staging.uipath.com/elements_/scaleunit_/a6827719-5651-4da8-a093-6b3e05f247c7/v3/element/elements/uipath-uipath-http/image"
       },
       "inputs": {
         "branches": [],
@@ -1491,7 +1491,7 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Set action_required + queryDeadline",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
@@ -1575,7 +1575,7 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Provision Vendor Master",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
@@ -1660,7 +1660,7 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Compensation - Revert Vendor Master",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
@@ -1743,7 +1743,7 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Set Rejected",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
@@ -1825,7 +1825,7 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Record Escalation",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
@@ -1907,7 +1907,7 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Persist Screening Result",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
@@ -2006,7 +2006,7 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Vendor Submitted (Portal - Data Fabric)",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "entryPointId": "141f87b3-d481-43d4-8dab-19391ebee2ff",
@@ -2043,7 +2043,7 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Set Status - Extracting",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
@@ -2125,7 +2125,7 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Fetch Submitted Documents",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
@@ -2295,7 +2295,7 @@
       "typeVersion": "1.0.0",
       "display": {
         "label": "Fetch New Vendor Row",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
       },
       "inputs": {
         "detail": {
@@ -3953,7 +3953,7 @@
       "display": {
         "label": "Query Entity Records",
         "description": "Retrieves a list of records for the selected Entity from Data Fabric, according to specified filters.",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
         "sourceDisplayName": "UiPath Data Fabric",
         "shape": "circle"
       },
@@ -4124,7 +4124,7 @@
       "display": {
         "label": "Web Search",
         "description": "Web search executes a search of the public domain using a natural language search query. The search results are available in the output. Web search offers near-real time search results, but certain time sensitive data like stock prices or weather will not consistently be current. There could be a few days lag. Be sure to pass in date/time and/or location as arguments in the query if required.",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/d93eefff0af32b964a4ce6fe3823de1d4c7ed71962c6f878520b57ebf8f4497a.svg",
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/d93eefff0af32b964a4ce6fe3823de1d4c7ed71962c6f878520b57ebf8f4497a.svg",
         "sourceDisplayName": "UiPath GenAI Activities",
         "shape": "circle"
       },
@@ -4698,7 +4698,7 @@
       "supportsErrorHandling": true,
       "display": {
         "label": "HTTP Request",
-        "icon": "https://cloud.uipath.com/elements_/scaleunit_/a6827719-5651-4da8-a093-6b3e05f247c7/v3/element/elements/uipath-uipath-http/image"
+        "icon": "https://staging.uipath.com/elements_/scaleunit_/a6827719-5651-4da8-a093-6b3e05f247c7/v3/element/elements/uipath-uipath-http/image"
       },
       "handleConfiguration": [
         {
@@ -5402,7 +5402,7 @@
       "display": {
         "label": "Update Entity Record",
         "description": "Updates an existing record in a Data Fabric entity",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
         "sourceDisplayName": "UiPath Data Fabric"
       },
       "handleConfiguration": [
@@ -5619,7 +5619,7 @@
       "display": {
         "label": "Record Created",
         "description": "Trigger when a new record is added in UiPath Data Fabric.",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
         "sourceDisplayName": "UiPath Data Fabric",
         "shape": "circle"
       },
@@ -5791,7 +5791,7 @@
       "display": {
         "label": "Query Entity Records",
         "description": "Retrieves a list of records for the selected Entity from Data Fabric, according to specified filters.",
-        "icon": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+        "icon": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
         "sourceDisplayName": "UiPath Data Fabric"
       },
       "handleConfiguration": [

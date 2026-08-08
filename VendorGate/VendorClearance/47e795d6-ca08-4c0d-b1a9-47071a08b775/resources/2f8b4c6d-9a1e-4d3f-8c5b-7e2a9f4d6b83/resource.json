@@ -237,7 +237,7 @@
   "guardrail": {
     "policies": []
   },
-  "iconUrl": "https://cloud.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/d93eefff0af32b964a4ce6fe3823de1d4c7ed71962c6f878520b57ebf8f4497a.svg",
+  "iconUrl": "https://staging.uipath.com/38fa8794-9d8b-47a0-bae4-30f1d4934301/studio_/typecache/icons/d93eefff0af32b964a4ce6fe3823de1d4c7ed71962c6f878520b57ebf8f4497a.svg",
   "id": "2f8b4c6d-9a1e-4d3f-8c5b-7e2a9f4d6b83",
   "isEnabled": true,
   "canvasNodeId": "toolWebSearch"
