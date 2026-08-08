@@ -89,193 +89,6 @@
       }
     },
     {
-      "id": "start",
-      "type": "core.trigger.manual",
-      "typeVersion": "1.0",
-      "display": {
-        "label": "Packet Submitted (manual - API trigger TODO)",
-        "icon": "play"
-      },
-      "inputs": {
-        "entryPointId": "c0369220-1ab0-4528-b0c2-eff6abd68b7a",
-        "isDefaultEntryPoint": true
-      },
-      "outputs": {
-        "output": {
-          "type": "object",
-          "description": "Data passed when manually triggering the process.",
-          "source": "null",
-          "var": "output"
-        }
-      }
-    },
-    {
-      "id": "writeVendorRecord1",
-      "type": "uipath.connector.uipath-uipath-dataservice.create-entity-record",
-      "typeVersion": "1.0.0",
-      "display": {
-        "label": "Write Vendor Record",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
-      },
-      "inputs": {
-        "detail": {
-          "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
-          "method": "POST",
-          "endpoint": "/v2/{entityName}/CreateEntityRecord",
-          "bodyParameters": {
-            "vendorId": "=js:$vars.start.output.vendorId",
-            "legalName": "=js:$vars.start.output.legalName",
-            "country": "=js:$vars.start.output.country",
-            "status": 0,
-            "submittedAt": "=js:new Date().toISOString()",
-            "updatedAt": "=js:new Date().toISOString()"
-          },
-          "pathParameters": {
-            "entityName": "Vendor"
-          },
-          "uiPathActivityTypeId": "dfd2bc7a-ca4b-3316-8a1f-57c9e106dfbf",
-          "errorState": {
-            "issues": []
-          },
-          "configuration": "=jsonString:{\"essentialConfiguration\":{\"instanceParameters\":{\"connectorKey\":\"uipath-uipath-dataservice\",\"objectName\":\"CreateEntityRecordCurated\",\"httpMethod\":\"POST\",\"activityType\":\"Curated\",\"version\":\"1.0.0\",\"supportsStreaming\":false,\"subType\":\"standard\"},\"objectName\":\"CreateEntityRecordCurated\",\"operation\":\"create\",\"httpMethod\":\"POST\",\"path\":\"/v2/{entityName}/CreateEntityRecord\",\"packageVersion\":\"1.0.0\",\"connectorVersion\":null,\"executionType\":null,\"customFieldsRequestDetails\":{\"objectActionName\":\"GenerateSchema\",\"parameterValues\":[[\"entityName\",\"Vendor\"]]},\"unifiedTypesCompatible\":true}}"
-        }
-      },
-      "outputs": {
-        "output": {
-          "type": "object",
-          "description": "The return value of the connector.",
-          "source": "=result.response",
-          "var": "output"
-        },
-        "error": {
-          "type": "object",
-          "description": "Error information if the node fails",
-          "schema": {
-            "$schema": "http://json-schema.org/draft-07/schema#",
-            "type": "object",
-            "required": [
-              "code",
-              "message",
-              "detail",
-              "category",
-              "status"
-            ],
-            "properties": {
-              "code": {
-                "type": "string",
-                "description": "Error code as a string"
-              },
-              "message": {
-                "type": "string",
-                "description": "High-level error message"
-              },
-              "detail": {
-                "type": "string",
-                "description": "Detailed error description"
-              },
-              "category": {
-                "type": "string",
-                "description": "Error category"
-              },
-              "status": {
-                "type": "integer",
-                "description": "HTTP status code"
-              }
-            },
-            "additionalProperties": false
-          },
-          "source": "=Error",
-          "var": "error"
-        }
-      }
-    },
-    {
-      "id": "writeDocumentRecords1",
-      "type": "uipath.connector.uipath-uipath-dataservice.create-entity-record",
-      "typeVersion": "1.0.0",
-      "display": {
-        "label": "Write Document Records",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
-      },
-      "inputs": {
-        "detail": {
-          "connector": "uipath-uipath-dataservice",
-          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
-          "method": "POST",
-          "endpoint": "/v2/{entityName}/CreateEntityRecord",
-          "bodyParameters": {
-            "docId": "=js:$vars.start.output.vendorId + '-packet'",
-            "vendorId": "=js:$vars.start.output.vendorId",
-            "docType": 0,
-            "extractedFields": "=js:$vars.start.output.docsJson",
-            "valid": false,
-            "issueNote": "Packet received - awaiting extraction"
-          },
-          "pathParameters": {
-            "entityName": "VendorDocument"
-          },
-          "uiPathActivityTypeId": "dfd2bc7a-ca4b-3316-8a1f-57c9e106dfbf",
-          "errorState": {
-            "issues": []
-          },
-          "configuration": "=jsonString:{\"essentialConfiguration\":{\"instanceParameters\":{\"connectorKey\":\"uipath-uipath-dataservice\",\"objectName\":\"CreateEntityRecordCurated\",\"httpMethod\":\"POST\",\"activityType\":\"Curated\",\"version\":\"1.0.0\",\"supportsStreaming\":false,\"subType\":\"standard\"},\"objectName\":\"CreateEntityRecordCurated\",\"operation\":\"create\",\"httpMethod\":\"POST\",\"path\":\"/v2/{entityName}/CreateEntityRecord\",\"packageVersion\":\"1.0.0\",\"connectorVersion\":null,\"executionType\":null,\"customFieldsRequestDetails\":{\"objectActionName\":\"GenerateSchema\",\"parameterValues\":[[\"entityName\",\"VendorDocument\"]]},\"unifiedTypesCompatible\":true}}"
-        }
-      },
-      "outputs": {
-        "output": {
-          "type": "object",
-          "description": "The return value of the connector.",
-          "source": "=result.response",
-          "var": "output"
-        },
-        "error": {
-          "type": "object",
-          "description": "Error information if the node fails",
-          "schema": {
-            "$schema": "http://json-schema.org/draft-07/schema#",
-            "type": "object",
-            "required": [
-              "code",
-              "message",
-              "detail",
-              "category",
-              "status"
-            ],
-            "properties": {
-              "code": {
-                "type": "string",
-                "description": "Error code as a string"
-              },
-              "message": {
-                "type": "string",
-                "description": "High-level error message"
-              },
-              "detail": {
-                "type": "string",
-                "description": "Detailed error description"
-              },
-              "category": {
-                "type": "string",
-                "description": "Error category"
-              },
-              "status": {
-                "type": "integer",
-                "description": "HTTP status code"
-              }
-            },
-            "additionalProperties": false
-          },
-          "source": "=Error",
-          "var": "error"
-        }
-      }
-    },
-    {
       "id": "extractDocs",
       "type": "uipath.agent.autonomous",
       "typeVersion": "1.3",
@@ -290,14 +103,14 @@
           {
             "id": "start__output__packetText",
             "type": "string",
-            "binding": "=$vars.start.output.packetText",
-            "description": "Bound from $vars.start.output.packetText"
+            "binding": "=$vars.buildPacket.output.packetText",
+            "description": "Bound from $vars.buildPacket.output.packetText"
           },
           {
             "id": "start__output__docsJson",
             "type": "string",
-            "binding": "=$vars.start.output.docsJson",
-            "description": "Bound from $vars.start.output.docsJson"
+            "binding": "=$vars.buildPacket.output.docsJson",
+            "description": "Bound from $vars.buildPacket.output.docsJson"
           }
         ],
         "agentOutputVariables": [
@@ -1438,7 +1251,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.writeVendorRecord1.output.Id"
+            "recordId": "=js:$vars.start.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1523,7 +1336,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.writeVendorRecord1.output.Id"
+            "recordId": "=js:$vars.start.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1606,7 +1419,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.writeVendorRecord1.output.Id"
+            "recordId": "=js:$vars.start.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1688,7 +1501,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.writeVendorRecord1.output.Id"
+            "recordId": "=js:$vars.start.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1770,7 +1583,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.writeVendorRecord1.output.Id"
+            "recordId": "=js:$vars.start.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1855,7 +1668,7 @@
             "updatedAt": "=js:new Date().toISOString()"
           },
           "queryParameters": {
-            "recordId": "=js:$vars.writeVendorRecord1.output.Id"
+            "recordId": "=js:$vars.start.output.Id"
           },
           "pathParameters": {
             "entityName": "Vendor"
@@ -1929,30 +1742,263 @@
         "trueLabel": "Approved",
         "falseLabel": "Rejected"
       }
+    },
+    {
+      "id": "start",
+      "type": "uipath.connector.trigger.uipath-uipath-dataservice.record-created",
+      "typeVersion": "1.0.0",
+      "display": {
+        "label": "Vendor Submitted (Portal - Data Fabric)",
+        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+      },
+      "inputs": {
+        "entryPointId": "141f87b3-d481-43d4-8dab-19391ebee2ff",
+        "isDefaultEntryPoint": true,
+        "detail": {
+          "connector": "uipath-uipath-dataservice",
+          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "eventParameters": {},
+          "objectName": "Vendor",
+          "eventType": "CREATED",
+          "eventMode": "polling",
+          "filterExpression": "",
+          "configuration": "=jsonString:{\"essentialConfiguration\":{\"instanceParameters\":{\"connectorKey\":\"uipath-uipath-dataservice\",\"activityType\":\"GenericTrigger\",\"version\":\"1.0.0\",\"eventOperation\":\"CREATED\",\"eventMode\":\"polling\",\"supportsStreaming\":false},\"packageVersion\":\"1.0.0\",\"connectorVersion\":null,\"executionType\":null,\"httpMethod\":null,\"path\":null,\"filter\":null}}",
+          "uiPathActivityTypeId": "af2a53ad-5d90-3d4e-bf3c-55b6d91595cd",
+          "errorState": {
+            "issues": []
+          }
+        }
+      },
+      "outputs": {
+        "output": {
+          "type": "object",
+          "description": "The return value of the connector trigger.",
+          "source": "=result.response",
+          "var": "output"
+        }
+      }
+    },
+    {
+      "id": "setStatusExtracting1",
+      "type": "uipath.connector.uipath-uipath-dataservice.update-entity-record",
+      "typeVersion": "1.0.0",
+      "display": {
+        "label": "Set Status - Extracting",
+        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+      },
+      "inputs": {
+        "detail": {
+          "connector": "uipath-uipath-dataservice",
+          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "method": "PUT",
+          "endpoint": "/v2/{entityName}/UpdateEntityRecord",
+          "bodyParameters": {
+            "status": 1,
+            "updatedAt": "=js:new Date().toISOString()"
+          },
+          "queryParameters": {
+            "recordId": "=js:$vars.start.output.Id"
+          },
+          "pathParameters": {
+            "entityName": "Vendor"
+          },
+          "uiPathActivityTypeId": "718fdc36-73a8-3607-8604-ddef95bb9967",
+          "errorState": {
+            "issues": []
+          },
+          "configuration": "=jsonString:{\"essentialConfiguration\":{\"instanceParameters\":{\"connectorKey\":\"uipath-uipath-dataservice\",\"objectName\":\"UpdateEntityRecordV2\",\"httpMethod\":\"PUT\",\"activityType\":\"Curated\",\"version\":\"1.0.0\",\"supportsStreaming\":false,\"subType\":\"standard\"},\"objectName\":\"UpdateEntityRecordV2\",\"operation\":\"replace\",\"httpMethod\":\"PUT\",\"path\":\"/v2/{entityName}/UpdateEntityRecord\",\"packageVersion\":\"1.0.0\",\"connectorVersion\":null,\"executionType\":null,\"customFieldsRequestDetails\":null,\"unifiedTypesCompatible\":true}}"
+        }
+      },
+      "outputs": {
+        "output": {
+          "type": "object",
+          "description": "The return value of the connector.",
+          "source": "=result.response",
+          "var": "output"
+        },
+        "error": {
+          "type": "object",
+          "description": "Error information if the node fails",
+          "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "required": [
+              "code",
+              "message",
+              "detail",
+              "category",
+              "status"
+            ],
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Error code as a string"
+              },
+              "message": {
+                "type": "string",
+                "description": "High-level error message"
+              },
+              "detail": {
+                "type": "string",
+                "description": "Detailed error description"
+              },
+              "category": {
+                "type": "string",
+                "description": "Error category"
+              },
+              "status": {
+                "type": "integer",
+                "description": "HTTP status code"
+              }
+            },
+            "additionalProperties": false
+          },
+          "source": "=Error",
+          "var": "error"
+        }
+      }
+    },
+    {
+      "id": "fetchSubmittedDocuments1",
+      "type": "uipath.connector.uipath-uipath-dataservice.query-entity-records",
+      "typeVersion": "1.0.0",
+      "display": {
+        "label": "Fetch Submitted Documents",
+        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg"
+      },
+      "inputs": {
+        "detail": {
+          "connector": "uipath-uipath-dataservice",
+          "connectionId": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "connectionResourceId": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "method": "POST",
+          "endpoint": "/v2/{entityName}/qer",
+          "queryParameters": {
+            "limit": 1000,
+            "expansionLevel": 1
+          },
+          "pathParameters": {
+            "entityName": "VendorDocument"
+          },
+          "uiPathActivityTypeId": "703065b9-a310-33b8-9d4d-12df0a6f520b",
+          "errorState": {
+            "issues": []
+          },
+          "configuration": "=jsonString:{\"essentialConfiguration\":{\"instanceParameters\":{\"connectorKey\":\"uipath-uipath-dataservice\",\"objectName\":\"QueryEntityRecordsCurated\",\"httpMethod\":\"POST\",\"activityType\":\"Curated\",\"version\":\"1.0.0\",\"supportsStreaming\":false,\"subType\":\"standard\"},\"objectName\":\"QueryEntityRecordsCurated\",\"operation\":\"list\",\"httpMethod\":\"POST\",\"path\":\"/v2/{entityName}/qer\",\"packageVersion\":\"1.0.0\",\"connectorVersion\":null,\"executionType\":null,\"customFieldsRequestDetails\":null,\"unifiedTypesCompatible\":true}}",
+          "inputMetadata": {
+            "operation": "list",
+            "pagination": {
+              "maxPageSize": 1000
+            }
+          }
+        }
+      },
+      "outputs": {
+        "output": {
+          "type": "object",
+          "description": "The return value of the connector.",
+          "source": "=result.response",
+          "var": "output"
+        },
+        "error": {
+          "type": "object",
+          "description": "Error information if the node fails",
+          "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "required": [
+              "code",
+              "message",
+              "detail",
+              "category",
+              "status"
+            ],
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Error code as a string"
+              },
+              "message": {
+                "type": "string",
+                "description": "High-level error message"
+              },
+              "detail": {
+                "type": "string",
+                "description": "Detailed error description"
+              },
+              "category": {
+                "type": "string",
+                "description": "Error category"
+              },
+              "status": {
+                "type": "integer",
+                "description": "HTTP status code"
+              }
+            },
+            "additionalProperties": false
+          },
+          "source": "=Error",
+          "var": "error"
+        }
+      }
+    },
+    {
+      "id": "portalGuard",
+      "type": "core.logic.decision",
+      "typeVersion": "1.2",
+      "display": {
+        "label": "Portal Submission?",
+        "icon": "trending-up-down"
+      },
+      "inputs": {
+        "expression": "!!($vars.start.output.contactEmail) && Number($vars.start.output.status) === 0",
+        "trueLabel": "Portal submission",
+        "falseLabel": "Import / backfill - ignore"
+      }
+    },
+    {
+      "id": "endIgnored",
+      "type": "core.control.end",
+      "typeVersion": "1.0",
+      "display": {
+        "label": "Ignored (non-portal write)",
+        "icon": "circle-check"
+      },
+      "inputs": {}
+    },
+    {
+      "id": "buildPacket",
+      "type": "core.action.script",
+      "typeVersion": "1.1",
+      "display": {
+        "label": "Assemble Packet Text",
+        "icon": "code"
+      },
+      "inputs": {
+        "script": "// Assemble the raw packet from VendorDocument rows written by the portal.\nconst trig = $vars.start.output || {};\nconst res = $vars.fetchSubmittedDocuments1.output || {};\nlet rows = res.value || res.records || res.items || (Array.isArray(res) ? res : []);\nif (!Array.isArray(rows)) rows = [];\nconst vid = trig.vendorId || trig.VendorId || '';\nconst mine = rows.filter(r => (r.vendorId || r.VendorId) === vid);\n// newest row per docType wins - resubmissions append corrected documents\nconst byType = {};\nfor (const r of mine) { const t = String(r.docType != null ? r.docType : r.DocType); byType[t] = r; }\nconst names = ['trade_licence','insurance','bank_letter','iso_cert'];\nconst sections = [];\nlet structured = [];\nfor (const key of Object.keys(byType)) {\n  const r = byType[key];\n  const ef = r.extractedFields || r.ExtractedFields || '';\n  let obj = null;\n  try { obj = typeof ef === 'string' && ef.trim() ? JSON.parse(ef) : (typeof ef === 'object' ? ef : null); } catch (e) { obj = null; }\n  const idx = Number(r.docType != null ? r.docType : r.DocType);\n  const label = names[idx] || ('doc_' + key);\n  if (obj && obj.rawText) {\n    sections.push('=== ' + label + ' ===\\n' + obj.rawText);\n  } else if (obj) {\n    structured = structured.concat(Array.isArray(obj) ? obj : [obj]);\n  } else if (typeof ef === 'string' && ef.trim()) {\n    sections.push('=== ' + label + ' ===\\n' + ef);\n  }\n}\nreturn {\n  packetText: sections.join('\\n\\n'),\n  docsJson: structured.length ? JSON.stringify(structured) : '',\n  docCount: Object.keys(byType).length\n};"
+      },
+      "outputs": {
+        "output": {
+          "type": "object",
+          "description": "The return value of the script",
+          "source": "=result.response",
+          "var": "output"
+        },
+        "error": {
+          "type": "object",
+          "description": "Error information if the script fails",
+          "source": "=Error",
+          "var": "error"
+        }
+      }
     }
   ],
   "edges": [
-    {
-      "id": "e-start-writeVendor",
-      "sourceNodeId": "start",
-      "sourcePort": "output",
-      "targetNodeId": "writeVendorRecord1",
-      "targetPort": "input"
-    },
-    {
-      "id": "e-writeVendor-writeDocs",
-      "sourceNodeId": "writeVendorRecord1",
-      "sourcePort": "output",
-      "targetNodeId": "writeDocumentRecords1",
-      "targetPort": "input"
-    },
-    {
-      "id": "e-writeDocs-extract",
-      "sourceNodeId": "writeDocumentRecords1",
-      "sourcePort": "output",
-      "targetNodeId": "extractDocs",
-      "targetPort": "input"
-    },
     {
       "id": "e-extract-validation",
       "sourceNodeId": "extractDocs",
@@ -1992,7 +2038,7 @@
       "id": "e-vendorQuery-extract",
       "sourceNodeId": "vendorQuery",
       "sourcePort": "completed",
-      "targetNodeId": "extractDocs",
+      "targetNodeId": "fetchSubmittedDocuments1",
       "targetPort": "input"
     },
     {
@@ -2248,297 +2294,63 @@
       "targetPort": "input"
     },
     {
-      "id": "xy-edge__vendorQueryoutcome-resubmitted-writeDocumentRecords1input",
-      "sourceNodeId": "vendorQuery",
-      "sourcePort": "outcome-resubmitted",
-      "targetNodeId": "writeDocumentRecords1",
-      "targetPort": "input"
-    },
-    {
       "id": "xy-edge__escalateTimeoutoutcome-acknowledged-recordEscalation1input",
       "sourceNodeId": "escalateTimeout",
       "sourcePort": "outcome-acknowledged",
       "targetNodeId": "recordEscalation1",
       "targetPort": "input"
+    },
+    {
+      "id": "e-start-guard",
+      "sourceNodeId": "start",
+      "sourcePort": "output",
+      "targetNodeId": "portalGuard",
+      "targetPort": "input"
+    },
+    {
+      "id": "e-guard-setStatus",
+      "sourceNodeId": "portalGuard",
+      "sourcePort": "true",
+      "targetNodeId": "setStatusExtracting1",
+      "targetPort": "input"
+    },
+    {
+      "id": "e-guard-endIgnored",
+      "sourceNodeId": "portalGuard",
+      "sourcePort": "false",
+      "targetNodeId": "endIgnored",
+      "targetPort": "input"
+    },
+    {
+      "id": "e-setStatus-fetchDocs",
+      "sourceNodeId": "setStatusExtracting1",
+      "sourcePort": "output",
+      "targetNodeId": "fetchSubmittedDocuments1",
+      "targetPort": "input"
+    },
+    {
+      "id": "e-fetchDocs-buildPacket",
+      "sourceNodeId": "fetchSubmittedDocuments1",
+      "sourcePort": "output",
+      "targetNodeId": "buildPacket",
+      "targetPort": "input"
+    },
+    {
+      "id": "e-buildPacket-extract",
+      "sourceNodeId": "buildPacket",
+      "sourcePort": "success",
+      "targetNodeId": "extractDocs",
+      "targetPort": "input"
+    },
+    {
+      "id": "xy-edge__vendorQueryoutcome-resubmitted-fetchSubmittedDocuments1input",
+      "sourceNodeId": "vendorQuery",
+      "sourcePort": "outcome-resubmitted",
+      "targetNodeId": "fetchSubmittedDocuments1",
+      "targetPort": "input"
     }
   ],
   "definitions": [
-    {
-      "nodeType": "core.trigger.manual",
-      "version": "1.0",
-      "category": "trigger",
-      "description": "Start the process manually",
-      "tags": [
-        "trigger",
-        "start",
-        "manual"
-      ],
-      "sortOrder": 80,
-      "display": {
-        "label": "Manual trigger",
-        "icon": "play",
-        "shape": "circle"
-      },
-      "handleConfiguration": [
-        {
-          "position": "right",
-          "handles": [
-            {
-              "id": "output",
-              "type": "source",
-              "handleType": "output",
-              "showButton": true,
-              "constraints": {
-                "forbiddenTargetCategories": [
-                  "trigger"
-                ]
-              }
-            }
-          ],
-          "visible": true
-        }
-      ],
-      "model": {
-        "type": "bpmn:StartEvent",
-        "entryPointId": true
-      },
-      "outputDefinition": {
-        "output": {
-          "type": "object",
-          "description": "Data passed when manually triggering the process.",
-          "source": "null",
-          "var": "output"
-        }
-      },
-      "toolbarExtensions": {
-        "design": {
-          "actions": [
-            {
-              "id": "change-trigger-type",
-              "icon": "square-mouse-pointer",
-              "label": "Change trigger type"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "nodeType": "uipath.connector.uipath-uipath-dataservice.create-entity-record",
-      "version": "1.0.0",
-      "category": "connector.50817",
-      "tags": [
-        "connector",
-        "activity"
-      ],
-      "sortOrder": 520,
-      "supportsErrorHandling": true,
-      "description": "Creates a new record for the selected Entity in Data Fabric",
-      "display": {
-        "label": "Create Entity Record",
-        "description": "Creates a new record for the selected Entity in Data Fabric",
-        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
-        "sourceDisplayName": "UiPath Data Fabric"
-      },
-      "handleConfiguration": [
-        {
-          "position": "left",
-          "handles": [
-            {
-              "id": "input",
-              "type": "target",
-              "handleType": "input",
-              "label": ""
-            }
-          ]
-        },
-        {
-          "position": "right",
-          "handles": [
-            {
-              "id": "output",
-              "type": "source",
-              "handleType": "output",
-              "label": ""
-            },
-            {
-              "id": "error",
-              "label": "Error",
-              "type": "source",
-              "handleType": "output",
-              "visible": "{inputs.errorHandlingEnabled}",
-              "constraints": {
-                "maxConnections": 1
-              }
-            }
-          ]
-        }
-      ],
-      "model": {
-        "type": "bpmn:SendTask",
-        "serviceType": "Intsvc.ActivityExecution",
-        "bindings": {
-          "resource": "connection",
-          "resourceKey": "",
-          "values": [
-            {
-              "name": "uipath-uipath-dataservice connection",
-              "propertyAttribute": "ConnectionId"
-            },
-            {
-              "name": "FolderKey",
-              "propertyAttribute": "FolderKey"
-            }
-          ]
-        },
-        "context": [
-          {
-            "name": "connectorKey",
-            "type": "string",
-            "value": "uipath-uipath-dataservice"
-          },
-          {
-            "name": "operation",
-            "type": "string"
-          },
-          {
-            "name": "objectName",
-            "value": "CreateEntityRecordCurated",
-            "type": "string"
-          },
-          {
-            "name": "method",
-            "type": "string",
-            "value": "POST"
-          },
-          {
-            "name": "connection",
-            "type": "string",
-            "value": "<bindings.uipath-uipath-dataservice connection>"
-          },
-          {
-            "name": "folderKey",
-            "type": "string",
-            "value": "<bindings.FolderKey>"
-          },
-          {
-            "name": "activityConfigurationVersion",
-            "type": "string",
-            "value": "v1"
-          },
-          {
-            "name": "metadata",
-            "body": {
-              "telemetryData": {
-                "connectorKey": "uipath-uipath-dataservice",
-                "connectorName": "Create Entity Record"
-              },
-              "inputMetadata": {},
-              "errorState": {
-                "hasError": true
-              }
-            },
-            "type": "json"
-          }
-        ]
-      },
-      "form": {
-        "id": "connector-properties",
-        "title": "Connector configuration",
-        "sections": [
-          {
-            "id": "connector",
-            "title": "Connector",
-            "collapsible": true,
-            "defaultExpanded": true,
-            "fields": [
-              {
-                "label": "",
-                "name": "inputs.detail",
-                "type": "custom",
-                "component": "dap-config",
-                "componentProps": {
-                  "connectorDetail": {
-                    "isAppActivity": false,
-                    "packageId": "50817",
-                    "svgIconUrl": "icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
-                    "displayName": "Create Entity Record",
-                    "assemblyQualifiedName": "UiPath.IntegrationService.Activities.Runtime.Activities.ConnectorActivity, UiPath.IntegrationService.Activities.Runtime, Version=1.29.0.0, Culture=neutral, PublicKeyToken=null",
-                    "description": "Creates a new record for the selected Entity in Data Fabric",
-                    "category": "",
-                    "activityColor": "#E56D5C",
-                    "configuration": "{\"connectorKey\":\"uipath-uipath-dataservice\",\"objectName\":\"CreateEntityRecordCurated\",\"httpMethod\":\"POST\",\"activityType\":\"Curated\",\"version\":\"1.0.0\",\"supportsStreaming\":false,\"subType\":\"standard\"}",
-                    "uiPathActivityTypeId": "dfd2bc7a-ca4b-3316-8a1f-57c9e106dfbf",
-                    "isExperimental": false,
-                    "helpUrlTemplate": "https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-uipath-dataservice-Create-Entity-Record",
-                    "isEnabled": true,
-                    "targetPlatform": "CrossPlatform",
-                    "isAdvanced": false,
-                    "isRestricted": false,
-                    "hasWpfOnlyDesigner": false,
-                    "tags": [
-                      ""
-                    ]
-                  }
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "inputDefinition": {},
-      "inputDefaults": {},
-      "outputDefinition": {
-        "output": {
-          "type": "object",
-          "description": "The return value of the connector.",
-          "source": "=result.response",
-          "var": "output"
-        },
-        "error": {
-          "type": "object",
-          "description": "Error information if the node fails",
-          "source": "=Error",
-          "var": "error",
-          "schema": {
-            "$schema": "http://json-schema.org/draft-07/schema#",
-            "type": "object",
-            "required": [
-              "code",
-              "message",
-              "detail",
-              "category",
-              "status"
-            ],
-            "properties": {
-              "code": {
-                "type": "string",
-                "description": "Error code as a string"
-              },
-              "message": {
-                "type": "string",
-                "description": "High-level error message"
-              },
-              "detail": {
-                "type": "string",
-                "description": "Detailed error description"
-              },
-              "category": {
-                "type": "string",
-                "description": "Error category"
-              },
-              "status": {
-                "type": "integer",
-                "description": "HTTP status code"
-              }
-            },
-            "additionalProperties": false
-          }
-        }
-      },
-      "debug": {
-        "runtime": "bpmnEngine"
-      }
-    },
     {
       "nodeType": "uipath.agent.autonomous",
       "version": "1.3",
@@ -5208,6 +5020,430 @@
       "debug": {
         "runtime": "bpmnEngine"
       }
+    },
+    {
+      "nodeType": "uipath.connector.trigger.uipath-uipath-dataservice.record-created",
+      "version": "1.0.0",
+      "category": "trigger.50817",
+      "tags": [
+        "connector",
+        "trigger",
+        "Trigger.Integrated"
+      ],
+      "sortOrder": 540,
+      "description": "Trigger when a new record is added in UiPath Data Fabric.",
+      "display": {
+        "label": "Record Created",
+        "description": "Trigger when a new record is added in UiPath Data Fabric.",
+        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+        "sourceDisplayName": "UiPath Data Fabric",
+        "shape": "circle"
+      },
+      "handleConfiguration": [
+        {
+          "position": "right",
+          "handles": [
+            {
+              "id": "output",
+              "type": "source",
+              "handleType": "output",
+              "showButton": true,
+              "constraints": {
+                "forbiddenTargetCategories": [
+                  "trigger"
+                ]
+              }
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "model": {
+        "type": "bpmn:StartEvent",
+        "entryPointId": true,
+        "serviceType": "Intsvc.EventTrigger",
+        "eventDefinition": "bpmn:MessageEventDefinition",
+        "bindings": {
+          "resource": "connection",
+          "resourceKey": "",
+          "values": [
+            {
+              "name": "uipath-uipath-dataservice connection",
+              "propertyAttribute": "ConnectionId"
+            },
+            {
+              "name": "FolderKey",
+              "propertyAttribute": "FolderKey"
+            }
+          ]
+        },
+        "context": [
+          {
+            "name": "connectorKey",
+            "type": "string",
+            "value": "uipath-uipath-dataservice"
+          },
+          {
+            "name": "operation",
+            "value": "CREATED",
+            "type": "string"
+          },
+          {
+            "name": "objectName",
+            "type": "string",
+            "value": "Vendor"
+          },
+          {
+            "name": "method",
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "value": "<bindings.uipath-uipath-dataservice connection>"
+          },
+          {
+            "name": "folderKey",
+            "type": "string",
+            "value": "<bindings.FolderKey>"
+          },
+          {
+            "name": "activityConfigurationVersion",
+            "type": "string",
+            "value": "v1"
+          },
+          {
+            "name": "metadata",
+            "body": {
+              "telemetryData": {
+                "connectorKey": "uipath-uipath-dataservice",
+                "connectorName": "Record Created"
+              },
+              "inputMetadata": {},
+              "errorState": {
+                "hasError": true
+              }
+            },
+            "type": "json"
+          }
+        ]
+      },
+      "form": {
+        "id": "connector-properties",
+        "title": "Connector configuration",
+        "sections": [
+          {
+            "id": "connector",
+            "title": "Connector",
+            "collapsible": true,
+            "defaultExpanded": true,
+            "fields": [
+              {
+                "label": "",
+                "name": "inputs.detail",
+                "type": "custom",
+                "component": "dap-config",
+                "componentProps": {
+                  "connectorDetail": {
+                    "type": "Integrated",
+                    "packageId": "50817",
+                    "svgIconUrl": "icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+                    "displayName": "Record Created",
+                    "assemblyQualifiedName": "UiPath.IntegrationService.Activities.Runtime.Activities.ConnectorTriggerActivity, UiPath.IntegrationService.Activities.Runtime, Version=1.29.0.0, Culture=neutral, PublicKeyToken=null",
+                    "description": "Trigger when a new record is added in UiPath Data Fabric.",
+                    "category": "UiPath Data Fabric.Triggers",
+                    "activityColor": "#E56D5C",
+                    "configuration": "{\"connectorKey\":\"uipath-uipath-dataservice\",\"activityType\":\"GenericTrigger\",\"version\":\"1.0.0\",\"eventOperation\":\"CREATED\",\"eventMode\":\"polling\",\"supportsStreaming\":false}",
+                    "uiPathActivityTypeId": "af2a53ad-5d90-3d4e-bf3c-55b6d91595cd",
+                    "isExperimental": false,
+                    "helpUrlTemplate": "https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-uipath-dataservice-Record-Created",
+                    "isEnabled": true,
+                    "targetPlatform": "CrossPlatform",
+                    "isAdvanced": false,
+                    "isRestricted": false,
+                    "hasWpfOnlyDesigner": false,
+                    "tags": [
+                      "Trigger.Integrated"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "inputDefinition": {},
+      "outputDefinition": {
+        "output": {
+          "type": "object",
+          "description": "The return value of the connector trigger.",
+          "source": "=result.response",
+          "var": "output"
+        }
+      },
+      "toolbarExtensions": {
+        "design": {
+          "actions": [
+            {
+              "id": "change-trigger-type",
+              "icon": "square-mouse-pointer",
+              "label": "Change trigger type"
+            }
+          ]
+        }
+      },
+      "filterFields": {
+        "fields": [
+          {
+            "name": "contactEmail",
+            "displayName": "contactEmail",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "status",
+            "displayName": "status",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "vendorId",
+            "displayName": "vendorId",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "legalName",
+            "displayName": "legalName",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "country",
+            "displayName": "country",
+            "type": "string",
+            "required": false
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "uipath.connector.uipath-uipath-dataservice.query-entity-records",
+      "version": "1.0.0",
+      "category": "connector.50817",
+      "tags": [
+        "connector",
+        "activity"
+      ],
+      "sortOrder": 520,
+      "supportsErrorHandling": true,
+      "description": "Retrieves a list of records for the selected Entity from Data Fabric, according to specified filters.",
+      "display": {
+        "label": "Query Entity Records",
+        "description": "Retrieves a list of records for the selected Entity from Data Fabric, according to specified filters.",
+        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+        "sourceDisplayName": "UiPath Data Fabric"
+      },
+      "handleConfiguration": [
+        {
+          "position": "left",
+          "handles": [
+            {
+              "id": "input",
+              "type": "target",
+              "handleType": "input",
+              "label": ""
+            }
+          ]
+        },
+        {
+          "position": "right",
+          "handles": [
+            {
+              "id": "output",
+              "type": "source",
+              "handleType": "output",
+              "label": ""
+            },
+            {
+              "id": "error",
+              "label": "Error",
+              "type": "source",
+              "handleType": "output",
+              "visible": "{inputs.errorHandlingEnabled}",
+              "constraints": {
+                "maxConnections": 1
+              }
+            }
+          ]
+        }
+      ],
+      "model": {
+        "type": "bpmn:SendTask",
+        "serviceType": "Intsvc.ActivityExecution",
+        "bindings": {
+          "resource": "connection",
+          "resourceKey": "",
+          "values": [
+            {
+              "name": "uipath-uipath-dataservice connection",
+              "propertyAttribute": "ConnectionId"
+            },
+            {
+              "name": "FolderKey",
+              "propertyAttribute": "FolderKey"
+            }
+          ]
+        },
+        "context": [
+          {
+            "name": "connectorKey",
+            "type": "string",
+            "value": "uipath-uipath-dataservice"
+          },
+          {
+            "name": "operation",
+            "type": "string"
+          },
+          {
+            "name": "objectName",
+            "value": "QueryEntityRecordsCurated",
+            "type": "string"
+          },
+          {
+            "name": "method",
+            "type": "string",
+            "value": "POST"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "value": "<bindings.uipath-uipath-dataservice connection>"
+          },
+          {
+            "name": "folderKey",
+            "type": "string",
+            "value": "<bindings.FolderKey>"
+          },
+          {
+            "name": "activityConfigurationVersion",
+            "type": "string",
+            "value": "v1"
+          },
+          {
+            "name": "metadata",
+            "body": {
+              "telemetryData": {
+                "connectorKey": "uipath-uipath-dataservice",
+                "connectorName": "Query Entity Records"
+              },
+              "inputMetadata": {},
+              "errorState": {
+                "hasError": true
+              }
+            },
+            "type": "json"
+          }
+        ]
+      },
+      "form": {
+        "id": "connector-properties",
+        "title": "Connector configuration",
+        "sections": [
+          {
+            "id": "connector",
+            "title": "Connector",
+            "collapsible": true,
+            "defaultExpanded": true,
+            "fields": [
+              {
+                "label": "",
+                "name": "inputs.detail",
+                "type": "custom",
+                "component": "dap-config",
+                "componentProps": {
+                  "connectorDetail": {
+                    "isAppActivity": false,
+                    "packageId": "50817",
+                    "svgIconUrl": "icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+                    "displayName": "Query Entity Records",
+                    "assemblyQualifiedName": "UiPath.IntegrationService.Activities.Runtime.Activities.ConnectorActivity, UiPath.IntegrationService.Activities.Runtime, Version=1.29.0.0, Culture=neutral, PublicKeyToken=null",
+                    "description": "Retrieves a list of records for the selected Entity from Data Fabric, according to specified filters.",
+                    "category": "",
+                    "activityColor": "#E56D5C",
+                    "configuration": "{\"connectorKey\":\"uipath-uipath-dataservice\",\"objectName\":\"QueryEntityRecordsCurated\",\"httpMethod\":\"POST\",\"activityType\":\"Curated\",\"version\":\"1.0.0\",\"supportsStreaming\":false,\"subType\":\"standard\"}",
+                    "uiPathActivityTypeId": "703065b9-a310-33b8-9d4d-12df0a6f520b",
+                    "isExperimental": false,
+                    "helpUrlTemplate": "https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-uipath-dataservice-Query-Entity-Records",
+                    "isEnabled": true,
+                    "targetPlatform": "CrossPlatform",
+                    "isAdvanced": false,
+                    "isRestricted": false,
+                    "hasWpfOnlyDesigner": false,
+                    "tags": [
+                      ""
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "inputDefinition": {},
+      "inputDefaults": {},
+      "outputDefinition": {
+        "output": {
+          "type": "object",
+          "description": "The return value of the connector.",
+          "source": "=result.response",
+          "var": "output"
+        },
+        "error": {
+          "type": "object",
+          "description": "Error information if the node fails",
+          "source": "=Error",
+          "var": "error",
+          "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "required": [
+              "code",
+              "message",
+              "detail",
+              "category",
+              "status"
+            ],
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Error code as a string"
+              },
+              "message": {
+                "type": "string",
+                "description": "High-level error message"
+              },
+              "detail": {
+                "type": "string",
+                "description": "Detailed error description"
+              },
+              "category": {
+                "type": "string",
+                "description": "Error category"
+              },
+              "status": {
+                "type": "integer",
+                "description": "HTTP status code"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "debug": {
+        "runtime": "bpmnEngine"
+      }
     }
   ],
   "variables": {
@@ -5250,119 +5486,6 @@
       }
     ],
     "nodes": [
-      {
-        "id": "start.output",
-        "type": "object",
-        "description": "Data passed when manually triggering the process.",
-        "binding": {
-          "nodeId": "start",
-          "outputId": "output"
-        }
-      },
-      {
-        "id": "writeVendorRecord1.output",
-        "type": "object",
-        "description": "The return value of the connector.",
-        "binding": {
-          "nodeId": "writeVendorRecord1",
-          "outputId": "output"
-        }
-      },
-      {
-        "id": "writeVendorRecord1.error",
-        "type": "object",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "required": [
-            "code",
-            "message",
-            "detail",
-            "category",
-            "status"
-          ],
-          "properties": {
-            "code": {
-              "type": "string",
-              "description": "Error code as a string"
-            },
-            "message": {
-              "type": "string",
-              "description": "High-level error message"
-            },
-            "detail": {
-              "type": "string",
-              "description": "Detailed error description"
-            },
-            "category": {
-              "type": "string",
-              "description": "Error category"
-            },
-            "status": {
-              "type": "integer",
-              "description": "HTTP status code"
-            }
-          },
-          "additionalProperties": false
-        },
-        "description": "Error information if the node fails",
-        "binding": {
-          "nodeId": "writeVendorRecord1",
-          "outputId": "error"
-        }
-      },
-      {
-        "id": "writeDocumentRecords1.output",
-        "type": "object",
-        "description": "The return value of the connector.",
-        "binding": {
-          "nodeId": "writeDocumentRecords1",
-          "outputId": "output"
-        }
-      },
-      {
-        "id": "writeDocumentRecords1.error",
-        "type": "object",
-        "schema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "required": [
-            "code",
-            "message",
-            "detail",
-            "category",
-            "status"
-          ],
-          "properties": {
-            "code": {
-              "type": "string",
-              "description": "Error code as a string"
-            },
-            "message": {
-              "type": "string",
-              "description": "High-level error message"
-            },
-            "detail": {
-              "type": "string",
-              "description": "Detailed error description"
-            },
-            "category": {
-              "type": "string",
-              "description": "Error category"
-            },
-            "status": {
-              "type": "integer",
-              "description": "HTTP status code"
-            }
-          },
-          "additionalProperties": false
-        },
-        "description": "Error information if the node fails",
-        "binding": {
-          "nodeId": "writeDocumentRecords1",
-          "outputId": "error"
-        }
-      },
       {
         "id": "extractDocs.output",
         "type": "object",
@@ -5987,6 +6110,155 @@
           "nodeId": "checkMediumApproved",
           "outputId": "matchedCaseId"
         }
+      },
+      {
+        "id": "start.output",
+        "type": "object",
+        "description": "The return value of the connector trigger.",
+        "binding": {
+          "nodeId": "start",
+          "outputId": "output"
+        }
+      },
+      {
+        "id": "setStatusExtracting1.output",
+        "type": "object",
+        "description": "The return value of the connector.",
+        "binding": {
+          "nodeId": "setStatusExtracting1",
+          "outputId": "output"
+        }
+      },
+      {
+        "id": "setStatusExtracting1.error",
+        "type": "object",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "required": [
+            "code",
+            "message",
+            "detail",
+            "category",
+            "status"
+          ],
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "Error code as a string"
+            },
+            "message": {
+              "type": "string",
+              "description": "High-level error message"
+            },
+            "detail": {
+              "type": "string",
+              "description": "Detailed error description"
+            },
+            "category": {
+              "type": "string",
+              "description": "Error category"
+            },
+            "status": {
+              "type": "integer",
+              "description": "HTTP status code"
+            }
+          },
+          "additionalProperties": false
+        },
+        "description": "Error information if the node fails",
+        "binding": {
+          "nodeId": "setStatusExtracting1",
+          "outputId": "error"
+        }
+      },
+      {
+        "id": "fetchSubmittedDocuments1.output",
+        "type": "object",
+        "description": "The return value of the connector.",
+        "binding": {
+          "nodeId": "fetchSubmittedDocuments1",
+          "outputId": "output"
+        }
+      },
+      {
+        "id": "fetchSubmittedDocuments1.error",
+        "type": "object",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "required": [
+            "code",
+            "message",
+            "detail",
+            "category",
+            "status"
+          ],
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "Error code as a string"
+            },
+            "message": {
+              "type": "string",
+              "description": "High-level error message"
+            },
+            "detail": {
+              "type": "string",
+              "description": "Detailed error description"
+            },
+            "category": {
+              "type": "string",
+              "description": "Error category"
+            },
+            "status": {
+              "type": "integer",
+              "description": "HTTP status code"
+            }
+          },
+          "additionalProperties": false
+        },
+        "description": "Error information if the node fails",
+        "binding": {
+          "nodeId": "fetchSubmittedDocuments1",
+          "outputId": "error"
+        }
+      },
+      {
+        "id": "buildPacket.output",
+        "type": "object",
+        "description": "The return value of the script",
+        "binding": {
+          "nodeId": "buildPacket",
+          "outputId": "output"
+        }
+      },
+      {
+        "id": "buildPacket.error",
+        "type": "object",
+        "description": "Error information if the script fails",
+        "binding": {
+          "nodeId": "buildPacket",
+          "outputId": "error"
+        }
+      },
+      {
+        "id": "portalGuard.matchedCase",
+        "type": "string",
+        "description": "The label of the matched branch (true/false label)",
+        "binding": {
+          "nodeId": "portalGuard",
+          "outputId": "matchedCase"
+        }
+      },
+      {
+        "id": "portalGuard.matchedCaseId",
+        "type": "string",
+        "description": "The branch that was taken (true or false)",
+        "binding": {
+          "nodeId": "portalGuard",
+          "outputId": "matchedCaseId"
+        }
       }
     ]
   },
@@ -6095,39 +6367,6 @@
         "size": {
           "width": 778,
           "height": 488
-        },
-        "collapsed": false
-      },
-      "start": {
-        "position": {
-          "x": 48,
-          "y": 0
-        },
-        "size": {
-          "width": 96,
-          "height": 96
-        },
-        "collapsed": false
-      },
-      "writeVendorRecord1": {
-        "position": {
-          "x": 304,
-          "y": 0
-        },
-        "size": {
-          "width": 96,
-          "height": 96
-        },
-        "collapsed": false
-      },
-      "writeDocumentRecords1": {
-        "position": {
-          "x": 560,
-          "y": 0
-        },
-        "size": {
-          "width": 96,
-          "height": 96
         },
         "collapsed": false
       },
@@ -6465,6 +6704,72 @@
         "position": {
           "x": 3136,
           "y": 160
+        },
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "collapsed": false
+      },
+      "start": {
+        "position": {
+          "x": 48,
+          "y": 0
+        },
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "collapsed": false
+      },
+      "setStatusExtracting1": {
+        "position": {
+          "x": 304,
+          "y": 0
+        },
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "collapsed": false
+      },
+      "fetchSubmittedDocuments1": {
+        "position": {
+          "x": 432,
+          "y": 0
+        },
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "collapsed": false
+      },
+      "portalGuard": {
+        "position": {
+          "x": 176,
+          "y": 0
+        },
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "collapsed": false
+      },
+      "endIgnored": {
+        "position": {
+          "x": 176,
+          "y": 176
+        },
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "collapsed": false
+      },
+      "buildPacket": {
+        "position": {
+          "x": 576,
+          "y": 0
         },
         "size": {
           "width": 96,

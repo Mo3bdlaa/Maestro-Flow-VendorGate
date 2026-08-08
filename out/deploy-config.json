@@ -1,0 +1,262 @@
+{
+  "resources": [
+    {
+      "kind": "connection",
+      "name": "UiPath GenAI Activities",
+      "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
+      "folderPaths": [
+        "solution_folder"
+      ],
+      "configuration": {
+        "description": null,
+        "authenticationType": "AuthenticateAfterDeployment",
+        "connectorVersion": "1.81.0",
+        "connectorKey": "uipath-uipath-airdk",
+        "pollingInterval": 5
+      },
+      "linkToResource": {
+        "name": "UiPath GenAI Activities",
+        "folderPath": "ACME Project"
+      }
+    },
+    {
+      "kind": "connection",
+      "name": "mohamed.shaker@barqsystems.com",
+      "resourceKey": "127fb909-ac85-4c93-938f-135ab0398a6c",
+      "folderPaths": [
+        "solution_folder"
+      ],
+      "configuration": {
+        "description": null,
+        "authenticationType": "AuthenticateAfterDeployment",
+        "connectorVersion": "1.70.0",
+        "connectorKey": "uipath-uipath-dataservice",
+        "pollingInterval": 5
+      },
+      "linkToResource": {
+        "name": "mohamed.shaker@barqsystems.com",
+        "folderPath": "Vendor Gate"
+      }
+    },
+    {
+      "kind": "process",
+      "name": "VendorClearance",
+      "resourceKey": "37fdcb89-ef1e-4749-afc9-2420f00d749f",
+      "folderPaths": [
+        "solution_folder"
+      ],
+      "configuration": {
+        "description": null,
+        "packageName": "VendorGate.flow.VendorClearance",
+        "inputArguments": null,
+        "hiddenForAttendedUser": false,
+        "alwaysRunning": false,
+        "autoStartProcess": false,
+        "retentionAction": "Delete",
+        "retentionPeriod": 30,
+        "retentionBucketRef": null,
+        "staleRetentionAction": "Delete",
+        "staleRetentionPeriod": 180,
+        "staleRetentionBucketRef": null,
+        "connections": [
+          {
+            "key": "127fb909-ac85-4c93-938f-135ab0398a6c",
+            "name": "mohamed.shaker@barqsystems.com",
+            "folderKey": "28e521a7-b9b8-4fad-5c37-40e567eaa9cd",
+            "info": {
+              "resources": [
+                {
+                  "resourceId": "f8776006-0a90-31df-3a21-43860c258581",
+                  "resourceType": "EventTrigger",
+                  "resourceKey": "127fb909-ac85-4c93-938f-135ab0398a6c_start",
+                  "properties": [
+                    {
+                      "name": "ConnectionId",
+                      "value": "127fb909-ac85-4c93-938f-135ab0398a6c",
+                      "defaultValue": "127fb909-ac85-4c93-938f-135ab0398a6c",
+                      "isExpression": false
+                    },
+                    {
+                      "name": "EntryPointUniqueId",
+                      "value": "141f87b3-d481-43d4-8dab-19391ebee2ff",
+                      "defaultValue": "141f87b3-d481-43d4-8dab-19391ebee2ff",
+                      "isExpression": false
+                    }
+                  ],
+                  "folderFullyQualifiedName": "solution_folder",
+                  "folderType": 3,
+                  "folderProvisionType": "Automatic",
+                  "isOverwritable": true,
+                  "metadata": {
+                    "connector": "uipath-uipath-dataservice",
+                    "operation": "CREATED",
+                    "objectName": "Vendor",
+                    "filterExpression": "",
+                    "childResources": [],
+                    "activityName": "Vendor Submitted (Portal - Data Fabric)",
+                    "bindingsVersion": "2.2",
+                    "isSolutionResource": true
+                  }
+                },
+                {
+                  "resourceType": "Connection",
+                  "resourceKey": "127fb909-ac85-4c93-938f-135ab0398a6c",
+                  "properties": [
+                    {
+                      "name": "ConnectionId",
+                      "value": "127fb909-ac85-4c93-938f-135ab0398a6c",
+                      "defaultValue": "127fb909-ac85-4c93-938f-135ab0398a6c",
+                      "isExpression": false
+                    },
+                    {
+                      "name": "Connector",
+                      "defaultValue": "uipath-uipath-dataservice",
+                      "isExpression": false
+                    }
+                  ],
+                  "folderFullyQualifiedName": "solution_folder",
+                  "folderType": 3,
+                  "folderProvisionType": "Automatic",
+                  "isOverwritable": true,
+                  "metadata": {
+                    "connector": "uipath-uipath-dataservice",
+                    "useConnectionService": "true",
+                    "activityName": "Sanctions & Debarment Lookup (Data Fabric)",
+                    "bindingsVersion": "2.2",
+                    "isSolutionResource": true
+                  }
+                }
+              ],
+              "overwrites": [
+                {
+                  "resourceType": "EventTrigger",
+                  "resourceKey": "127fb909-ac85-4c93-938f-135ab0398a6c_start",
+                  "entityId": "f8776006-0a90-31df-3a21-43860c258581",
+                  "resourceName": "VendorClearance_Vendor Submitted (Portal - Data Fabric)-Vendor Submitted (Portal - Data Fabric)",
+                  "properties2": [
+                    {
+                      "name": "ConnectionId",
+                      "value": "127fb909-ac85-4c93-938f-135ab0398a6c"
+                    },
+                    {
+                      "name": "EntryPointUniqueId",
+                      "value": "141f87b3-d481-43d4-8dab-19391ebee2ff"
+                    },
+                    {
+                      "name": "folderKey",
+                      "value": "28e521a7-b9b8-4fad-5c37-40e567eaa9cd"
+                    }
+                  ]
+                },
+                {
+                  "resourceType": "Connection",
+                  "resourceKey": "127fb909-ac85-4c93-938f-135ab0398a6c",
+                  "entityId": "127fb909-ac85-4c93-938f-135ab0398a6c",
+                  "properties2": [
+                    {
+                      "name": "ConnectionId",
+                      "value": "127fb909-ac85-4c93-938f-135ab0398a6c"
+                    },
+                    {
+                      "name": "Connector"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "key": "9e6b90f5-2b61-49f1-afda-c90061443385",
+            "name": "UiPath GenAI Activities",
+            "folderKey": "28e521a7-b9b8-4fad-5c37-40e567eaa9cd",
+            "info": {
+              "resources": [
+                {
+                  "resourceType": "Connection",
+                  "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
+                  "properties": [
+                    {
+                      "name": "ConnectionId",
+                      "value": "9e6b90f5-2b61-49f1-afda-c90061443385",
+                      "defaultValue": "9e6b90f5-2b61-49f1-afda-c90061443385",
+                      "isExpression": false
+                    },
+                    {
+                      "name": "Connector",
+                      "defaultValue": "uipath-uipath-airdk",
+                      "isExpression": false
+                    }
+                  ],
+                  "folderFullyQualifiedName": "solution_folder",
+                  "folderType": 3,
+                  "folderProvisionType": "Automatic",
+                  "isOverwritable": true,
+                  "metadata": {
+                    "connector": "uipath-uipath-airdk",
+                    "useConnectionService": "true",
+                    "activityName": "Adverse Media Web Search",
+                    "bindingsVersion": "2.2",
+                    "isSolutionResource": true
+                  }
+                }
+              ],
+              "overwrites": [
+                {
+                  "resourceType": "Connection",
+                  "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
+                  "entityId": "9e6b90f5-2b61-49f1-afda-c90061443385",
+                  "properties2": [
+                    {
+                      "name": "ConnectionId",
+                      "value": "9e6b90f5-2b61-49f1-afda-c90061443385"
+                    },
+                    {
+                      "name": "Connector"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tags": []
+      }
+    },
+    {
+      "kind": "trigger",
+      "name": "VendorClearance_Vendor Submitted (Portal - Data Fabric)-Vendor Submitted (Portal - Data Fabric)",
+      "resourceKey": "f8776006-0a90-31df-3a21-43860c258581",
+      "folderPaths": [
+        "solution_folder"
+      ],
+      "configuration": {
+        "description": null,
+        "enabled": false,
+        "runAsMe": false,
+        "inputArguments": null,
+        "jobPriorityValue": "Inherited",
+        "runtimeType": "Unattended",
+        "resumeOnSameContext": false,
+        "stopStrategy": "None",
+        "stopJobAfterDays": 0,
+        "stopJobAfterHours": 0,
+        "stopJobAfterMinutes": 0,
+        "scheduleAutomaticKill": false,
+        "killJobAfterDays": 0,
+        "killJobAfterHours": 0,
+        "killJobAfterMinutes": 0,
+        "generateAlertIfJobStuck": false,
+        "alertPendingJobAfterDays": 0,
+        "alertPendingJobAfterHours": 0,
+        "alertPendingJobAfterMinutes": 0,
+        "generateAlertIfJobNotCompleted": false,
+        "alertRunningJobAfterDays": 0,
+        "alertRunningJobAfterHours": 0,
+        "alertRunningJobAfterMinutes": 0,
+        "executionBasedTriggerDisabling": false,
+        "consecutiveJobFailuresThreshold": 0,
+        "jobFailuresGracePeriodInHours": 0
+      }
+    }
+  ]
+}

@@ -23,7 +23,13 @@ export interface VendorService {
   /** Vendor: upload corrected documents and mark the case resubmitted. */
   resubmit(
     vendor: VendorRecord,
-    files: { docType: number; docId: string; issueNote: string; file?: File | null }[],
+    files: {
+      docType: number;
+      docId: string;
+      issueNote: string;
+      extractedFields?: string;
+      file?: File | null;
+    }[],
   ): Promise<void>;
   createVendor(data: {
     vendorId: string;
@@ -32,7 +38,13 @@ export interface VendorService {
     contactEmail?: string;
   }): Promise<void>;
   createDocument(
-    data: { docId: string; vendorId: string; docType: number; issueNote: string },
+    data: {
+      docId: string;
+      vendorId: string;
+      docType: number;
+      issueNote: string;
+      extractedFields?: string;
+    },
     file?: File | null,
   ): Promise<void>;
 }
@@ -69,7 +81,13 @@ export function liveService(entities: Entities): VendorService {
         if (!f.file) continue;
         await liveCreateDocument(
           entities,
-          { docId: f.docId, vendorId: vendor.vendorId!, docType: f.docType, issueNote: f.issueNote },
+          {
+            docId: f.docId,
+            vendorId: vendor.vendorId!,
+            docType: f.docType,
+            issueNote: f.issueNote,
+            extractedFields: f.extractedFields,
+          },
           f.file,
         );
       }
@@ -136,6 +154,7 @@ export function demoService(): VendorService {
             vendorId: vendor.vendorId,
             docType: f.docType,
             issueNote: f.issueNote,
+            extractedFields: f.extractedFields,
             valid: false,
           });
         }

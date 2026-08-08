@@ -13,7 +13,7 @@
         }
       },
       "metadata": {
-        "ActivityName": "Write Vendor Record",
+        "ActivityName": "Sanctions & Debarment Lookup (Data Fabric)",
         "BindingsVersion": "2.2",
         "DisplayLabel": "uipath-uipath-dataservice connection",
         "UseConnectionService": "true",
@@ -37,6 +37,30 @@
         "DisplayLabel": "uipath-uipath-airdk connection",
         "UseConnectionService": "true",
         "Connector": "uipath-uipath-airdk"
+      }
+    },
+    {
+      "resource": "EventTrigger",
+      "key": "127fb909-ac85-4c93-938f-135ab0398a6c_start",
+      "id": "EventTrigger127fb909-ac85-4c93-938f-135ab0398a6c_start",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "isExpression": false
+        },
+        "EntryPointUniqueId": {
+          "defaultValue": "141f87b3-d481-43d4-8dab-19391ebee2ff",
+          "isExpression": false
+        }
+      },
+      "metadata": {
+        "UseConnectionService": "true",
+        "Connector": "uipath-uipath-dataservice",
+        "ActivityName": "Vendor Submitted (Portal - Data Fabric)",
+        "BindingsVersion": "2.2",
+        "ObjectName": "Vendor",
+        "Operation": "CREATED",
+        "FilterExpression": ""
       }
     }
   ]

@@ -83,7 +83,13 @@ export async function createVendor(
 
 export async function createDocument(
   entities: Entities,
-  data: { docId: string; vendorId: string; docType: number; issueNote: string },
+  data: {
+    docId: string;
+    vendorId: string;
+    docType: number;
+    issueNote: string;
+    extractedFields?: string;
+  },
   file?: File | null,
 ) {
   const inserted = normalize<{ id?: string }>(

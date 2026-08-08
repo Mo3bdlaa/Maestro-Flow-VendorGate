@@ -8,6 +8,12 @@ exception paths are the main event: a 48-hour human-vs-timer race, agent-driven
 cross-document validation, sanctions screening against **real OFAC data**,
 risk-tiered parallel approvals, and compensation when provisioning fails.
 
+The pipeline is **event-driven end to end**: submitting through the portal writes
+the packet to Data Fabric, and the flow's *Record Created* trigger picks it up —
+no manual start, no polling glue code. Document text is extracted client-side
+(pdfjs) at upload, so the flow works from raw text through a generative
+extraction agent.
+
 One `.uipx` solution, one deployable artifact, two projects:
 
 ```

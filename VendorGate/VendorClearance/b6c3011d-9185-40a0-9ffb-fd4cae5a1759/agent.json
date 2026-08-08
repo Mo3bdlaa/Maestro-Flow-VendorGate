@@ -11,13 +11,11 @@
   "inputSchema": {
     "type": "object",
     "properties": {
-      "start__output__packetText": {
-        "type": "string",
-        "description": "Bound from $vars.start.output.packetText"
+      "buildPacket__output__packetText": {
+        "description": "Bound from $vars.buildPacket.output.packetText"
       },
-      "start__output__docsJson": {
-        "type": "string",
-        "description": "Bound from $vars.start.output.docsJson"
+      "buildPacket__output__docsJson": {
+        "description": "Bound from $vars.buildPacket.output.docsJson"
       }
     }
   },
@@ -58,7 +56,7 @@
     },
     {
       "role": "user",
-      "content": "Raw packet text (may be empty):\n{{input.start__output__packetText}}\n\nPre-structured docsJson (may be empty):\n{{input.start__output__docsJson}}",
+      "content": "Raw packet text (may be empty):\n{{input.buildPacket__output__packetText}}\n\nPre-structured docsJson (may be empty):\n{{input.buildPacket__output__docsJson}}",
       "contentTokens": [
         {
           "type": "simpleText",
@@ -66,7 +64,7 @@
         },
         {
           "type": "variable",
-          "rawString": "input.start__output__packetText"
+          "rawString": "input.buildPacket__output__packetText"
         },
         {
           "type": "simpleText",
@@ -74,7 +72,7 @@
         },
         {
           "type": "variable",
-          "rawString": "input.start__output__docsJson"
+          "rawString": "input.buildPacket__output__docsJson"
         }
       ]
     }

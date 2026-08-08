@@ -24,7 +24,7 @@
           }
         },
         "bindingMetadata": {
-          "activityName": "Write Vendor Record",
+          "activityName": "Sanctions & Debarment Lookup (Data Fabric)",
           "bindingsVersion": "2.2",
           "connector": "uipath-uipath-dataservice",
           "useConnectionService": "true"
@@ -55,6 +55,30 @@
         "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
         "resourceName": "UiPath GenAI Activities",
         "folderKey": "e030afee-a5ae-496a-97c8-1aaa3fff1256"
+      },
+      {
+        "bindingType": "EventTrigger",
+        "bindingKey": "127fb909-ac85-4c93-938f-135ab0398a6c_start",
+        "bindingValues": {
+          "connectionId": {
+            "defaultValue": "127fb909-ac85-4c93-938f-135ab0398a6c",
+            "isExpression": false
+          },
+          "entryPointUniqueId": {
+            "defaultValue": "141f87b3-d481-43d4-8dab-19391ebee2ff",
+            "isExpression": false
+          }
+        },
+        "bindingMetadata": {
+          "activityName": "Vendor Submitted (Portal - Data Fabric)",
+          "bindingsVersion": "2.2",
+          "connector": "uipath-uipath-dataservice",
+          "operation": "CREATED",
+          "objectName": "Vendor",
+          "filterExpression": ""
+        },
+        "resourceKind": "Connection",
+        "resourceType": "uipath-uipath-dataservice"
       }
     ],
     "folders": [

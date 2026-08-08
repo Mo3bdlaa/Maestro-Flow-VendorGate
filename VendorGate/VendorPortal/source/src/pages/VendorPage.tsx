@@ -23,6 +23,7 @@ import {
 
 import type { ValidationIssue, VendorDocumentRecord, VendorRecord } from '../types';
 import { parseJson } from '../types';
+import { extractFileText } from '../pdf-text';
 
 /* ---------------------------------- stepper --------------------------------- */
 
@@ -201,21 +202,26 @@ function NewSubmission({
     setError(null);
     const ref = 'VND-' + Date.now().toString(36).toUpperCase().slice(-5) + Math.floor(Math.random() * 1296).toString(36).toUpperCase().padStart(2, '0');
     try {
-      await svc.createVendor({ vendorId: ref, legalName: legalName.trim(), country: country.trim(), contactEmail: contactEmail.trim() });
+      // Documents first, vendor row last: creating the Vendor record is what
+      // fires the flow's Data Fabric trigger, so every document (with its
+      // extracted text) must already be in place when the flow wakes up.
       for (let i = 0; i < DOC_TYPES.length; i++) {
         const dt = DOC_TYPES[i];
         const file = files[dt.key];
         if (!file) continue;
+        const rawText = await extractFileText(file);
         await svc.createDocument(
           {
             docId: `${ref}-${dt.key}`,
             vendorId: ref,
             docType: i,
             issueNote: `${file.name} uploaded via portal - awaiting extraction`,
+            extractedFields: rawText ? JSON.stringify({ rawText }) : '',
           },
           file,
         );
       }
+      await svc.createVendor({ vendorId: ref, legalName: legalName.trim(), country: country.trim(), contactEmail: contactEmail.trim() });
       onDone(ref);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Submission failed');
@@ -401,15 +407,21 @@ function ResubmitPanel({ svc, vendor, onDone }: { svc: VendorService; vendor: Ve
     setError(null);
     try {
       const stamp = Date.now().toString(36);
-      await svc.resubmit(
-        vendor,
-        DOC_TYPES.map((dt, i) => ({
+      const entries = [];
+      for (let i = 0; i < DOC_TYPES.length; i++) {
+        const dt = DOC_TYPES[i];
+        const file = files[dt.key];
+        if (!file) continue;
+        const rawText = await extractFileText(file);
+        entries.push({
           docType: i,
           docId: `${vendor.vendorId}-${dt.key}-r${stamp}`,
-          issueNote: files[dt.key] ? `${files[dt.key]!.name} - corrected resubmission` : '',
-          file: files[dt.key],
-        })).filter((f) => f.file),
-      );
+          issueNote: `${file.name} - corrected resubmission`,
+          extractedFields: rawText ? JSON.stringify({ rawText }) : '',
+          file,
+        });
+      }
+      await svc.resubmit(vendor, entries);
       onDone();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Resubmission failed');
