@@ -3,6 +3,7 @@ export type VendorRecord = {
   vendorId?: string;
   legalName?: string;
   country?: string;
+  contactEmail?: string;
   status?: number;
   riskTier?: number;
   riskScore?: number;

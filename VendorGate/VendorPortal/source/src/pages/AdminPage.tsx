@@ -30,6 +30,7 @@ function VendorProfile({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [note, setNote] = useState<string | null>(null);
+  const [sendBackNote, setSendBackNote] = useState('');
 
   useEffect(() => {
     if (vendor.vendorId) {
@@ -72,6 +73,7 @@ function VendorProfile({
       >
         <dl className="grid gap-5 sm:grid-cols-4">
           <Field label="Country">{vendor.country || '—'}</Field>
+          <Field label="Contact">{vendor.contactEmail || '—'}</Field>
           <Field label="Risk tier">{riskTierName(vendor.riskTier)}</Field>
           <Field label="Risk score">
             {vendor.riskScore ?? vendor.riskScore === 0 ? String(vendor.riskScore) : '—'}
@@ -264,14 +266,44 @@ function VendorProfile({
           >
             Reject
           </button>
-          <button
-            disabled={busy}
-            onClick={() => act(2, 'Sent back to vendor')}
-            className="rounded-lg border border-amber-400 bg-amber-50 px-4 py-2 text-sm font-medium text-amber-900 hover:bg-amber-100 disabled:opacity-50"
-          >
+        </div>
+
+        <div className="mt-5 rounded-xl border border-amber-200 bg-amber-50/50 p-4">
+          <label className="block text-sm font-semibold text-amber-900">
             Send back to vendor
+          </label>
+          <p className="mt-0.5 text-xs text-amber-800">
+            Tell the vendor exactly what to fix — your note appears on their tracking page.
+          </p>
+          <textarea
+            value={sendBackNote}
+            onChange={(e) => setSendBackNote(e.target.value)}
+            rows={3}
+            placeholder="e.g. The insurance certificate is expired - please upload a policy valid beyond the next 30 days."
+            className="mt-3 w-full rounded-lg border border-amber-300 bg-white px-3 py-2 text-sm placeholder:text-slate-400 focus:border-amber-500 focus:outline-none"
+          />
+          <button
+            disabled={busy || !sendBackNote.trim()}
+            onClick={async () => {
+              setBusy(true);
+              setError(null);
+              try {
+                await svc.sendBack(vendor, sendBackNote.trim());
+                setNote('Sent back to vendor with your note.');
+                setSendBackNote('');
+                onChanged();
+              } catch (err) {
+                setError(err instanceof Error ? err.message : 'Update failed');
+              } finally {
+                setBusy(false);
+              }
+            }}
+            className="mt-3 rounded-lg border border-amber-400 bg-amber-100 px-4 py-2 text-sm font-medium text-amber-900 hover:bg-amber-200 disabled:opacity-50"
+          >
+            Send back with note
           </button>
         </div>
+
         <p className="mt-3 text-xs text-slate-500">
           Approval tasks raised by the flow are completed in Action Center; these buttons
           override the record directly.

@@ -189,6 +189,7 @@ function NewSubmission({
   onCancel: () => void;
 }) {
     const [legalName, setLegalName] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
   const [country, setCountry] = useState('');
   const [files, setFiles] = useState<Record<string, File | null>>({});
   const [busy, setBusy] = useState(false);
@@ -200,7 +201,7 @@ function NewSubmission({
     setError(null);
     const ref = 'VND-' + Date.now().toString(36).toUpperCase().slice(-5) + Math.floor(Math.random() * 1296).toString(36).toUpperCase().padStart(2, '0');
     try {
-      await svc.createVendor({ vendorId: ref, legalName: legalName.trim(), country: country.trim() });
+      await svc.createVendor({ vendorId: ref, legalName: legalName.trim(), country: country.trim(), contactEmail: contactEmail.trim() });
       for (let i = 0; i < DOC_TYPES.length; i++) {
         const dt = DOC_TYPES[i];
         const file = files[dt.key];
@@ -240,6 +241,9 @@ function NewSubmission({
             <span className="text-xs uppercase tracking-wide text-slate-400">Your reference</span>
             <p className="mt-0.5 text-sm font-medium text-slate-600">Generated automatically when you submit</p>
           </div>
+          <FieldLabel label="Contact email" hint="We use this to notify you about your application.">
+            <TextInput required type="email" value={contactEmail} onChange={(e) => setContactEmail(e.target.value)} placeholder="finance@yourcompany.com" />
+          </FieldLabel>
           <FieldLabel label="Country">
             <TextInput required value={country} onChange={(e) => setCountry(e.target.value)} placeholder="AE" />
           </FieldLabel>
@@ -385,6 +389,89 @@ function EntryChoice({ onNew, onTrack }: { onNew: () => void; onTrack: (ref: str
   );
 }
 
+
+function ResubmitPanel({ svc, vendor, onDone }: { svc: VendorService; vendor: VendorRecord; onDone: () => void }) {
+  const [files, setFiles] = useState<Record<string, File | null>>({});
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const picked = Object.values(files).filter(Boolean).length;
+
+  const submit = async () => {
+    setBusy(true);
+    setError(null);
+    try {
+      const stamp = Date.now().toString(36);
+      await svc.resubmit(
+        vendor,
+        DOC_TYPES.map((dt, i) => ({
+          docType: i,
+          docId: `${vendor.vendorId}-${dt.key}-r${stamp}`,
+          issueNote: files[dt.key] ? `${files[dt.key]!.name} - corrected resubmission` : '',
+          file: files[dt.key],
+        })).filter((f) => f.file),
+      );
+      onDone();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Resubmission failed');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <Card
+      title="Update & resubmit"
+      subtitle="Upload the corrected documents. Only the ones you replace are resubmitted."
+    >
+      <div className="grid gap-3 sm:grid-cols-2">
+        {DOC_TYPES.map((dt) => {
+          const f = files[dt.key];
+          return (
+            <label
+              key={dt.key}
+              className={
+                'block cursor-pointer rounded-xl border-2 border-dashed p-4 transition-colors ' +
+                (f ? 'border-emerald-300 bg-emerald-50/70' : 'border-slate-200 hover:border-brand-500 hover:bg-brand-50/40')
+              }
+            >
+              <span className="block text-sm font-medium">{dt.label}</span>
+              <input
+                type="file"
+                accept="application/pdf,image/*"
+                className="sr-only"
+                onChange={(e) => setFiles((s) => ({ ...s, [dt.key]: e.target.files?.[0] ?? null }))}
+              />
+              <span
+                className={
+                  'mt-3 inline-block break-all rounded-lg px-3 py-1.5 text-xs font-medium ' +
+                  (f ? 'bg-emerald-600 text-white' : 'bg-slate-900 text-white')
+                }
+              >
+                {f ? `✓ ${f.name}` : 'Replace file'}
+              </span>
+            </label>
+          );
+        })}
+      </div>
+      {error && (
+        <div className="mt-4">
+          <Banner tone="bad">{error}</Banner>
+        </div>
+      )}
+      <Button onClick={submit} disabled={busy || picked === 0} className="mt-5">
+        {busy
+          ? 'Resubmitting…'
+          : picked === 0
+            ? 'Choose at least one corrected file'
+            : `Resubmit ${picked} document${picked > 1 ? 's' : ''}`}
+      </Button>
+      <p className="mt-3 text-xs text-slate-500">
+        Resubmission moves your application back to review; procurement completes the open task.
+      </p>
+    </Card>
+  );
+}
+
 /* ----------------------------------- page ----------------------------------- */
 
 export default function VendorPage({ svc }: { svc: VendorService }) {
@@ -484,6 +571,10 @@ export default function VendorPage({ svc }: { svc: VendorService }) {
         >
           <Feedback issues={vendor.issues} />
         </Card>
+      )}
+
+      {vendor?.status === 2 && (
+        <ResubmitPanel svc={svc} vendor={vendor} onDone={() => reference && load(reference)} />
       )}
 
       {vendor && (

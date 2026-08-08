@@ -70,7 +70,7 @@ export async function updateVendorStatus(
 
 export async function createVendor(
   entities: Entities,
-  data: { vendorId: string; legalName: string; country: string },
+  data: { vendorId: string; legalName: string; country: string; contactEmail?: string },
 ) {
   const now = new Date().toISOString();
   return entities.insertRecordById(VENDOR_ENTITY_ID, {

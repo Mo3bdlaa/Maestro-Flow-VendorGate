@@ -17,13 +17,21 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  // Explicit redirectUri (takes precedence over the meta tag): the build bakes
-  // the localhost dev value into the page, which breaks login on the deployed
-  // host. Derived from the current location, trailing slash stripped so it
-  // matches the registered URI regardless of how the page was reached.
+  // Full explicit SDK config: the deployed page carries TWO sets of
+  // <meta name="uipath:*"> tags (platform-injected + build-baked) and the SDK
+  // reads whichever comes first, which has produced invalid login requests.
+  // Constructor config takes precedence over every meta tag — deterministic.
   const [sdk] = useState<UiPath>(() => {
     const path = window.location.pathname.replace(/\/+$/, '');
-    return new UiPath({ redirectUri: window.location.origin + path });
+    const local = window.location.hostname === 'localhost';
+    return new UiPath({
+      clientId: 'e0e3d12f-12fe-4539-bda5-56b0e17f25bf',
+      orgName: 'moshaker',
+      tenantName: 'DefaultTenant',
+      baseUrl: 'https://api.uipath.com',
+      scope: 'DataFabric.Schema.Read DataFabric.Data.Read DataFabric.Data.Write',
+      redirectUri: local ? 'http://localhost:5173' : window.location.origin + path,
+    });
   });
   const didInit = useRef(false);
 
