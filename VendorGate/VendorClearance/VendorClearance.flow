@@ -25,7 +25,7 @@
       },
       "inputs": {
         "color": "blue",
-        "content": "1 - INTAKE & GENERATIVE EXTRACTION\nVendor + document rows persisted to Data Fabric first. The extraction agent turns raw packet text into typed documents."
+        "content": "1 - EVENT-DRIVEN INTAKE & GENERATIVE EXTRACTION\nA portal submission writes the packet to Data Fabric; a Record Created trigger starts the flow. It claims the newest submission, fetches the documents, and the extraction agent turns raw text into typed documents."
       }
     },
     {
@@ -49,7 +49,7 @@
       },
       "inputs": {
         "color": "orange",
-        "content": "3 - VENDOR QUERY LOOP (the main event)\nIssues go to the vendor with a 48h deadline. Resubmission re-extracts; timeout escalates to procurement. Nothing fails silently."
+        "content": "3 - VENDOR QUERY LOOP (the main event)\nIssues go to the vendor with a 48h deadline. Resubmission re-fetches and re-extracts the corrected documents; timeout escalates to procurement. Nothing fails silently."
       }
     },
     {
@@ -101,13 +101,13 @@
         "source": "b6c3011d-9185-40a0-9ffb-fd4cae5a1759",
         "agentInputVariables": [
           {
-            "id": "start__output__packetText",
+            "id": "buildPacket__output__packetText",
             "type": "string",
             "binding": "=$vars.buildPacket.output.packetText",
             "description": "Bound from $vars.buildPacket.output.packetText"
           },
           {
-            "id": "start__output__docsJson",
+            "id": "buildPacket__output__docsJson",
             "type": "string",
             "binding": "=$vars.buildPacket.output.docsJson",
             "description": "Bound from $vars.buildPacket.output.docsJson"
@@ -165,13 +165,13 @@
             "description": "Bound from $vars.extractDocs.output.docsJson"
           },
           {
-            "id": "start__output__country",
+            "id": "pickVendor__output__country",
             "type": "string",
             "binding": "=$vars.pickVendor.output.country",
             "description": "Bound from $vars.pickVendor.output.country"
           },
           {
-            "id": "start__output__legalName",
+            "id": "pickVendor__output__legalName",
             "type": "string",
             "binding": "=$vars.pickVendor.output.legalName",
             "description": "Bound from $vars.pickVendor.output.legalName"
@@ -441,13 +441,13 @@
         "source": "47e795d6-ca08-4c0d-b1a9-47071a08b775",
         "agentInputVariables": [
           {
-            "id": "start__output__legalName",
+            "id": "pickVendor__output__legalName",
             "type": "string",
             "binding": "=$vars.pickVendor.output.legalName",
             "description": "Bound from $vars.pickVendor.output.legalName"
           },
           {
-            "id": "start__output__country",
+            "id": "pickVendor__output__country",
             "type": "string",
             "binding": "=$vars.pickVendor.output.country",
             "description": "Bound from $vars.pickVendor.output.country"
@@ -1774,7 +1774,7 @@
       "outputs": {
         "output": {
           "type": "object",
-          "description": "The return value of the connector trigger.",
+          "description": "Data passed when manually triggering the process.",
           "source": "=result.response",
           "var": "output"
         }
@@ -5147,6 +5147,178 @@
       }
     },
     {
+      "nodeType": "uipath.connector.trigger.uipath-uipath-dataservice.record-created",
+      "version": "1.0.0",
+      "category": "trigger.50817",
+      "tags": [
+        "connector",
+        "trigger",
+        "Trigger.Integrated"
+      ],
+      "sortOrder": 540,
+      "description": "Trigger when a new record is added in UiPath Data Fabric.",
+      "display": {
+        "label": "Record Created",
+        "description": "Trigger when a new record is added in UiPath Data Fabric.",
+        "icon": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+        "sourceDisplayName": "UiPath Data Fabric",
+        "shape": "circle"
+      },
+      "handleConfiguration": [
+        {
+          "position": "right",
+          "handles": [
+            {
+              "id": "output",
+              "type": "source",
+              "handleType": "output",
+              "showButton": true,
+              "constraints": {
+                "forbiddenTargetCategories": [
+                  "trigger"
+                ]
+              }
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "model": {
+        "type": "bpmn:StartEvent",
+        "entryPointId": true,
+        "serviceType": "Intsvc.EventTrigger",
+        "eventDefinition": "bpmn:MessageEventDefinition",
+        "bindings": {
+          "resource": "connection",
+          "resourceKey": "",
+          "values": [
+            {
+              "name": "uipath-uipath-dataservice connection",
+              "propertyAttribute": "ConnectionId"
+            },
+            {
+              "name": "FolderKey",
+              "propertyAttribute": "FolderKey"
+            }
+          ]
+        },
+        "context": [
+          {
+            "name": "connectorKey",
+            "type": "string",
+            "value": "uipath-uipath-dataservice"
+          },
+          {
+            "name": "operation",
+            "value": "CREATED",
+            "type": "string"
+          },
+          {
+            "name": "objectName",
+            "type": "string",
+            "value": "Vendor"
+          },
+          {
+            "name": "method",
+            "type": "string"
+          },
+          {
+            "name": "connection",
+            "type": "string",
+            "value": "<bindings.uipath-uipath-dataservice connection>"
+          },
+          {
+            "name": "folderKey",
+            "type": "string",
+            "value": "<bindings.FolderKey>"
+          },
+          {
+            "name": "activityConfigurationVersion",
+            "type": "string",
+            "value": "v1"
+          },
+          {
+            "name": "metadata",
+            "body": {
+              "telemetryData": {
+                "connectorKey": "uipath-uipath-dataservice",
+                "connectorName": "Record Created"
+              },
+              "inputMetadata": {},
+              "errorState": {
+                "hasError": true
+              }
+            },
+            "type": "json"
+          }
+        ]
+      },
+      "form": {
+        "id": "connector-properties",
+        "title": "Connector configuration",
+        "sections": [
+          {
+            "id": "connector",
+            "title": "Connector",
+            "collapsible": true,
+            "defaultExpanded": true,
+            "fields": [
+              {
+                "label": "",
+                "name": "inputs.detail",
+                "type": "custom",
+                "component": "dap-config",
+                "componentProps": {
+                  "connectorDetail": {
+                    "type": "Integrated",
+                    "packageId": "50817",
+                    "svgIconUrl": "icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+                    "displayName": "Record Created",
+                    "assemblyQualifiedName": "UiPath.IntegrationService.Activities.Runtime.Activities.ConnectorTriggerActivity, UiPath.IntegrationService.Activities.Runtime, Version=1.29.0.0, Culture=neutral, PublicKeyToken=null",
+                    "description": "Trigger when a new record is added in UiPath Data Fabric.",
+                    "category": "UiPath Data Fabric.Triggers",
+                    "activityColor": "#E56D5C",
+                    "configuration": "{\"connectorKey\":\"uipath-uipath-dataservice\",\"activityType\":\"GenericTrigger\",\"version\":\"1.0.0\",\"eventOperation\":\"CREATED\",\"eventMode\":\"polling\",\"supportsStreaming\":false}",
+                    "uiPathActivityTypeId": "af2a53ad-5d90-3d4e-bf3c-55b6d91595cd",
+                    "isExperimental": false,
+                    "helpUrlTemplate": "https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-uipath-dataservice-Record-Created",
+                    "isEnabled": true,
+                    "targetPlatform": "CrossPlatform",
+                    "isAdvanced": false,
+                    "isRestricted": false,
+                    "hasWpfOnlyDesigner": false,
+                    "tags": [
+                      "Trigger.Integrated"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "inputDefinition": {},
+      "outputDefinition": {
+        "output": {
+          "type": "object",
+          "description": "The return value of the connector trigger.",
+          "source": "=result.response",
+          "var": "output"
+        }
+      },
+      "toolbarExtensions": {
+        "design": {
+          "actions": [
+            {
+              "id": "change-trigger-type",
+              "icon": "square-mouse-pointer",
+              "label": "Change trigger type"
+            }
+          ]
+        }
+      }
+    },
+    {
       "nodeType": "uipath.connector.uipath-uipath-dataservice.query-entity-records",
       "version": "1.0.0",
       "category": "connector.50817",
@@ -6283,84 +6455,84 @@
     "nodes": {
       "noteTitle": {
         "position": {
-          "x": 0,
+          "x": 64,
           "y": -320
         },
         "size": {
           "width": 640,
-          "height": 200
+          "height": 176
         },
         "collapsed": false
       },
       "noteIntake": {
         "position": {
           "x": 0,
-          "y": -96
+          "y": -112
         },
         "size": {
-          "width": 1042,
-          "height": 280
+          "width": 1856,
+          "height": 464
         },
         "collapsed": false
       },
       "noteValidation": {
         "position": {
-          "x": 1072,
-          "y": -96
+          "x": 1888,
+          "y": -112
         },
         "size": {
-          "width": 560,
-          "height": 280
+          "width": 544,
+          "height": 464
         },
         "collapsed": false
       },
       "noteQueryLoop": {
         "position": {
-          "x": 1680,
-          "y": -656
+          "x": 2448,
+          "y": -720
         },
         "size": {
-          "width": 2130,
-          "height": 684
+          "width": 1504,
+          "height": 528
         },
         "collapsed": false
       },
       "noteScreening": {
         "position": {
-          "x": 1680,
-          "y": 64
+          "x": 2416,
+          "y": 384
         },
         "size": {
-          "width": 1110,
-          "height": 756
+          "width": 848,
+          "height": 464
         },
         "collapsed": false
       },
       "noteApprovals": {
         "position": {
-          "x": 2832,
-          "y": 64
+          "x": 3312,
+          "y": 208
         },
         "size": {
-          "width": 990,
-          "height": 760
+          "width": 1232,
+          "height": 832
         },
         "collapsed": false
       },
       "noteProvisioning": {
         "position": {
-          "x": 3856,
-          "y": -272
+          "x": 4608,
+          "y": 384
         },
         "size": {
-          "width": 778,
-          "height": 488
+          "width": 624,
+          "height": 464
         },
         "collapsed": false
       },
       "extractDocs": {
         "position": {
-          "x": 944,
+          "x": 1520,
           "y": 0
         },
         "size": {
@@ -6371,7 +6543,7 @@
       },
       "validationAgent": {
         "position": {
-          "x": 1120,
+          "x": 1936,
           "y": 0
         },
         "size": {
@@ -6382,7 +6554,7 @@
       },
       "checkIssues": {
         "position": {
-          "x": 1472,
+          "x": 2288,
           "y": 0
         },
         "size": {
@@ -6393,8 +6565,8 @@
       },
       "vendorQuery": {
         "position": {
-          "x": 2368,
-          "y": -560
+          "x": 2720,
+          "y": -480
         },
         "size": {
           "width": 96,
@@ -6404,8 +6576,8 @@
       },
       "delay48h": {
         "position": {
-          "x": 2368,
-          "y": -256
+          "x": 2928,
+          "y": -480
         },
         "size": {
           "width": 96,
@@ -6415,8 +6587,8 @@
       },
       "checkDeadline": {
         "position": {
-          "x": 2624,
-          "y": -256
+          "x": 3136,
+          "y": -480
         },
         "size": {
           "width": 96,
@@ -6426,8 +6598,8 @@
       },
       "escalateTimeout": {
         "position": {
-          "x": 2880,
-          "y": -400
+          "x": 3344,
+          "y": -624
         },
         "size": {
           "width": 96,
@@ -6437,8 +6609,8 @@
       },
       "screeningAgent": {
         "position": {
-          "x": 1728,
-          "y": 352
+          "x": 2464,
+          "y": 480
         },
         "size": {
           "width": 288,
@@ -6448,8 +6620,8 @@
       },
       "toolScreeningList": {
         "position": {
-          "x": 1760,
-          "y": 560
+          "x": 2496,
+          "y": 688
         },
         "size": {
           "width": 96,
@@ -6459,8 +6631,8 @@
       },
       "toolWebSearch": {
         "position": {
-          "x": 1968,
-          "y": 560
+          "x": 2704,
+          "y": 688
         },
         "size": {
           "width": 96,
@@ -6470,8 +6642,8 @@
       },
       "riskScore": {
         "position": {
-          "x": 2112,
-          "y": 352
+          "x": 2880,
+          "y": 480
         },
         "size": {
           "width": 96,
@@ -6481,8 +6653,8 @@
       },
       "tierSwitch": {
         "position": {
-          "x": 2624,
-          "y": 320
+          "x": 3360,
+          "y": 448
         },
         "size": {
           "width": 96,
@@ -6492,8 +6664,8 @@
       },
       "approvalMedium": {
         "position": {
-          "x": 2880,
-          "y": 160
+          "x": 3568,
+          "y": 304
         },
         "size": {
           "width": 96,
@@ -6503,8 +6675,8 @@
       },
       "forkHighApprovals": {
         "position": {
-          "x": 2880,
-          "y": 560
+          "x": 3568,
+          "y": 656
         },
         "size": {
           "width": 96,
@@ -6514,8 +6686,8 @@
       },
       "approvalLegal": {
         "position": {
-          "x": 3136,
-          "y": 480
+          "x": 3776,
+          "y": 576
         },
         "size": {
           "width": 96,
@@ -6525,8 +6697,8 @@
       },
       "approvalSecurity": {
         "position": {
-          "x": 3136,
-          "y": 672
+          "x": 3776,
+          "y": 768
         },
         "size": {
           "width": 96,
@@ -6536,8 +6708,8 @@
       },
       "mergeHigh": {
         "position": {
-          "x": 3392,
-          "y": 560
+          "x": 3984,
+          "y": 656
         },
         "size": {
           "width": 96,
@@ -6547,8 +6719,8 @@
       },
       "checkHighApproved": {
         "position": {
-          "x": 3648,
-          "y": 560
+          "x": 4192,
+          "y": 656
         },
         "size": {
           "width": 96,
@@ -6558,8 +6730,8 @@
       },
       "provisionVendorPortalApi1": {
         "position": {
-          "x": 4160,
-          "y": -160
+          "x": 4880,
+          "y": 480
         },
         "size": {
           "width": 96,
@@ -6569,8 +6741,8 @@
       },
       "endProvisioned": {
         "position": {
-          "x": 4416,
-          "y": -176
+          "x": 5088,
+          "y": 480
         },
         "size": {
           "width": 96,
@@ -6580,8 +6752,8 @@
       },
       "endRejected": {
         "position": {
-          "x": 3648,
-          "y": 288
+          "x": 4400,
+          "y": 896
         },
         "size": {
           "width": 96,
@@ -6591,8 +6763,8 @@
       },
       "endFailed": {
         "position": {
-          "x": 4416,
-          "y": 32
+          "x": 5088,
+          "y": 688
         },
         "size": {
           "width": 96,
@@ -6602,8 +6774,8 @@
       },
       "endQueryResolved": {
         "position": {
-          "x": 2880,
-          "y": -112
+          "x": 3344,
+          "y": -336
         },
         "size": {
           "width": 96,
@@ -6613,8 +6785,8 @@
       },
       "endEscalated": {
         "position": {
-          "x": 3392,
-          "y": -400
+          "x": 3760,
+          "y": -624
         },
         "size": {
           "width": 96,
@@ -6624,8 +6796,8 @@
       },
       "setActionRequiredQuerydeadline1": {
         "position": {
-          "x": 2112,
-          "y": -400
+          "x": 2512,
+          "y": -480
         },
         "size": {
           "width": 96,
@@ -6635,8 +6807,8 @@
       },
       "provisionVendorMaster1": {
         "position": {
-          "x": 3904,
-          "y": -160
+          "x": 4672,
+          "y": 480
         },
         "size": {
           "width": 96,
@@ -6646,8 +6818,8 @@
       },
       "compensationRevertVendorMaster1": {
         "position": {
-          "x": 4160,
-          "y": 32
+          "x": 4880,
+          "y": 688
         },
         "size": {
           "width": 96,
@@ -6657,8 +6829,8 @@
       },
       "setRejected1": {
         "position": {
-          "x": 3392,
-          "y": 288
+          "x": 4192,
+          "y": 896
         },
         "size": {
           "width": 96,
@@ -6668,8 +6840,8 @@
       },
       "recordEscalation1": {
         "position": {
-          "x": 3136,
-          "y": -400
+          "x": 3552,
+          "y": -624
         },
         "size": {
           "width": 96,
@@ -6679,8 +6851,8 @@
       },
       "persistScreeningResult1": {
         "position": {
-          "x": 2368,
-          "y": 352
+          "x": 3088,
+          "y": 480
         },
         "size": {
           "width": 96,
@@ -6690,8 +6862,8 @@
       },
       "checkMediumApproved": {
         "position": {
-          "x": 3136,
-          "y": 160
+          "x": 3776,
+          "y": 304
         },
         "size": {
           "width": 96,
@@ -6701,7 +6873,7 @@
       },
       "start": {
         "position": {
-          "x": 48,
+          "x": 64,
           "y": 0
         },
         "size": {
@@ -6712,7 +6884,7 @@
       },
       "setStatusExtracting1": {
         "position": {
-          "x": 560,
+          "x": 896,
           "y": 0
         },
         "size": {
@@ -6723,7 +6895,7 @@
       },
       "fetchSubmittedDocuments1": {
         "position": {
-          "x": 688,
+          "x": 1104,
           "y": 0
         },
         "size": {
@@ -6734,7 +6906,7 @@
       },
       "portalGuard": {
         "position": {
-          "x": 432,
+          "x": 688,
           "y": 0
         },
         "size": {
@@ -6745,8 +6917,8 @@
       },
       "endIgnored": {
         "position": {
-          "x": 432,
-          "y": 176
+          "x": 688,
+          "y": 208
         },
         "size": {
           "width": 96,
@@ -6756,7 +6928,7 @@
       },
       "buildPacket": {
         "position": {
-          "x": 816,
+          "x": 1312,
           "y": 0
         },
         "size": {
@@ -6767,7 +6939,7 @@
       },
       "fetchNewVendorRow1": {
         "position": {
-          "x": 176,
+          "x": 272,
           "y": 0
         },
         "size": {
@@ -6778,7 +6950,7 @@
       },
       "pickVendor": {
         "position": {
-          "x": 304,
+          "x": 480,
           "y": 0
         },
         "size": {

@@ -15,11 +15,13 @@
         "type": "string",
         "description": "Bound from $vars.extractDocs.output.docsJson"
       },
-      "pickVendor__output__legalName": {
-        "description": "Bound from $vars.pickVendor.output.legalName"
-      },
       "pickVendor__output__country": {
+        "type": "string",
         "description": "Bound from $vars.pickVendor.output.country"
+      },
+      "pickVendor__output__legalName": {
+        "type": "string",
+        "description": "Bound from $vars.pickVendor.output.legalName"
       }
     }
   },
