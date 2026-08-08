@@ -4,6 +4,7 @@ Everything below is live. Links, references and click paths are exact.
 
 | | |
 |---|---|
+| **Demo video** | **<https://youtu.be/1rHno7CtIBk>** |
 | Flow canvas | [Studio Web designer](https://staging.uipath.com/shakertechs/studio_/designer/a0978eee-a8ab-41a3-aa91-3bdb35e3bf1f) |
 | Vendor portal | <https://shakertechs.staging.uipath.host/vendor-portal> |
 | Solution package | `VendorGate/out/VendorGate_1.0.0.zip` (Flow + App in one artifact) |

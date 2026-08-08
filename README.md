@@ -24,7 +24,7 @@ VendorGate.uipx
 
 | | |
 |---|---|
-| **Demo video** | *link will be posted here* |
+| **Demo video** | **<https://youtu.be/1rHno7CtIBk>** |
 | Flow canvas | [Studio Web designer](https://staging.uipath.com/shakertechs/studio_/designer/a0978eee-a8ab-41a3-aa91-3bdb35e3bf1f) |
 | Live portal | <https://shakertechs.staging.uipath.host/vendor-portal> |
 | Deployed process | `Shared/VendorGate Run` → `VendorClearance` |
