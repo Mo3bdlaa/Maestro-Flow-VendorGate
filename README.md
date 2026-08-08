@@ -129,7 +129,7 @@ Prereqs: [`uip` CLI](https://www.npmjs.com/package/@uipath/cli) ≥ 1.198, Node 
 cd VendorGate
 
 # 1. Validate + upload the solution to Studio Web
-uip maestro flow validate VendorClearance/VendorClearance.flow   # 7 sticky-note errors are a known false positive
+uip maestro flow validate VendorClearance/VendorClearance.flow   # 15 known false positives: 7 sticky notes + 8 HITL outcome edges (runtime-verified)
 uip solution upload . --force
 
 # 2. Run a vendor through (CHANGE vendorId first — it is unique per run)
