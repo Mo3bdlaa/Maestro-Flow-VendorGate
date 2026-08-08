@@ -3,7 +3,7 @@
   "id": "ee9ce7e4-a37a-49ad-806c-5c278a06ecea",
   "name": "End-to-End Ground Truth",
   "evaluatorRefs": [
-    "llm-judge-trajectory-eval-001"
+    "llm-judge-trajectory-evaluator"
   ],
   "evaluations": [
     {
@@ -67,5 +67,11 @@
   "selectedEntrypoint": "start",
   "fileName": "evaluation-set-end-to-end-ground-truth-ee9ce7e4.json",
   "createdAt": "2026-08-08T08:05:09.625Z",
-  "updatedAt": "2026-08-08T08:07:06.237Z"
+  "updatedAt": "2026-08-08T08:07:06.237Z",
+  "schemaVersion": 4,
+  "target": {
+    "kind": "flow",
+    "entrypoint": "start"
+  },
+  "nodeEval": false
 }

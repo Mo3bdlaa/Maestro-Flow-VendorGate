@@ -6017,19 +6017,8 @@
       "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
       "default": "9e6b90f5-2b61-49f1-afda-c90061443385",
       "propertyAttribute": "ConnectionId"
-    },
-    {
-      "id": "bwHZEswjN",
-      "name": "FolderKey",
-      "type": "string",
-      "resource": "connection",
-      "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
-      "default": "e030afee-a5ae-496a-97c8-1aaa3fff1256",
-      "propertyAttribute": "FolderKey"
     }
   ],
-  "solutionId": "3e054f21-d53a-4f5f-9823-08def396904e",
-  "projectId": "d47d327a-ef17-436b-b5b5-816799f26b2d",
   "layout": {
     "nodes": {
       "noteTitle": {
