@@ -99,7 +99,7 @@
     "toolDescription": "Web search executes a search of the public domain using a natural language search query. The search results are available in the output. Web search offers near-real time search results, but certain time sensitive data like stock prices or weather will not consistently be current. There could be a few days lag. Be sure to pass in date/time and/or location as arguments in the query if required.",
     "method": "POST",
     "connection": {
-      "id": "9e6b90f5-2b61-49f1-afda-c90061443385",
+      "id": "fcd25ecf-785b-49d5-9bfc-5abf0cbb5750",
       "name": "UiPath GenAI Activities",
       "elementInstanceId": 0,
       "apiBaseUri": "",
@@ -111,7 +111,7 @@
         "image": ""
       },
       "folder": {
-        "key": "e030afee-a5ae-496a-97c8-1aaa3fff1256",
+        "key": "cd671762-f695-48f8-ac4b-f849efe70464",
         "path": ""
       }
     },

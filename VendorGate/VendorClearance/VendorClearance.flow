@@ -750,9 +750,9 @@
         "source": "2f8b4c6d-9a1e-4d3f-8c5b-7e2a9f4d6b83",
         "detail": {
           "connector": "uipath-uipath-airdk",
-          "connectionId": "9e6b90f5-2b61-49f1-afda-c90061443385",
+          "connectionId": "fcd25ecf-785b-49d5-9bfc-5abf0cbb5750",
           "connectionResourceId": "9e6b90f5-2b61-49f1-afda-c90061443385",
-          "connectionFolderKey": "e030afee-a5ae-496a-97c8-1aaa3fff1256",
+          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
           "method": "POST",
           "endpoint": "/v2/webSearch",
           "bodyParameters": {
@@ -1845,6 +1845,7 @@
           "method": "PUT",
           "endpoint": "/v2/{entityName}/UpdateEntityRecord",
           "bodyParameters": {
+            "status": 4,
             "riskScore": "=js:$vars.riskScore.output.score",
             "riskTier": "=js:$vars.riskScore.output.tier === \"high\" ? 2 : ($vars.riskScore.output.tier === \"medium\" ? 1 : 0)",
             "screeningResult": "=js:JSON.stringify($vars.screeningAgent.output)",
@@ -2199,6 +2200,62 @@
       "sourceNodeId": "checkMediumApproved",
       "sourcePort": "false",
       "targetNodeId": "setRejected1",
+      "targetPort": "input"
+    },
+    {
+      "id": "xy-edge__approvalMediumoutcome-approve-checkMediumApprovedinput",
+      "sourceNodeId": "approvalMedium",
+      "sourcePort": "outcome-approve",
+      "targetNodeId": "checkMediumApproved",
+      "targetPort": "input"
+    },
+    {
+      "id": "xy-edge__approvalMediumoutcome-reject-setRejected1input",
+      "sourceNodeId": "approvalMedium",
+      "sourcePort": "outcome-reject",
+      "targetNodeId": "setRejected1",
+      "targetPort": "input"
+    },
+    {
+      "id": "xy-edge__approvalLegaloutcome-approve-mergeHighinput",
+      "sourceNodeId": "approvalLegal",
+      "sourcePort": "outcome-approve",
+      "targetNodeId": "mergeHigh",
+      "targetPort": "input"
+    },
+    {
+      "id": "xy-edge__approvalSecurityoutcome-approve-mergeHighinput",
+      "sourceNodeId": "approvalSecurity",
+      "sourcePort": "outcome-approve",
+      "targetNodeId": "mergeHigh",
+      "targetPort": "input"
+    },
+    {
+      "id": "xy-edge__approvalSecurityoutcome-reject-setRejected1input",
+      "sourceNodeId": "approvalSecurity",
+      "sourcePort": "outcome-reject",
+      "targetNodeId": "setRejected1",
+      "targetPort": "input"
+    },
+    {
+      "id": "xy-edge__approvalLegaloutcome-reject-setRejected1input",
+      "sourceNodeId": "approvalLegal",
+      "sourcePort": "outcome-reject",
+      "targetNodeId": "setRejected1",
+      "targetPort": "input"
+    },
+    {
+      "id": "xy-edge__vendorQueryoutcome-resubmitted-writeDocumentRecords1input",
+      "sourceNodeId": "vendorQuery",
+      "sourcePort": "outcome-resubmitted",
+      "targetNodeId": "writeDocumentRecords1",
+      "targetPort": "input"
+    },
+    {
+      "id": "xy-edge__escalateTimeoutoutcome-acknowledged-recordEscalation1input",
+      "sourceNodeId": "escalateTimeout",
+      "sourcePort": "outcome-acknowledged",
+      "targetNodeId": "recordEscalation1",
       "targetPort": "input"
     }
   ],
@@ -5156,7 +5213,7 @@
         "id": "vendorId",
         "direction": "in",
         "type": "string",
-        "defaultValue": "VND-C-3010",
+        "defaultValue": "VND-C-2026",
         "triggerNodeId": "start"
       },
       {
@@ -5184,6 +5241,7 @@
         "id": "packetText",
         "direction": "in",
         "type": "string",
+        "defaultValue": "",
         "description": "Raw unstructured packet text (OCR / pasted). Alternative to docsJson.",
         "triggerNodeId": "start"
       }
@@ -5955,7 +6013,7 @@
       "resource": "connection",
       "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
       "propertyAttribute": "ConnectionId",
-      "default": "9e6b90f5-2b61-49f1-afda-c90061443385"
+      "default": "fcd25ecf-785b-49d5-9bfc-5abf0cbb5750"
     }
   ],
   "layout": {
@@ -6017,8 +6075,8 @@
       },
       "noteApprovals": {
         "position": {
-          "x": 560,
-          "y": -368
+          "x": 672,
+          "y": -448
         },
         "size": {
           "width": 560,
@@ -6028,7 +6086,7 @@
       },
       "noteProvisioning": {
         "position": {
-          "x": 1296,
+          "x": 1424,
           "y": -544
         },
         "size": {
@@ -6402,8 +6460,8 @@
       },
       "checkMediumApproved": {
         "position": {
-          "x": 1376,
-          "y": -928
+          "x": 1264,
+          "y": -1056
         },
         "size": {
           "width": 96,

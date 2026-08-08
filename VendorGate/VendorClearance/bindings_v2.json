@@ -38,25 +38,6 @@
         "UseConnectionService": "true",
         "Connector": "uipath-uipath-airdk"
       }
-    },
-    {
-      "resource": "connection",
-      "key": "",
-      "id": "connection",
-      "value": {
-        "ConnectionId": {
-          "defaultValue": "ImplicitConnection",
-          "isExpression": false,
-          "displayName": "uipath-uipath-http connection"
-        }
-      },
-      "metadata": {
-        "ActivityName": "Write Vendor Record",
-        "BindingsVersion": "2.2",
-        "DisplayLabel": "uipath-uipath-http connection",
-        "UseConnectionService": "true",
-        "Connector": "uipath-uipath-dataservice"
-      }
     }
   ]
 }
