@@ -7022,8 +7022,8 @@
     "nodes": {
       "noteTitle": {
         "position": {
-          "x": 64,
-          "y": -320
+          "x": 0,
+          "y": -304
         },
         "size": {
           "width": 640,
@@ -7056,29 +7056,29 @@
       "noteQueryLoop": {
         "position": {
           "x": 2448,
-          "y": -720
+          "y": -416
         },
         "size": {
-          "width": 1504,
+          "width": 2240,
           "height": 528
         },
         "collapsed": false
       },
       "noteScreening": {
         "position": {
-          "x": 2416,
-          "y": 384
+          "x": 2448,
+          "y": 128
         },
         "size": {
-          "width": 848,
-          "height": 464
+          "width": 992,
+          "height": 832
         },
         "collapsed": false
       },
       "noteApprovals": {
         "position": {
-          "x": 3312,
-          "y": 208
+          "x": 3456,
+          "y": 128
         },
         "size": {
           "width": 1232,
@@ -7088,8 +7088,8 @@
       },
       "noteProvisioning": {
         "position": {
-          "x": 4608,
-          "y": 384
+          "x": 4704,
+          "y": 304
         },
         "size": {
           "width": 624,
@@ -7132,8 +7132,8 @@
       },
       "vendorQuery": {
         "position": {
-          "x": 2720,
-          "y": -480
+          "x": 3040,
+          "y": -176
         },
         "size": {
           "width": 96,
@@ -7143,8 +7143,8 @@
       },
       "delay48h": {
         "position": {
-          "x": 2928,
-          "y": -480
+          "x": 3248,
+          "y": -176
         },
         "size": {
           "width": 96,
@@ -7154,8 +7154,8 @@
       },
       "checkDeadline": {
         "position": {
-          "x": 3136,
-          "y": -480
+          "x": 3456,
+          "y": -176
         },
         "size": {
           "width": 96,
@@ -7165,8 +7165,8 @@
       },
       "escalateTimeout": {
         "position": {
-          "x": 3344,
-          "y": -624
+          "x": 3664,
+          "y": -320
         },
         "size": {
           "width": 96,
@@ -7176,8 +7176,8 @@
       },
       "screeningAgent": {
         "position": {
-          "x": 2464,
-          "y": 480
+          "x": 2496,
+          "y": 400
         },
         "size": {
           "width": 288,
@@ -7187,8 +7187,8 @@
       },
       "toolScreeningList": {
         "position": {
-          "x": 2496,
-          "y": 688
+          "x": 2528,
+          "y": 608
         },
         "size": {
           "width": 96,
@@ -7198,8 +7198,8 @@
       },
       "toolWebSearch": {
         "position": {
-          "x": 2704,
-          "y": 688
+          "x": 2736,
+          "y": 608
         },
         "size": {
           "width": 96,
@@ -7209,8 +7209,8 @@
       },
       "riskScore": {
         "position": {
-          "x": 2880,
-          "y": 480
+          "x": 2912,
+          "y": 400
         },
         "size": {
           "width": 96,
@@ -7220,8 +7220,8 @@
       },
       "tierSwitch": {
         "position": {
-          "x": 3360,
-          "y": 448
+          "x": 3504,
+          "y": 368
         },
         "size": {
           "width": 96,
@@ -7231,8 +7231,8 @@
       },
       "approvalMedium": {
         "position": {
-          "x": 3568,
-          "y": 304
+          "x": 3712,
+          "y": 224
         },
         "size": {
           "width": 96,
@@ -7242,8 +7242,8 @@
       },
       "forkHighApprovals": {
         "position": {
-          "x": 3568,
-          "y": 656
+          "x": 3712,
+          "y": 576
         },
         "size": {
           "width": 96,
@@ -7253,8 +7253,8 @@
       },
       "approvalLegal": {
         "position": {
-          "x": 3776,
-          "y": 576
+          "x": 3920,
+          "y": 496
         },
         "size": {
           "width": 96,
@@ -7264,8 +7264,8 @@
       },
       "approvalSecurity": {
         "position": {
-          "x": 3776,
-          "y": 768
+          "x": 3920,
+          "y": 688
         },
         "size": {
           "width": 96,
@@ -7275,8 +7275,8 @@
       },
       "mergeHigh": {
         "position": {
-          "x": 3984,
-          "y": 656
+          "x": 4128,
+          "y": 576
         },
         "size": {
           "width": 96,
@@ -7286,8 +7286,8 @@
       },
       "checkHighApproved": {
         "position": {
-          "x": 4192,
-          "y": 656
+          "x": 4336,
+          "y": 576
         },
         "size": {
           "width": 96,
@@ -7297,8 +7297,8 @@
       },
       "provisionVendorPortalApi1": {
         "position": {
-          "x": 4880,
-          "y": 480
+          "x": 4976,
+          "y": 400
         },
         "size": {
           "width": 96,
@@ -7308,8 +7308,8 @@
       },
       "endProvisioned": {
         "position": {
-          "x": 5088,
-          "y": 480
+          "x": 5184,
+          "y": 400
         },
         "size": {
           "width": 96,
@@ -7319,8 +7319,8 @@
       },
       "endRejected": {
         "position": {
-          "x": 4400,
-          "y": 896
+          "x": 4544,
+          "y": 816
         },
         "size": {
           "width": 96,
@@ -7330,8 +7330,8 @@
       },
       "endFailed": {
         "position": {
-          "x": 5088,
-          "y": 688
+          "x": 5184,
+          "y": 608
         },
         "size": {
           "width": 96,
@@ -7341,8 +7341,8 @@
       },
       "endQueryResolved": {
         "position": {
-          "x": 3344,
-          "y": -336
+          "x": 3664,
+          "y": -32
         },
         "size": {
           "width": 96,
@@ -7352,8 +7352,8 @@
       },
       "endEscalated": {
         "position": {
-          "x": 3760,
-          "y": -624
+          "x": 4080,
+          "y": -320
         },
         "size": {
           "width": 96,
@@ -7363,8 +7363,8 @@
       },
       "setActionRequiredQuerydeadline1": {
         "position": {
-          "x": 2512,
-          "y": -480
+          "x": 2832,
+          "y": -176
         },
         "size": {
           "width": 96,
@@ -7374,8 +7374,8 @@
       },
       "provisionVendorMaster1": {
         "position": {
-          "x": 4672,
-          "y": 480
+          "x": 4768,
+          "y": 400
         },
         "size": {
           "width": 96,
@@ -7385,8 +7385,8 @@
       },
       "compensationRevertVendorMaster1": {
         "position": {
-          "x": 4880,
-          "y": 688
+          "x": 4976,
+          "y": 608
         },
         "size": {
           "width": 96,
@@ -7396,8 +7396,8 @@
       },
       "setRejected1": {
         "position": {
-          "x": 4192,
-          "y": 896
+          "x": 4336,
+          "y": 816
         },
         "size": {
           "width": 96,
@@ -7407,8 +7407,8 @@
       },
       "recordEscalation1": {
         "position": {
-          "x": 3552,
-          "y": -624
+          "x": 3872,
+          "y": -320
         },
         "size": {
           "width": 96,
@@ -7418,8 +7418,8 @@
       },
       "persistScreeningResult1": {
         "position": {
-          "x": 3088,
-          "y": 480
+          "x": 3120,
+          "y": 400
         },
         "size": {
           "width": 96,
@@ -7429,8 +7429,8 @@
       },
       "checkMediumApproved": {
         "position": {
-          "x": 3776,
-          "y": 304
+          "x": 3920,
+          "y": 224
         },
         "size": {
           "width": 96,
@@ -7484,8 +7484,8 @@
       },
       "endIgnored": {
         "position": {
-          "x": 688,
-          "y": 208
+          "x": 896,
+          "y": 192
         },
         "size": {
           "width": 96,
@@ -7528,8 +7528,8 @@
       },
       "caseSummary": {
         "position": {
-          "x": 3232,
-          "y": 480
+          "x": 3264,
+          "y": 400
         },
         "size": {
           "width": 96,
