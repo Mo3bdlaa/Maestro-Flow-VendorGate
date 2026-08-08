@@ -19,10 +19,12 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [error, setError] = useState<string | null>(null);
   // Explicit redirectUri (takes precedence over the meta tag): the build bakes
   // the localhost dev value into the page, which breaks login on the deployed
-  // host. Deriving it from the current location is correct in every environment.
-  const [sdk] = useState<UiPath>(
-    () => new UiPath({ redirectUri: window.location.origin + window.location.pathname }),
-  );
+  // host. Derived from the current location, trailing slash stripped so it
+  // matches the registered URI regardless of how the page was reached.
+  const [sdk] = useState<UiPath>(() => {
+    const path = window.location.pathname.replace(/\/+$/, '');
+    return new UiPath({ redirectUri: window.location.origin + path });
+  });
   const didInit = useRef(false);
 
   useEffect(() => {

@@ -47,8 +47,14 @@ export function liveService(entities: Entities): VendorService {
  * this browser tab. No credentials exist in the bundle — writes are sandboxed.
  */
 export function demoService(): VendorService {
-  const vendors: VendorRecord[] = JSON.parse(JSON.stringify(demoData.vendors));
-  const documents: VendorDocumentRecord[] = JSON.parse(JSON.stringify(demoData.documents));
+  // The snapshot exporter strips server audit columns (including Id) — without
+  // an id, row clicks and status actions silently no-op. Assign stable ones.
+  const vendors: VendorRecord[] = JSON.parse(JSON.stringify(demoData.vendors)).map(
+    (v: VendorRecord, i: number) => ({ ...v, id: v.id ?? `snap-v-${i}` }),
+  );
+  const documents: VendorDocumentRecord[] = JSON.parse(JSON.stringify(demoData.documents)).map(
+    (d: VendorDocumentRecord, i: number) => ({ ...d, id: d.id ?? `snap-d-${i}` }),
+  );
   let seq = 1;
   const wait = <T,>(v: T) => new Promise<T>((r) => setTimeout(() => r(v), 150));
 

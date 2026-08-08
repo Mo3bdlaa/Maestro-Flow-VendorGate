@@ -188,8 +188,7 @@ function NewSubmission({
   onDone: (ref: string) => void;
   onCancel: () => void;
 }) {
-  const [vendorId, setVendorId] = useState('');
-  const [legalName, setLegalName] = useState('');
+    const [legalName, setLegalName] = useState('');
   const [country, setCountry] = useState('');
   const [files, setFiles] = useState<Record<string, File | null>>({});
   const [busy, setBusy] = useState(false);
@@ -199,7 +198,7 @@ function NewSubmission({
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const ref = vendorId.trim();
+    const ref = 'VND-' + Date.now().toString(36).toUpperCase().slice(-5) + Math.floor(Math.random() * 1296).toString(36).toUpperCase().padStart(2, '0');
     try {
       await svc.createVendor({ vendorId: ref, legalName: legalName.trim(), country: country.trim() });
       for (let i = 0; i < DOC_TYPES.length; i++) {
@@ -237,9 +236,10 @@ function NewSubmission({
     >
       <form onSubmit={submit}>
         <div className="grid gap-4 sm:grid-cols-2">
-          <FieldLabel label="Your reference" hint="You will use this to track your submission.">
-            <TextInput required value={vendorId} onChange={(e) => setVendorId(e.target.value)} placeholder="VND-1001" />
-          </FieldLabel>
+          <div className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5">
+            <span className="text-xs uppercase tracking-wide text-slate-400">Your reference</span>
+            <p className="mt-0.5 text-sm font-medium text-slate-600">Generated automatically when you submit</p>
+          </div>
           <FieldLabel label="Country">
             <TextInput required value={country} onChange={(e) => setCountry(e.target.value)} placeholder="AE" />
           </FieldLabel>
@@ -315,13 +315,8 @@ function EntryChoice({ onNew, onTrack }: { onNew: () => void; onTrack: (ref: str
   const [ref, setRef] = useState('');
 
   return (
-    <div
-      className="fixed inset-0 z-30 flex items-center justify-center bg-slate-900/40 p-4 backdrop-blur-sm"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Welcome"
-    >
-      <div className="w-full max-w-2xl rounded-2xl bg-white p-8 shadow-xl">
+    <div className="flex justify-center pt-6">
+      <div className="w-full max-w-2xl rounded-2xl border border-slate-200 bg-white p-8 shadow-card">
         <h2 className="text-xl font-semibold tracking-tight">Welcome to VendorGate</h2>
         <p className="mt-1 text-sm text-slate-500">
           Register as a supplier, or check where your submission has reached.
