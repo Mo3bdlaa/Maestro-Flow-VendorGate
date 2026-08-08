@@ -25,7 +25,7 @@
       },
       "inputs": {
         "color": "blue",
-        "content": "1 - INTAKE & EXTRACT\nPacket lands, Vendor + VendorDocument rows persisted to Data Fabric, documents extracted."
+        "content": "1 - INTAKE & GENERATIVE EXTRACTION\nVendor + document rows persisted to Data Fabric first. The extraction agent turns raw packet text into typed documents."
       }
     },
     {
@@ -49,7 +49,7 @@
       },
       "inputs": {
         "color": "orange",
-        "content": "3 - VENDOR QUERY LOOP (the main event)\nIssues go back to the vendor. 48h window: resubmission re-extracts, timeout escalates to procurement."
+        "content": "3 - VENDOR QUERY LOOP (the main event)\nIssues go to the vendor with a 48h deadline. Resubmission re-extracts; timeout escalates to procurement. Nothing fails silently."
       }
     },
     {
@@ -61,7 +61,7 @@
       },
       "inputs": {
         "color": "purple",
-        "content": "4 - SCREENING & RISK\nAgent calls live tools: Data Fabric sanctions/debarment register + adverse-media web search. Deterministic risk score in code."
+        "content": "4 - SCREENING & RISK\nAgent calls live tools: OFAC-seeded Data Fabric register + adverse-media web search. Deterministic risk score in code; sanctions can never route below high."
       }
     },
     {
@@ -73,7 +73,7 @@
       },
       "inputs": {
         "color": "green",
-        "content": "5 - RISK-TIERED APPROVALS\nLow auto-clears. Medium: single approver. High: parallel Legal + Security, both must return."
+        "content": "5 - RISK-TIERED APPROVALS\nLow auto-clears. Medium: single approver. High: parallel Legal + Security, both must return. Rejection is persisted."
       }
     },
     {
@@ -85,7 +85,7 @@
       },
       "inputs": {
         "color": "red",
-        "content": "6 - PROVISIONING + COMPENSATION\nERP vendor master + portal API. Portal failure unwinds the ERP record."
+        "content": "6 - PROVISIONING + COMPENSATION\nVendor master written, portal API called. Failure rolls the record back to Failed - executed live, not just drawn."
       }
     },
     {
@@ -6020,85 +6020,85 @@
     "nodes": {
       "noteTitle": {
         "position": {
-          "x": -1472,
-          "y": -1648
+          "x": 0,
+          "y": -320
         },
         "size": {
-          "width": 560,
-          "height": 96
+          "width": 640,
+          "height": 200
         },
         "collapsed": false
       },
       "noteIntake": {
         "position": {
-          "x": -1344,
-          "y": -1392
+          "x": -48,
+          "y": -96
         },
         "size": {
-          "width": 560,
-          "height": 96
+          "width": 1170,
+          "height": 280
         },
         "collapsed": false
       },
       "noteValidation": {
         "position": {
-          "x": -576,
-          "y": -1392
+          "x": 1072,
+          "y": -96
         },
         "size": {
           "width": 560,
-          "height": 96
+          "height": 280
         },
         "collapsed": false
       },
       "noteQueryLoop": {
         "position": {
-          "x": 80,
-          "y": -1856
+          "x": 1680,
+          "y": -672
         },
         "size": {
-          "width": 560,
-          "height": 96
+          "width": 1490,
+          "height": 700
         },
         "collapsed": false
       },
       "noteScreening": {
         "position": {
-          "x": -144,
-          "y": -608
+          "x": 1680,
+          "y": 240
         },
         "size": {
-          "width": 560,
-          "height": 96
+          "width": 1110,
+          "height": 500
         },
         "collapsed": false
       },
       "noteApprovals": {
         "position": {
-          "x": 672,
-          "y": -448
+          "x": 2832,
+          "y": 80
         },
         "size": {
-          "width": 560,
-          "height": 96
+          "width": 990,
+          "height": 760
         },
         "collapsed": false
       },
       "noteProvisioning": {
         "position": {
-          "x": 1424,
-          "y": -544
+          "x": 3856,
+          "y": -256
         },
         "size": {
-          "width": 560,
-          "height": 96
+          "width": 730,
+          "height": 440
         },
         "collapsed": false
       },
       "start": {
         "position": {
-          "x": -1408,
-          "y": -1264
+          "x": 0,
+          "y": 0
         },
         "size": {
           "width": 96,
@@ -6108,8 +6108,8 @@
       },
       "writeVendorRecord1": {
         "position": {
-          "x": -1216,
-          "y": -1264
+          "x": 256,
+          "y": 0
         },
         "size": {
           "width": 96,
@@ -6119,8 +6119,8 @@
       },
       "writeDocumentRecords1": {
         "position": {
-          "x": -1024,
-          "y": -1264
+          "x": 512,
+          "y": 0
         },
         "size": {
           "width": 96,
@@ -6130,8 +6130,8 @@
       },
       "extractDocs": {
         "position": {
-          "x": -880,
-          "y": -1264
+          "x": 768,
+          "y": 0
         },
         "size": {
           "width": 288,
@@ -6141,8 +6141,8 @@
       },
       "validationAgent": {
         "position": {
-          "x": -544,
-          "y": -1264
+          "x": 1120,
+          "y": 0
         },
         "size": {
           "width": 288,
@@ -6152,8 +6152,8 @@
       },
       "checkIssues": {
         "position": {
-          "x": -192,
-          "y": -1264
+          "x": 1472,
+          "y": 0
         },
         "size": {
           "width": 96,
@@ -6163,8 +6163,8 @@
       },
       "vendorQuery": {
         "position": {
-          "x": 352,
-          "y": -1696
+          "x": 1984,
+          "y": -560
         },
         "size": {
           "width": 96,
@@ -6174,8 +6174,8 @@
       },
       "delay48h": {
         "position": {
-          "x": 352,
-          "y": -1504
+          "x": 1984,
+          "y": -256
         },
         "size": {
           "width": 96,
@@ -6185,8 +6185,8 @@
       },
       "checkDeadline": {
         "position": {
-          "x": 528,
-          "y": -1504
+          "x": 2240,
+          "y": -256
         },
         "size": {
           "width": 96,
@@ -6196,8 +6196,8 @@
       },
       "escalateTimeout": {
         "position": {
-          "x": 720,
-          "y": -1600
+          "x": 2496,
+          "y": -400
         },
         "size": {
           "width": 96,
@@ -6207,8 +6207,8 @@
       },
       "screeningAgent": {
         "position": {
-          "x": 0,
-          "y": -1024
+          "x": 1728,
+          "y": 320
         },
         "size": {
           "width": 288,
@@ -6218,8 +6218,8 @@
       },
       "toolScreeningList": {
         "position": {
-          "x": 80,
-          "y": -832
+          "x": 1760,
+          "y": 560
         },
         "size": {
           "width": 96,
@@ -6229,8 +6229,8 @@
       },
       "toolWebSearch": {
         "position": {
-          "x": 224,
-          "y": -832
+          "x": 1936,
+          "y": 560
         },
         "size": {
           "width": 96,
@@ -6240,8 +6240,8 @@
       },
       "riskScore": {
         "position": {
-          "x": 352,
-          "y": -1024
+          "x": 2112,
+          "y": 320
         },
         "size": {
           "width": 96,
@@ -6251,8 +6251,8 @@
       },
       "tierSwitch": {
         "position": {
-          "x": 720,
-          "y": -1056
+          "x": 2624,
+          "y": 320
         },
         "size": {
           "width": 96,
@@ -6262,8 +6262,8 @@
       },
       "approvalMedium": {
         "position": {
-          "x": 1088,
-          "y": -1040
+          "x": 2880,
+          "y": 160
         },
         "size": {
           "width": 96,
@@ -6273,8 +6273,8 @@
       },
       "forkHighApprovals": {
         "position": {
-          "x": 944,
-          "y": -784
+          "x": 2880,
+          "y": 560
         },
         "size": {
           "width": 96,
@@ -6284,8 +6284,8 @@
       },
       "approvalLegal": {
         "position": {
-          "x": 1184,
-          "y": -880
+          "x": 3136,
+          "y": 480
         },
         "size": {
           "width": 96,
@@ -6295,8 +6295,8 @@
       },
       "approvalSecurity": {
         "position": {
-          "x": 1184,
-          "y": -688
+          "x": 3136,
+          "y": 672
         },
         "size": {
           "width": 96,
@@ -6306,8 +6306,8 @@
       },
       "mergeHigh": {
         "position": {
-          "x": 1392,
-          "y": -784
+          "x": 3392,
+          "y": 560
         },
         "size": {
           "width": 96,
@@ -6317,8 +6317,8 @@
       },
       "checkHighApproved": {
         "position": {
-          "x": 1568,
-          "y": -864
+          "x": 3648,
+          "y": 560
         },
         "size": {
           "width": 96,
@@ -6328,8 +6328,8 @@
       },
       "provisionVendorPortalApi1": {
         "position": {
-          "x": 1616,
-          "y": -1232
+          "x": 4160,
+          "y": -160
         },
         "size": {
           "width": 96,
@@ -6339,8 +6339,8 @@
       },
       "endProvisioned": {
         "position": {
-          "x": 1936,
-          "y": -1248
+          "x": 4416,
+          "y": -160
         },
         "size": {
           "width": 96,
@@ -6350,8 +6350,8 @@
       },
       "endRejected": {
         "position": {
-          "x": 1936,
-          "y": -928
+          "x": 3648,
+          "y": 288
         },
         "size": {
           "width": 96,
@@ -6361,8 +6361,8 @@
       },
       "endFailed": {
         "position": {
-          "x": 944,
-          "y": -624
+          "x": 4416,
+          "y": 32
         },
         "size": {
           "width": 96,
@@ -6372,8 +6372,8 @@
       },
       "endQueryResolved": {
         "position": {
-          "x": 720,
-          "y": -1408
+          "x": 2496,
+          "y": -96
         },
         "size": {
           "width": 96,
@@ -6383,8 +6383,8 @@
       },
       "endEscalated": {
         "position": {
-          "x": 1056,
-          "y": -1600
+          "x": 3008,
+          "y": -400
         },
         "size": {
           "width": 96,
@@ -6394,8 +6394,8 @@
       },
       "setActionRequiredQuerydeadline1": {
         "position": {
-          "x": 112,
-          "y": -1600
+          "x": 1728,
+          "y": -400
         },
         "size": {
           "width": 96,
@@ -6405,8 +6405,8 @@
       },
       "provisionVendorMaster1": {
         "position": {
-          "x": 1472,
-          "y": -1232
+          "x": 3904,
+          "y": -160
         },
         "size": {
           "width": 96,
@@ -6416,8 +6416,8 @@
       },
       "compensationRevertVendorMaster1": {
         "position": {
-          "x": 1776,
-          "y": -1088
+          "x": 4160,
+          "y": 32
         },
         "size": {
           "width": 96,
@@ -6427,8 +6427,8 @@
       },
       "setRejected1": {
         "position": {
-          "x": 1776,
-          "y": -928
+          "x": 3392,
+          "y": 288
         },
         "size": {
           "width": 96,
@@ -6438,8 +6438,8 @@
       },
       "recordEscalation1": {
         "position": {
-          "x": 896,
-          "y": -1600
+          "x": 2752,
+          "y": -400
         },
         "size": {
           "width": 96,
@@ -6449,8 +6449,8 @@
       },
       "persistScreeningResult1": {
         "position": {
-          "x": 528,
-          "y": -1024
+          "x": 2368,
+          "y": 320
         },
         "size": {
           "width": 96,
@@ -6460,8 +6460,8 @@
       },
       "checkMediumApproved": {
         "position": {
-          "x": 1264,
-          "y": -1056
+          "x": 3136,
+          "y": 160
         },
         "size": {
           "width": 96,
