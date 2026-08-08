@@ -153,6 +153,7 @@
       "typeVersion": "1.3",
       "display": {
         "label": "Validation Agent",
+        "subLabel": "",
         "icon": "autonomous-agent"
       },
       "inputs": {
@@ -1102,7 +1103,7 @@
           "bodyParameters": {
             "authentication": "manual",
             "method": "POST",
-            "url": "https://httpbin.org/post",
+            "url": "https://postman-echo.com/post",
             "headers": {
               "Content-Type": "application/json"
             },
