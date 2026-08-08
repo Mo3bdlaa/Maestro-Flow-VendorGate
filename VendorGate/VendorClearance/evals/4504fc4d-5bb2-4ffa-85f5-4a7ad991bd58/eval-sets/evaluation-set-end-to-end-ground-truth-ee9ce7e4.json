@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "id": "ee9ce7e4-a37a-49ad-806c-5c278a06ecea",
+  "name": "End-to-End Ground Truth",
+  "evaluatorRefs": [
+    "llm-judge-trajectory-eval-001"
+  ],
+  "evaluations": [
+    {
+      "id": "841e56a5-1c3c-4591-b0f4-9beea0902ba2",
+      "name": "clean-vendor-structured",
+      "inputs": {
+        "vendorId": "EVAL-A-101",
+        "legalName": "Aurora Steel Industries LLC",
+        "country": "AE",
+        "docsJson": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+        "packetText": ""
+      },
+      "expectedOutput": {},
+      "evaluationCriterias": {
+        "llm-judge-trajectory-eval-001": {
+          "expectedAgentBehavior": "The flow must run start, vendor and document writes, extraction agent in structured passthrough mode, validation agent returning passed=true with zero blocking issues, screening agent calling BOTH tools (Data Fabric register lookup and web search) and reporting no sanctions or debarment hit, deterministic risk score of 0 (low tier), vendor master provisioning write, portal API call, and finish at the Provisioned end node. No human task may be raised and the compensation path must not execute."
+        }
+      },
+      "createdAt": "2026-08-08T08:07:00.526Z",
+      "updatedAt": "2026-08-08T08:07:00.526Z"
+    },
+    {
+      "id": "56da57b4-b0fe-48f4-bc2d-aa4f8de06470",
+      "name": "clean-vendor-rawtext-generative",
+      "inputs": {
+        "vendorId": "EVAL-R-102",
+        "legalName": "Aurora Steel Industries LLC",
+        "country": "AE",
+        "docsJson": "",
+        "packetText": "REGISTRATION PACKET - Aurora Steel Industries LLC\n\nTRADE LICENCE\nIssuing authority: Abu Dhabi Department of Economic Development\nLegal entity name: Aurora Steel Industries LLC\nLicence number: CN-1042288\nIssue date: 15 September 2024\nExpiry date: 14 September 2027\nJurisdiction: Abu Dhabi, United Arab Emirates\nActivity: Manufacture of structural steel products\n\nCERTIFICATE OF INSURANCE\nInsurer: Gulf Assurance Company PJSC\nInsured entity name: Aurora Steel Industries LLC\nPolicy number: PL-88421\nCoverage amount: AED 2,000,000\nPolicy type: Commercial general liability\nExpiry date: 31 January 2027\n\nBANK ACCOUNT CONFIRMATION LETTER\nBank name: Emirates NBD\nAccount holder name: Aurora Steel Industries LLC\nIBAN: AE070331234567890123456\nSWIFT / BIC: EBILAEAD\nBranch: Abu Dhabi Main Branch\nThis letter confirms the above account is held in the name stated.\n\nISO CERTIFICATE OF REGISTRATION\nCertification body: Global Quality Registrars\nCertified entity name: Aurora Steel Industries LLC\nStandard: ISO 9001:2015 Quality Management Systems\nCertificate number: QMS-55311\nExpiry date: 20 May 2028"
+      },
+      "expectedOutput": {},
+      "evaluationCriterias": {
+        "llm-judge-trajectory-eval-001": {
+          "expectedAgentBehavior": "The extraction agent must run in GENERATIVE mode: the trigger supplies only raw unstructured packet text and no docsJson, and the agent must extract four typed documents (trade licence, insurance, bank letter, ISO certificate) before the validation agent runs. Validation must pass with zero blocking issues, screening must call both tools and find no hits, risk must score low, and the run must finish at the Provisioned end node without any human task."
+        }
+      },
+      "createdAt": "2026-08-08T08:07:03.421Z",
+      "updatedAt": "2026-08-08T08:07:03.421Z"
+    },
+    {
+      "id": "016c05ff-14b2-4daa-aaab-875fb0e48c2c",
+      "name": "clean-vendor-alt-company",
+      "inputs": {
+        "vendorId": "EVAL-D-103",
+        "legalName": "Oasis Falcon Logistics LLC",
+        "country": "AE",
+        "docsJson": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Oasis Falcon Logistics LLC\",\"licenceNo\":\"DXB-881204\",\"issueDate\":\"2024-11-01\",\"expiryDate\":\"2027-10-31\",\"jurisdiction\":\"Dubai, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Oasis Falcon Logistics LLC\",\"policyNo\":\"PL-20441\",\"coverageAmount\":3000000,\"expiryDate\":\"2027-08-15\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Oasis Falcon Logistics LLC\",\"iban\":\"AE910440007712345678901\",\"bankName\":\"FAB\",\"swift\":\"NBADAEAA\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Oasis Falcon Logistics LLC\",\"standard\":\"ISO 28000:2022\",\"certificateNo\":\"SCS-77120\",\"expiryDate\":\"2028-02-28\"}]",
+        "packetText": ""
+      },
+      "expectedOutput": {},
+      "evaluationCriterias": {
+        "llm-judge-trajectory-eval-001": {
+          "expectedAgentBehavior": "Same happy path for a different legal entity (Oasis Falcon Logistics LLC): extraction passthrough, validation passed=true, screening calls the Data Fabric register tool and the web search tool with no hits, low tier, provisioning completes, and the run finishes at the Provisioned end node."
+        }
+      },
+      "createdAt": "2026-08-08T08:07:06.237Z",
+      "updatedAt": "2026-08-08T08:07:06.237Z"
+    }
+  ],
+  "selectedEntrypoint": "start",
+  "fileName": "evaluation-set-end-to-end-ground-truth-ee9ce7e4.json",
+  "createdAt": "2026-08-08T08:05:09.625Z",
+  "updatedAt": "2026-08-08T08:07:06.237Z"
+}

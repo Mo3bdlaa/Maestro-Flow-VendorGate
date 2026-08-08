@@ -281,8 +281,8 @@
       "typeVersion": "1.3",
       "display": {
         "label": "Extraction Agent (generative)",
-        "icon": "autonomous-agent",
-        "subLabel": ""
+        "subLabel": "",
+        "icon": "autonomous-agent"
       },
       "inputs": {
         "source": "b6c3011d-9185-40a0-9ffb-fd4cae5a1759",
@@ -1270,7 +1270,7 @@
       "typeVersion": "2.3",
       "display": {
         "label": "Provision Vendor Portal API",
-        "icon": "app-window"
+        "icon": "https://cloud.uipath.com/elements_/scaleunit_/a6827719-5651-4da8-a093-6b3e05f247c7/v3/element/elements/uipath-uipath-http/image"
       },
       "inputs": {
         "branches": [],
@@ -6017,8 +6017,6 @@
       "propertyAttribute": "ConnectionId"
     }
   ],
-  "solutionId": "3e054f21-d53a-4f5f-9823-08def396904e",
-  "projectId": "d47d327a-ef17-436b-b5b5-816799f26b2d",
   "layout": {
     "nodes": {
       "noteTitle": {
