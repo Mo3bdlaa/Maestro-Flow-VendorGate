@@ -4,8 +4,8 @@ Everything below is live. Links, references and click paths are exact.
 
 | | |
 |---|---|
-| Flow canvas | [Studio Web designer](https://cloud.uipath.com/moshaker/studio_/designer/d47d327a-ef17-436b-b5b5-816799f26b2d?solutionId=3e054f21-d53a-4f5f-9823-08def396904e) |
-| Vendor portal | <https://moshaker.uipath.host/vendor-portal> |
+| Flow canvas | [Studio Web designer](https://staging.uipath.com/shakertechs/studio_/designer/a0978eee-a8ab-41a3-aa91-3bdb35e3bf1f) |
+| Vendor portal | <https://shakertechs.staging.uipath.host/vendor-portal> |
 | Solution package | `VendorGate/out/VendorGate_1.0.0.zip` (Flow + App in one artifact) |
 | Test PDFs | `VendorGate/test-data/documents/<vendor>/` |
 | Test payloads | `VendorGate/test-data/debug-vendor-*.json` |
