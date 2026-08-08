@@ -1,0 +1,606 @@
+{
+  "exportedAt": "2026-08-08T09:38:06.680Z",
+  "entities": {
+    "Vendor": {
+      "id": "a78eb607-7792-f111-b338-000d3ab4d3b7",
+      "records": [
+        {
+          "vendorId": "VND-A-9101",
+          "legalName": "Aurora Steel Industries LLC",
+          "country": "AE",
+          "status": 7,
+          "riskTier": 0,
+          "riskScore": 0,
+          "screeningResult": "{\"sanctionsHit\":false,\"debarmentHit\":false,\"adverseMedia\":[],\"recommendedTier\":\"low\",\"rationale\":\"No sanctions or debarment register match found for Aurora Steel Industries LLC or supplied variant. Adverse media search returned only unrelated or generic results and none clearly referred to this vendor.\",\"confidence\":0.93}",
+          "submittedAt": "2026-08-08T06:38:49.582+00:00",
+          "updatedAt": "2026-08-08T06:39:15.281+00:00"
+        },
+        {
+          "vendorId": "VND-C-2026",
+          "legalName": "Crimson Horizon Trading FZE",
+          "country": "AE",
+          "status": 4,
+          "riskTier": 2,
+          "riskScore": 40,
+          "screeningResult": "{\"sanctionsHit\":true,\"debarmentHit\":false,\"adverseMedia\":[],\"recommendedTier\":\"high\",\"rationale\":\"Exact match in sanctions register for legal name and supplied variant: \\\"Crimson Horizon Trading FZE\\\" (country: AE), reason: \\\"Designated 2025-11-02 - trade sanctions evasion.\\\" No procurement debarment match found. Adverse media search returned no results that clearly refer to this specific vendor.\",\"confidence\":0.99}",
+          "submittedAt": "2026-08-08T06:55:28.706+00:00",
+          "updatedAt": "2026-08-08T06:55:55.716+00:00"
+        },
+        {
+          "vendorId": "VND-A-2100",
+          "legalName": "Aurora Steel Industries LLC",
+          "country": "AE",
+          "status": 0,
+          "submittedAt": "2026-08-08T07:28:12.693+00:00",
+          "updatedAt": "2026-08-08T07:28:12.695+00:00"
+        },
+        {
+          "vendorId": "VND-A-2101",
+          "legalName": "Aurora Steel Industries LLC",
+          "country": "AE",
+          "status": 7,
+          "riskTier": 0,
+          "riskScore": 0,
+          "screeningResult": "{\"sanctionsHit\":false,\"debarmentHit\":false,\"adverseMedia\":[],\"recommendedTier\":\"low\",\"rationale\":\"No sanctions or debarment register match found for legal name 'Aurora Steel Industries LLC' or supplied variant 'Aurora Steel Industries LLC' after review of the retrieved ScreeningList register. Adverse media web search returned results referring to other entities or generic steel/aurora terms, not clearly this vendor, so no relevant adverse media was identified.\",\"confidence\":0.93}",
+          "submittedAt": "2026-08-08T07:30:50.804+00:00",
+          "updatedAt": "2026-08-08T07:31:16.307+00:00"
+        },
+        {
+          "vendorId": "EVAL-A-101",
+          "legalName": "Aurora Steel Industries LLC",
+          "country": "AE",
+          "status": 8,
+          "riskTier": 0,
+          "riskScore": 0,
+          "issues": "[{\"docType\":\"provisioning\",\"field\":\"vendorPortal\",\"severity\":\"blocking\",\"note\":\"Vendor portal provisioning failed - vendor master record rolled back to Failed. \"}]",
+          "screeningResult": "{\"sanctionsHit\":false,\"debarmentHit\":false,\"adverseMedia\":[],\"recommendedTier\":\"low\",\"rationale\":\"No sanctions or debarment match found in the retrieved ScreeningList register for legal name 'Aurora Steel Industries LLC' or supplied variant 'Aurora Steel Industries LLC'. Adverse media search returned results relating to other entities (e.g., Aurora Sea Port, unrelated LLCs, generic steel industry items) and none clearly referred to this vendor.\",\"confidence\":0.94}",
+          "submittedAt": "2026-08-08T09:25:14.514+00:00",
+          "updatedAt": "2026-08-08T09:26:01.709+00:00"
+        },
+        {
+          "vendorId": "EVAL-R-102",
+          "legalName": "Aurora Steel Industries LLC",
+          "country": "AE",
+          "status": 8,
+          "riskTier": 0,
+          "riskScore": 0,
+          "issues": "[{\"docType\":\"provisioning\",\"field\":\"vendorPortal\",\"severity\":\"blocking\",\"note\":\"Vendor portal provisioning failed - vendor master record rolled back to Failed. \"}]",
+          "screeningResult": "{\"sanctionsHit\":false,\"debarmentHit\":false,\"adverseMedia\":[],\"recommendedTier\":\"low\",\"rationale\":\"No sanctions or debarment match found in the retrieved ScreeningList register for legal name/variant “Aurora Steel Industries LLC”. Adverse media search results did not clearly refer to this vendor; results referenced other entities such as “Aurora Sea Port,” unrelated lawsuits, or generic industry/regulatory pages.\",\"confidence\":0.93}",
+          "submittedAt": "2026-08-08T09:26:20.349+00:00",
+          "updatedAt": "2026-08-08T09:27:05.306+00:00"
+        },
+        {
+          "vendorId": "EVAL-D-103",
+          "legalName": "Oasis Falcon Logistics LLC",
+          "country": "AE",
+          "status": 7,
+          "riskTier": 0,
+          "riskScore": 0,
+          "screeningResult": "{\"sanctionsHit\":false,\"debarmentHit\":false,\"adverseMedia\":[],\"recommendedTier\":\"low\",\"rationale\":\"No sanctions or debarment match found in the retrieved ScreeningList register for legal name 'Oasis Falcon Logistics LLC' or supplied variant 'Oasis Falcon Logistics LLC'. Adverse media web search for 'Oasis Falcon Logistics LLC fraud OR sanctions OR investigation OR lawsuit' returned only generic or unrelated results and none clearly referred to this vendor.\",\"confidence\":0.92}",
+          "submittedAt": "2026-08-08T09:27:15.703+00:00",
+          "updatedAt": "2026-08-08T09:27:40.563+00:00"
+        },
+        {
+          "vendorId": "V-1001",
+          "legalName": "Desert Palm Facilities Management LLC",
+          "country": "AE",
+          "status": 0,
+          "submittedAt": "2026-08-07T15:55:59.224+00:00",
+          "updatedAt": "2026-08-07T15:55:59.226+00:00"
+        },
+        {
+          "vendorId": "VND-A-5001",
+          "legalName": "Aurora Steel Industries LLC",
+          "country": "AE",
+          "status": 5,
+          "submittedAt": "2026-08-07T20:22:27.501+00:00",
+          "updatedAt": "2026-08-07T20:30:48.829+00:00"
+        },
+        {
+          "vendorId": "VND-A-7002",
+          "legalName": "Aurora Steel Industries LLC",
+          "country": "AE",
+          "status": 8,
+          "riskTier": 0,
+          "riskScore": 0,
+          "issues": "[{\"docType\":\"provisioning\",\"field\":\"vendorPortal\",\"severity\":\"blocking\",\"note\":\"Vendor portal provisioning failed - vendor master record rolled back to Failed. \"}]",
+          "screeningResult": "{\"sanctionsHit\":false,\"debarmentHit\":false,\"adverseMedia\":[],\"recommendedTier\":\"low\",\"rationale\":\"No exact or close-variant match found in the retrieved sanctions/debarment register for 'Aurora Steel Industries LLC' or the supplied variant. Adverse media search returned generic or unrelated results (e.g., other Aurora-named entities, unrelated steel companies, and general sanctions/lawsuit references) and did not clearly identify this AE vendor.\",\"confidence\":0.93}",
+          "submittedAt": "2026-08-07T21:03:46.307+00:00",
+          "updatedAt": "2026-08-07T21:04:31.027+00:00"
+        },
+        {
+          "vendorId": "VND-B-8002",
+          "legalName": "Zenith Gulf Trading FZE",
+          "country": "AE",
+          "status": 2,
+          "issues": "[{\"severity\":\"blocking\",\"field\":\"legalEntityName\",\"note\":\"Entity name mismatch across documents: 'Zenith Gulf Trading FZE' vs 'Zenith Gulf General Trading LLC'.\"},{\"severity\":\"blocking\",\"field\":\"accountHolderName\",\"note\":\"Bank account holder name does not match the licensed entity name: 'Zenith Gulf General Trading LLC' vs 'Zenith Gulf Trading FZE'.\"},{\"severity\":\"blocking\",\"field\":\"expiryDate\",\"note\":\"insurance expired on 2026-03-14.\"}]",
+          "submittedAt": "2026-08-07T21:06:56.388+00:00",
+          "updatedAt": "2026-08-07T21:07:04.16+00:00",
+          "queryDeadline": "2026-08-09T21:07:04.16+00:00"
+        }
+      ]
+    },
+    "VendorDocument": {
+      "id": "d350af0d-7792-f111-b338-000d3ab4d3b7",
+      "records": [
+        {
+          "docId": "VND-C-9001-packet",
+          "vendorId": "VND-C-9001",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Crimson Horizon Trading FZE\",\"licenceNo\":\"AJ-330912\",\"issueDate\":\"2024-05-20\",\"expiryDate\":\"2027-05-19\",\"jurisdiction\":\"Ajman, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Crimson Horizon Trading FZE\",\"policyNo\":\"PL-77120\",\"coverageAmount\":1800000,\"expiryDate\":\"2027-02-28\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Crimson Horizon Trading FZE\",\"iban\":\"AE330550008877665544332\",\"bankName\":\"RAKBANK\",\"swift\":\"NRAKAEAK\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Crimson Horizon Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-11207\",\"expiryDate\":\"2027-12-01\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-9101-packet",
+          "vendorId": "VND-A-9101",
+          "docType": 0,
+          "extractedFields": "",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-C-2026-packet",
+          "vendorId": "VND-C-2026",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Crimson Horizon Trading FZE\",\"licenceNo\":\"AJ-330912\",\"issueDate\":\"2024-05-20\",\"expiryDate\":\"2027-05-19\",\"jurisdiction\":\"Ajman, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Crimson Horizon Trading FZE\",\"policyNo\":\"PL-77120\",\"coverageAmount\":1800000,\"expiryDate\":\"2027-02-28\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Crimson Horizon Trading FZE\",\"iban\":\"AE330550008877665544332\",\"bankName\":\"RAKBANK\",\"swift\":\"NRAKAEAK\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Crimson Horizon Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-11207\",\"expiryDate\":\"2027-12-01\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-2100-packet",
+          "vendorId": "VND-A-2100",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-2101-packet",
+          "vendorId": "VND-A-2101",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "EVAL-A-101-packet",
+          "vendorId": "EVAL-A-101",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "EVAL-R-102-packet",
+          "vendorId": "EVAL-R-102",
+          "docType": 0,
+          "extractedFields": "",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "EVAL-D-103-packet",
+          "vendorId": "EVAL-D-103",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Oasis Falcon Logistics LLC\",\"licenceNo\":\"DXB-881204\",\"issueDate\":\"2024-11-01\",\"expiryDate\":\"2027-10-31\",\"jurisdiction\":\"Dubai, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Oasis Falcon Logistics LLC\",\"policyNo\":\"PL-20441\",\"coverageAmount\":3000000,\"expiryDate\":\"2027-08-15\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Oasis Falcon Logistics LLC\",\"iban\":\"AE910440007712345678901\",\"bankName\":\"FAB\",\"swift\":\"NBADAEAA\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Oasis Falcon Logistics LLC\",\"standard\":\"ISO 28000:2022\",\"certificateNo\":\"SCS-77120\",\"expiryDate\":\"2028-02-28\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "V-1001-packet",
+          "vendorId": "V-1001",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Desert Palm Facilities Management LLC\",\"licenceNo\":\"CN-771204\",\"issueDate\":\"2023-05-14\",\"expiryDate\":\"2027-05-13\",\"jurisdiction\":\"Abu Dhabi, AE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Desert Palm Facilities Management LLC\",\"policyNo\":\"PL-2298871\",\"coverageAmount\":5000000,\"expiryDate\":\"2027-02-28\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Desert Palm Facilities Management LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"First Gulf Commercial Bank\",\"swift\":\"FGCBAEAA\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Desert Palm Facilities Management LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-44821\",\"expiryDate\":\"2028-01-31\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-1001-packet",
+          "vendorId": "VND-A-1001",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-1009-packet",
+          "vendorId": "VND-A-1009",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-1011-packet",
+          "vendorId": "VND-A-1011",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-1013-packet",
+          "vendorId": "VND-A-1013",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-C-3007-packet",
+          "vendorId": "VND-C-3007",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Crimson Horizon Trading FZE\",\"licenceNo\":\"AJ-330912\",\"issueDate\":\"2024-05-20\",\"expiryDate\":\"2027-05-19\",\"jurisdiction\":\"Ajman, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Crimson Horizon Trading FZE\",\"policyNo\":\"PL-77120\",\"coverageAmount\":1800000,\"expiryDate\":\"2027-02-28\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Crimson Horizon Trading FZE\",\"iban\":\"AE330550008877665544332\",\"bankName\":\"RAKBANK\",\"swift\":\"NRAKAEAK\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Crimson Horizon Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-11207\",\"expiryDate\":\"2027-12-01\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-C-3010-packet",
+          "vendorId": "VND-C-3010",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Crimson Horizon Trading FZE\",\"licenceNo\":\"AJ-330912\",\"issueDate\":\"2024-05-20\",\"expiryDate\":\"2027-05-19\",\"jurisdiction\":\"Ajman, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Crimson Horizon Trading FZE\",\"policyNo\":\"PL-77120\",\"coverageAmount\":1800000,\"expiryDate\":\"2027-02-28\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Crimson Horizon Trading FZE\",\"iban\":\"AE330550008877665544332\",\"bankName\":\"RAKBANK\",\"swift\":\"NRAKAEAK\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Crimson Horizon Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-11207\",\"expiryDate\":\"2027-12-01\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-C-3033-packet",
+          "vendorId": "VND-C-3033",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Crimson Horizon Trading FZE\",\"licenceNo\":\"AJ-330912\",\"issueDate\":\"2024-05-20\",\"expiryDate\":\"2027-05-19\",\"jurisdiction\":\"Ajman, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Crimson Horizon Trading FZE\",\"policyNo\":\"PL-77120\",\"coverageAmount\":1800000,\"expiryDate\":\"2027-02-28\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Crimson Horizon Trading FZE\",\"iban\":\"AE330550008877665544332\",\"bankName\":\"RAKBANK\",\"swift\":\"NRAKAEAK\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Crimson Horizon Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-11207\",\"expiryDate\":\"2027-12-01\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-C-3041-packet",
+          "vendorId": "VND-C-3041",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Crimson Horizon Trading FZE\",\"licenceNo\":\"AJ-330912\",\"issueDate\":\"2024-05-20\",\"expiryDate\":\"2027-05-19\",\"jurisdiction\":\"Ajman, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Crimson Horizon Trading FZE\",\"policyNo\":\"PL-77120\",\"coverageAmount\":1800000,\"expiryDate\":\"2027-02-28\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Crimson Horizon Trading FZE\",\"iban\":\"AE330550008877665544332\",\"bankName\":\"RAKBANK\",\"swift\":\"NRAKAEAK\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Crimson Horizon Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-11207\",\"expiryDate\":\"2027-12-01\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-C-3055-packet",
+          "vendorId": "VND-C-3055",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Crimson Horizon Trading FZE\",\"licenceNo\":\"AJ-330912\",\"issueDate\":\"2024-05-20\",\"expiryDate\":\"2027-05-19\",\"jurisdiction\":\"Ajman, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Crimson Horizon Trading FZE\",\"policyNo\":\"PL-77120\",\"coverageAmount\":1800000,\"expiryDate\":\"2027-02-28\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Crimson Horizon Trading FZE\",\"iban\":\"AE330550008877665544332\",\"bankName\":\"RAKBANK\",\"swift\":\"NRAKAEAK\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Crimson Horizon Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-11207\",\"expiryDate\":\"2027-12-01\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-C-3077-packet",
+          "vendorId": "VND-C-3077",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Crimson Horizon Trading FZE\",\"licenceNo\":\"AJ-330912\",\"issueDate\":\"2024-05-20\",\"expiryDate\":\"2027-05-19\",\"jurisdiction\":\"Ajman, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Crimson Horizon Trading FZE\",\"policyNo\":\"PL-77120\",\"coverageAmount\":1800000,\"expiryDate\":\"2027-02-28\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Crimson Horizon Trading FZE\",\"iban\":\"AE330550008877665544332\",\"bankName\":\"RAKBANK\",\"swift\":\"NRAKAEAK\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Crimson Horizon Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-11207\",\"expiryDate\":\"2027-12-01\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-C-3090-packet",
+          "vendorId": "VND-C-3090",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Crimson Horizon Trading FZE\",\"licenceNo\":\"AJ-330912\",\"issueDate\":\"2024-05-20\",\"expiryDate\":\"2027-05-19\",\"jurisdiction\":\"Ajman, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Crimson Horizon Trading FZE\",\"policyNo\":\"PL-77120\",\"coverageAmount\":1800000,\"expiryDate\":\"2027-02-28\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Crimson Horizon Trading FZE\",\"iban\":\"AE330550008877665544332\",\"bankName\":\"RAKBANK\",\"swift\":\"NRAKAEAK\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Crimson Horizon Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-11207\",\"expiryDate\":\"2027-12-01\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-2001-packet",
+          "vendorId": "VND-A-2001",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-3001-packet",
+          "vendorId": "VND-A-3001",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-B-4001-packet",
+          "vendorId": "VND-B-4001",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Zenith Gulf Trading FZE\",\"licenceNo\":\"DL-774210\",\"issueDate\":\"2023-03-02\",\"expiryDate\":\"2027-03-01\",\"jurisdiction\":\"Dubai, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Zenith Gulf Trading FZE\",\"policyNo\":\"PL-44902\",\"coverageAmount\":1000000,\"expiryDate\":\"2026-03-14\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Zenith Gulf General Trading LLC\",\"iban\":\"AE210260001015333444555\",\"bankName\":\"Mashreq Bank\",\"swift\":\"BOMLAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Zenith Gulf Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-88102\",\"expiryDate\":\"2027-06-30\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-5001-packet",
+          "vendorId": "VND-A-5001",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-6001-packet",
+          "vendorId": "VND-A-6001",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-7001-packet",
+          "vendorId": "VND-A-7001",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-7002-packet",
+          "vendorId": "VND-A-7002",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-A-8001-packet",
+          "vendorId": "VND-A-8001",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        },
+        {
+          "docId": "VND-B-8002-packet",
+          "vendorId": "VND-B-8002",
+          "docType": 0,
+          "extractedFields": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Zenith Gulf Trading FZE\",\"licenceNo\":\"DL-774210\",\"issueDate\":\"2023-03-02\",\"expiryDate\":\"2027-03-01\",\"jurisdiction\":\"Dubai, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Zenith Gulf Trading FZE\",\"policyNo\":\"PL-44902\",\"coverageAmount\":1000000,\"expiryDate\":\"2026-03-14\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Zenith Gulf General Trading LLC\",\"iban\":\"AE210260001015333444555\",\"bankName\":\"Mashreq Bank\",\"swift\":\"BOMLAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Zenith Gulf Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-88102\",\"expiryDate\":\"2027-06-30\"}]",
+          "valid": false,
+          "issueNote": "Packet received - awaiting extraction"
+        }
+      ]
+    },
+    "ScreeningList": {
+      "id": "65efc4bd-7b92-f111-b338-000d3ab4d3b7",
+      "records": [
+        {
+          "entityName": "AEROCARIBBEAN AIRLINES",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "BANCO NACIONAL DE CUBA",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA - a.k.a. 'BNC'."
+        },
+        {
+          "entityName": "BOUTIQUE LA MAISON",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "CASA DE CUBA",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "CIMEX",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "CIMEX IBERICA",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "COMERCIALIZACION DE PRODUCTOS VARIOS",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "COMPANIA DE IMPORTACION Y EXPORTACION IBERIA",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "COTEI",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "CUBACANCUN CIGARS AND GIFT SHOPS",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "CUBAEXPORT",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "CUBAFRUTAS",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "CUBAN CIGARS TRADE",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "CUBANATUR",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "CUBATABACO",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "EDICIONES CUBANAS",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "EMPRESA CUBANA DE AVIACION",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "EMPRESA CUBANA DE PESCADOS Y MARISCOS",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA - a.k.a. 'CARIBEX'."
+        },
+        {
+          "entityName": "EMPRESA DE TURISMO NACIONAL Y INTERNACIONAL",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "ETCO INTERNATIONAL COMMODITIES LTD.",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "HAVIN BANK LIMITED",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA - SWIFT/BIC HAVIGB2L; Website www.havanaintbank.co.uk; alt. Website www.hib.uk.com; Company Number 01074897 (United Kingdom)."
+        },
+        {
+          "entityName": "HAVANATUR",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "INSTITUTO NACIONAL DE TURISMO DE CUBA",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "INTERCONSULT",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "LA EMPRESA CUBANA DE FLETES",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "NIREF",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "NORDSTRAND LTD.",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "NORDSTRAND MARITIME AND TRADING COMPANY",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "PANAMERICAN IMPORT AND EXPORT COMMERCIAL CORPORATION",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "PRELASA",
+          "listType": "sanctions",
+          "country": "",
+          "reason": "OFAC SDN - program CUBA"
+        },
+        {
+          "entityName": "Crimson Horizon Trading FZE",
+          "listType": "sanctions",
+          "country": "AE",
+          "reason": "Designated 2025-11-02 - trade sanctions evasion"
+        },
+        {
+          "entityName": "Meridian Bulk Logistics LLC",
+          "listType": "sanctions",
+          "country": "TR",
+          "reason": "Designated 2026-01-15 - restricted goods shipping"
+        },
+        {
+          "entityName": "Northgate Petro Supplies Ltd",
+          "listType": "sanctions",
+          "country": "CY",
+          "reason": "Designated 2025-06-30 - petroleum sanctions breach"
+        },
+        {
+          "entityName": "Alpine Star Contracting LLC",
+          "listType": "debarment",
+          "country": "AE",
+          "reason": "Debarred until 2027-03-01 - bid rigging"
+        },
+        {
+          "entityName": "Quantum Facility Services FZE",
+          "listType": "debarment",
+          "country": "AE",
+          "reason": "Debarred until 2026-12-31 - false documentation"
+        },
+        {
+          "entityName": "Crimson Horizon Trading FZE",
+          "listType": "sanctions",
+          "country": "AE",
+          "reason": "Designated 2025-11-02 - trade sanctions evasion"
+        },
+        {
+          "entityName": "Meridian Bulk Logistics LLC",
+          "listType": "sanctions",
+          "country": "TR",
+          "reason": "Designated 2026-01-15 - restricted goods shipping"
+        },
+        {
+          "entityName": "Northgate Petro Supplies Ltd",
+          "listType": "sanctions",
+          "country": "CY",
+          "reason": "Designated 2025-06-30 - petroleum sanctions breach"
+        },
+        {
+          "entityName": "Alpine Star Contracting LLC",
+          "listType": "debarment",
+          "country": "AE",
+          "reason": "Debarred until 2027-03-01 - bid rigging"
+        },
+        {
+          "entityName": "Quantum Facility Services FZE",
+          "listType": "debarment",
+          "country": "AE",
+          "reason": "Debarred until 2026-12-31 - false documentation"
+        }
+      ]
+    }
+  }
+}

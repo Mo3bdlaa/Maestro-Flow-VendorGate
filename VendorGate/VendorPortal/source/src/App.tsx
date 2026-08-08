@@ -4,18 +4,19 @@ import { Entities } from '@uipath/uipath-typescript/entities';
 import VendorPage from './pages/VendorPage';
 import AdminPage from './pages/AdminPage';
 import { Banner, Button, Logo } from './components/ui';
+import { demoService, liveService } from './service';
 
 type Tab = 'vendor' | 'admin';
 
 function Shell({
   tab,
   setTab,
-  onLogout,
+  right,
   children,
 }: {
   tab: Tab;
   setTab: (t: Tab) => void;
-  onLogout?: () => void;
+  right?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
@@ -55,11 +56,7 @@ function Shell({
                 </button>
               ))}
             </nav>
-            {onLogout && (
-              <Button variant="ghost" onClick={onLogout} className="!px-3 !py-1.5 text-xs">
-                Sign out
-              </Button>
-            )}
+            {right}
           </div>
         </div>
       </header>
@@ -74,9 +71,16 @@ function Shell({
 }
 
 function Portal() {
-  const { isAuthenticated, isLoading, sdk, login, logout, error } = useAuth();
+  const { isAuthenticated, isLoading, sdk, login, logout } = useAuth();
   const [tab, setTab] = useState<Tab>('vendor');
-  const entities = useMemo(() => new Entities(sdk), [sdk]);
+
+  // No login wall: unauthenticated visitors get a fully interactive demo
+  // sandbox (a real Data Fabric snapshot bundled at build time, mutated only
+  // in this browser tab). Signing in upgrades to live tenant data.
+  const svc = useMemo(
+    () => (isAuthenticated ? liveService(new Entities(sdk)) : demoService()),
+    [isAuthenticated, sdk],
+  );
 
   if (isLoading) {
     return (
@@ -86,32 +90,32 @@ function Portal() {
     );
   }
 
-  if (!isAuthenticated) {
-    return (
-      <Shell tab={tab} setTab={setTab}>
-        <div className="mx-auto max-w-lg rounded-2xl border border-slate-200 bg-white p-8 shadow-card">
-          <Logo className="h-10 w-10" />
-          <h2 className="mt-4 text-xl font-semibold tracking-tight">Sign in to continue</h2>
-          <p className="mt-2 text-sm leading-relaxed text-slate-600">
-            Suppliers register and follow their clearance here. Procurement reviews every
-            application, the screening evidence, and the agents&apos; recommendations.
-          </p>
-          {error && (
-            <div className="mt-4">
-              <Banner tone="bad">{error}</Banner>
-            </div>
-          )}
-          <Button onClick={login} className="mt-6 w-full sm:w-auto">
-            Sign in with UiPath
-          </Button>
-        </div>
-      </Shell>
-    );
-  }
-
   return (
-    <Shell tab={tab} setTab={setTab} onLogout={logout}>
-      {tab === 'vendor' ? <VendorPage entities={entities} /> : <AdminPage entities={entities} />}
+    <Shell
+      tab={tab}
+      setTab={setTab}
+      right={
+        svc.mode === 'demo' ? (
+          <Button onClick={login} className="!px-3 !py-1.5 text-xs">
+            Sign in for live data
+          </Button>
+        ) : (
+          <Button variant="ghost" onClick={logout} className="!px-3 !py-1.5 text-xs">
+            Sign out
+          </Button>
+        )
+      }
+    >
+      {svc.mode === 'demo' && (
+        <div className="mb-6">
+          <Banner tone="info" title="Demo mode">
+            You are exploring a sandboxed snapshot of real pipeline data — submissions and
+            actions stay in this browser tab. Sign in with UiPath to work against live
+            Data Fabric state.
+          </Banner>
+        </div>
+      )}
+      {tab === 'vendor' ? <VendorPage svc={svc} /> : <AdminPage svc={svc} />}
     </Shell>
   );
 }

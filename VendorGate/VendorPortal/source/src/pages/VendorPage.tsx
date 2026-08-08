@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import type { Entities } from '@uipath/uipath-typescript/entities';
+import type { VendorService } from '../service';
 import {
   Banner,
   Button,
@@ -20,7 +20,7 @@ import {
   statusBlurb,
   statusName,
 } from '../uipath-config';
-import { createDocument, createVendor, findVendor, listDocuments } from '../data';
+
 import type { ValidationIssue, VendorDocumentRecord, VendorRecord } from '../types';
 import { parseJson } from '../types';
 
@@ -180,11 +180,11 @@ function Feedback({ issues }: { issues: string | undefined }) {
 /* ---------------------------------- forms ----------------------------------- */
 
 function NewSubmission({
-  entities,
+  svc,
   onDone,
   onCancel,
 }: {
-  entities: Entities;
+  svc: VendorService;
   onDone: (ref: string) => void;
   onCancel: () => void;
 }) {
@@ -201,13 +201,12 @@ function NewSubmission({
     setError(null);
     const ref = vendorId.trim();
     try {
-      await createVendor(entities, { vendorId: ref, legalName: legalName.trim(), country: country.trim() });
+      await svc.createVendor({ vendorId: ref, legalName: legalName.trim(), country: country.trim() });
       for (let i = 0; i < DOC_TYPES.length; i++) {
         const dt = DOC_TYPES[i];
         const file = files[dt.key];
         if (!file) continue;
-        await createDocument(
-          entities,
+        await svc.createDocument(
           {
             docId: `${ref}-${dt.key}`,
             vendorId: ref,
@@ -393,7 +392,7 @@ function EntryChoice({ onNew, onTrack }: { onNew: () => void; onTrack: (ref: str
 
 /* ----------------------------------- page ----------------------------------- */
 
-export default function VendorPage({ entities }: { entities: Entities }) {
+export default function VendorPage({ svc }: { svc: VendorService }) {
   const [view, setView] = useState<'gate' | 'new' | 'track'>('gate');
   const [reference, setReference] = useState<string | null>(null);
   const [vendor, setVendor] = useState<VendorRecord | null>(null);
@@ -403,12 +402,12 @@ export default function VendorPage({ entities }: { entities: Entities }) {
 
   const load = useCallback(
     async (ref: string) => {
-      const v = await findVendor(entities, ref);
+      const v = await svc.findVendor(ref);
       setVendor(v);
-      setDocs(v ? await listDocuments(entities, ref) : []);
+      setDocs(v ? await svc.listDocuments(ref) : []);
       setLoading(false);
     },
-    [entities],
+    [svc],
   );
 
   useEffect(() => {
@@ -430,7 +429,7 @@ export default function VendorPage({ entities }: { entities: Entities }) {
   }
 
   if (view === 'new') {
-    return <NewSubmission entities={entities} onDone={(ref) => goTrack(ref, true)} onCancel={() => setView('gate')} />;
+    return <NewSubmission svc={svc} onDone={(ref) => goTrack(ref, true)} onCancel={() => setView('gate')} />;
   }
 
   return (

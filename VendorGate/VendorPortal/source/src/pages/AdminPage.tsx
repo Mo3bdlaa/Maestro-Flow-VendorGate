@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { Entities } from '@uipath/uipath-typescript/entities';
+import type { VendorService } from '../service';
 import { Card, Empty, Field, Select, Spinner, StatTile, StatusPill, TextInput } from '../components/ui';
 import { DOC_TYPES, STATUS_STAGES, riskTierName, statusName } from '../uipath-config';
-import { listDocuments, listVendors, updateVendorStatus } from '../data';
+
 import type {
   ScreeningResult,
   ValidationIssue,
@@ -16,12 +16,12 @@ const PAGE_SIZE = 25;
 /* -------------------------------- vendor profile ------------------------------ */
 
 function VendorProfile({
-  entities,
+  svc,
   vendor,
   onBack,
   onChanged,
 }: {
-  entities: Entities;
+  svc: VendorService;
   vendor: VendorRecord;
   onBack: () => void;
   onChanged: () => void;
@@ -33,9 +33,9 @@ function VendorProfile({
 
   useEffect(() => {
     if (vendor.vendorId) {
-      listDocuments(entities, vendor.vendorId).then(setDocs).catch(() => setDocs([]));
+      svc.listDocuments(vendor.vendorId).then(setDocs).catch(() => setDocs([]));
     }
-  }, [entities, vendor.vendorId]);
+  }, [svc, vendor.vendorId]);
 
   const issues = parseJson<ValidationIssue[]>(vendor.issues, []);
   const screening = parseJson<ScreeningResult>(vendor.screeningResult, {});
@@ -46,7 +46,7 @@ function VendorProfile({
     setBusy(true);
     setError(null);
     try {
-      await updateVendorStatus(entities, vendor.id, status);
+      await svc.updateVendorStatus(vendor.id, status);
       setNote(`${label} — vendor record updated.`);
       onChanged();
     } catch (err) {
@@ -283,7 +283,7 @@ function VendorProfile({
 
 /* ----------------------------------- list ------------------------------------ */
 
-export default function AdminPage({ entities }: { entities: Entities }) {
+export default function AdminPage({ svc }: { svc: VendorService }) {
   const [vendors, setVendors] = useState<VendorRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -294,7 +294,7 @@ export default function AdminPage({ entities }: { entities: Entities }) {
 
   const load = useCallback(async () => {
     try {
-      const rows = await listVendors(entities);
+      const rows = await svc.listVendors();
       // Rows without a reference are unusable in the UI — surface only real ones.
       setVendors(rows.filter((v) => v.vendorId));
       setError(null);
@@ -303,7 +303,7 @@ export default function AdminPage({ entities }: { entities: Entities }) {
     } finally {
       setLoading(false);
     }
-  }, [entities]);
+  }, [svc]);
 
   useEffect(() => {
     load();
@@ -327,7 +327,7 @@ export default function AdminPage({ entities }: { entities: Entities }) {
   if (selected) {
     return (
       <VendorProfile
-        entities={entities}
+        svc={svc}
         vendor={selected}
         onBack={() => setSelectedId(null)}
         onChanged={load}
