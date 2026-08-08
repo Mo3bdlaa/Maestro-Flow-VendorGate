@@ -24,6 +24,7 @@ VendorGate.uipx
 | Demo runbook | [DEMO.md](DEMO.md) |
 | Feature list | [FEATURES.md](FEATURES.md) |
 | License | MIT ([LICENSE](LICENSE)) |
+| Studio Web export | [VendorGate.uis](VendorGate.uis) — import directly into Studio Web |
 
 ## UiPath components used
 

@@ -1,0 +1,96 @@
+# VendorGate — 4-minute video shot list
+
+One take, screen recording, talk over it. Rehearse once with this open on a second
+screen. Target 3:30–4:30. **Record 1080p, hide bookmarks bar, close other tabs.**
+
+Before recording (5 min):
+- [ ] Open tabs in order: ① Studio Web designer (flow canvas) · ② Action Center
+      tasks · ③ portal https://moshaker.uipath.host/vendor-portal (signed in) ·
+      ④ terminal in `VendorGate/`
+- [ ] Run the eval sets from the canvas FIRST (agent node → Evaluations → Run) so
+      you can show results, not promises.
+- [ ] Terminal ready with:
+      `uip maestro flow debug ./VendorClearance -i "@test-data/debug-vendor-a-rawtext.json"`
+      …but FIRST edit the payload's vendorId to something unused (e.g. VND-A-####).
+
+---
+
+### 0:00–0:25 · The pitch (canvas, zoomed out)
+> "Straight-through vendor registration is solved. VendorGate starts where the old
+> automation gave up — the packet that doesn't validate cleanly. Everything you'll
+> see runs on UiPath Maestro: three agents, human tasks, a 48-hour timer, real
+> sanctions data, and a compensation path — packaged as one solution with a
+> customer-facing coded app."
+
+Pan slowly across the six colored sections while talking.
+
+### 0:25–1:10 · Live run from RAW TEXT (terminal → canvas)
+Fire the prepared debug command. While it runs:
+> "This payload is raw, unstructured packet text — no JSON. The first agent does
+> generative extraction: four typed documents out of plain text, with extraction
+> notes for anything ambiguous. Its output chains into a validation agent that
+> cross-checks the documents against each other, then a screening agent."
+
+Switch to the canvas run view as nodes light up. When it completes:
+> "Clean vendor: validated, screened, scored low, auto-provisioned. Note the
+> flow wrote everything back to Data Fabric — that matters in a minute."
+
+### 1:10–2:00 · The main event: vendor B's query loop (canvas + portal)
+Open the pre-run VND-B-8002 (or run vendor B live if time). On the canvas, point at
+the loop:
+> "The defective packet is why this flow exists. The validation agent found three
+> blocking issues. The vendor gets a task listing exactly what's wrong — and a
+> 48-hour timer starts in parallel. Response loops back to *extraction* — the
+> corrected packet is re-read, not re-judged. Timeout escalates to a procurement
+> officer. Nothing fails silently."
+
+Switch to the **portal**, track VND-B-8002:
+> "The vendor sees the same thing in plain language: current stage, the three
+> issues, and a response deadline — read live from Data Fabric."
+
+### 2:00–2:50 · Sanctions hit + parallel approvals (Action Center + portal admin)
+Track VND-C-2026 in the portal admin view, open the profile:
+> "This vendor is on the sanctions register — real OFAC data seeded from the US
+> Treasury's public feed, queried by the screening agent as a tool call *inside*
+> the flow, alongside an adverse-media web search. Score forty — but a sanctions
+> hit can never route below high; that override is deterministic code, not a
+> prompt. High risk means parallel approvals: Legal AND Security, both must
+> return."
+
+Switch to Action Center — show the two pending tasks, open one:
+> "Approvers see the whole case: entity, score, tier, register hits, and the
+> agent's written rationale."
+Approve both if time allows; otherwise leave pending.
+
+### 2:50–3:20 · Compensation (portal admin, VND-A-7002)
+Open VND-A-7002 (status Failed):
+> "Error handling isn't decorative. We pointed the provisioning API at a failing
+> endpoint: the boundary error fired, the compensation step rolled the vendor
+> master back to Failed with a structured reason. This path has been executed,
+> not just drawn."
+
+### 3:20–3:50 · Evals (canvas, Evaluations tab)
+Show the eval results for both agents:
+> "Each agent ships with ground-truth evals beyond the happy path — including an
+> adversarial case: a legitimate registered trade name that must NOT be flagged,
+> and fuzzy sanction variants that must still hit."
+
+### 3:50–4:10 · Close (repo README)
+Scroll the README:
+> "One solution package: the Maestro flow and the coded app deploy together.
+> Real components, honest stubs — each behind a swappable node. VendorGate:
+> exception-first vendor onboarding on UiPath Maestro."
+
+---
+
+## Don'ts (each one has burned us)
+- **Don't complete vendor B's resubmission task on camera** — the form carries no
+  corrected data; the flow would re-flag identical issues. Narrate the loop.
+- **Don't click "Add a connection"** on HITL outcome warnings in the canvas.
+- **Don't edit the tool node** (Sanctions & Debarment Lookup) in the canvas.
+- **Don't reuse a vendorId** in any live run.
+
+## After recording
+1. Upload (YouTube unlisted works).
+2. Put the link in README's "Demo video" row, commit, push:
+   `git add README.md && git commit -m "Add demo video link" && git push`
