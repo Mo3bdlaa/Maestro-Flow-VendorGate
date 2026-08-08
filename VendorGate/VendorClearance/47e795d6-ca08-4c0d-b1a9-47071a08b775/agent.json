@@ -11,18 +11,16 @@
   "inputSchema": {
     "type": "object",
     "properties": {
-      "start__output__legalName": {
-        "type": "string",
-        "description": "Bound from $vars.start.output.legalName"
-      },
-      "start__output__country": {
-        "type": "string",
-        "description": "Bound from $vars.start.output.country"
-      },
       "validationAgent__output__nameVariants": {
         "type": "array",
         "description": "Bound from $vars.validationAgent.output.nameVariants",
         "items": {}
+      },
+      "pickVendor__output__legalName": {
+        "description": "Bound from $vars.pickVendor.output.legalName"
+      },
+      "pickVendor__output__country": {
+        "description": "Bound from $vars.pickVendor.output.country"
       }
     }
   },
@@ -70,7 +68,7 @@
     },
     {
       "role": "user",
-      "content": "Screen this vendor:\nLegal name: {{input.start__output__legalName}}\nCountry: {{input.start__output__country}}\nName variants found in packet: {{input.validationAgent__output__nameVariants}}",
+      "content": "Screen this vendor:\nLegal name: {{input.pickVendor__output__legalName}}\nCountry: {{input.pickVendor__output__country}}\nName variants found in packet: {{input.validationAgent__output__nameVariants}}",
       "contentTokens": [
         {
           "type": "simpleText",
@@ -78,7 +76,7 @@
         },
         {
           "type": "variable",
-          "rawString": "input.start__output__legalName"
+          "rawString": "input.pickVendor__output__legalName"
         },
         {
           "type": "simpleText",
@@ -86,7 +84,7 @@
         },
         {
           "type": "variable",
-          "rawString": "input.start__output__country"
+          "rawString": "input.pickVendor__output__country"
         },
         {
           "type": "simpleText",

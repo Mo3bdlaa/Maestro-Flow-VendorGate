@@ -15,13 +15,11 @@
         "type": "string",
         "description": "Bound from $vars.extractDocs.output.docsJson"
       },
-      "start__output__country": {
-        "type": "string",
-        "description": "Bound from $vars.start.output.country"
+      "pickVendor__output__legalName": {
+        "description": "Bound from $vars.pickVendor.output.legalName"
       },
-      "start__output__legalName": {
-        "type": "string",
-        "description": "Bound from $vars.start.output.legalName"
+      "pickVendor__output__country": {
+        "description": "Bound from $vars.pickVendor.output.country"
       }
     }
   },
@@ -67,7 +65,7 @@
     },
     {
       "role": "user",
-      "content": "Submitted legal name: {{input.start__output__legalName}}\nStated country: {{input.start__output__country}}\n\nValidate this extracted vendor document packet. The JSON includes asOfDate - treat it as today's date:\n\n{{input.extractDocs__output__docsJson}}",
+      "content": "Submitted legal name: {{input.pickVendor__output__legalName}}\nStated country: {{input.pickVendor__output__country}}\n\nValidate this extracted vendor document packet. The JSON includes asOfDate - treat it as today's date:\n\n{{input.extractDocs__output__docsJson}}",
       "contentTokens": [
         {
           "type": "simpleText",
@@ -75,7 +73,7 @@
         },
         {
           "type": "variable",
-          "rawString": "input.start__output__legalName"
+          "rawString": "input.pickVendor__output__legalName"
         },
         {
           "type": "simpleText",
@@ -83,7 +81,7 @@
         },
         {
           "type": "variable",
-          "rawString": "input.start__output__country"
+          "rawString": "input.pickVendor__output__country"
         },
         {
           "type": "simpleText",
