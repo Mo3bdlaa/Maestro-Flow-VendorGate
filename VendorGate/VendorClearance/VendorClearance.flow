@@ -477,6 +477,7 @@
         "output": {
           "type": "object",
           "description": "Task result data",
+          "descriptionKey": "hitlOutputBuilder_taskResultData_description",
           "source": "=result",
           "var": "output",
           "properties": {
@@ -492,6 +493,7 @@
         "status": {
           "type": "string",
           "description": "Task completion status",
+          "descriptionKey": "hitlOutputBuilder_taskCompletionStatus_description",
           "source": "=result.Action",
           "var": "status",
           "enum": [
@@ -751,9 +753,9 @@
         "source": "2f8b4c6d-9a1e-4d3f-8c5b-7e2a9f4d6b83",
         "detail": {
           "connector": "uipath-uipath-airdk",
-          "connectionId": "fcd25ecf-785b-49d5-9bfc-5abf0cbb5750",
+          "connectionId": "9e6b90f5-2b61-49f1-afda-c90061443385",
           "connectionResourceId": "9e6b90f5-2b61-49f1-afda-c90061443385",
-          "connectionFolderKey": "cd671762-f695-48f8-ac4b-f849efe70464",
+          "connectionFolderKey": "e030afee-a5ae-496a-97c8-1aaa3fff1256",
           "method": "POST",
           "endpoint": "/v2/webSearch",
           "bodyParameters": {
@@ -765,7 +767,7 @@
             "start": 1
           },
           "objectName": "v2::webSearch",
-          "configuration": "=jsonString:{\"essentialConfiguration\":{\"connectorVersion\":\"1.81.0\",\"executionType\":null,\"customFieldsRequestDetails\":null,\"instanceParameters\":{\"connectorKey\":\"uipath-uipath-airdk\",\"objectName\":\"v2::webSearch\",\"httpMethod\":\"POST\",\"activityType\":\"Curated\",\"version\":\"1.0.0\",\"supportsStreaming\":false,\"subType\":\"standard\"},\"objectName\":\"v2::webSearch\",\"operation\":\"create\",\"packageVersion\":\"1.0.0\",\"httpMethod\":\"POST\",\"path\":\"/v2/webSearch\",\"unifiedTypesCompatible\":true,\"savedJitInputFieldId\":\"in_v2_sub_webSearch\"},\"optionalConfiguration\":{\"_textBlocks\":[],\"objectActions\":[],\"connectorName\":\"UiPath GenAI Activities\",\"maxPageSize\":200,\"jobArguments\":null,\"isAutopilotInvalidConfig\":false,\"additionalHeaders\":null,\"cachedLookupValues\":[],\"cachedBrowserItems\":[],\"cachedPropertyMappings\":[],\"primaryKeys\":[],\"objectDisplayName\":\"Web Search\",\"baseObject\":null,\"eventMode\":null,\"eventOperation\":null,\"language\":\"en-US\",\"hasBreakingChanges\":false,\"fieldsContainer\":{\"outputTypeDefinition\":\"{\\\"formattedResults\\\":string;\\\"results\\\":{\\\"snippet\\\":string;\\\"title\\\":string;\\\"url\\\":string}[]}\",\"outputJsonSchema\":{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"properties\":{\"formattedResults\":{\"title\":\"Formatted results\",\"type\":\"string\",\"description\":\"The search results string containing title, URL, and snippet\"},\"results[*]\":{\"title\":\"Results\",\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/results[*]\"}}},\"definitions\":{\"results[*]\":{\"type\":\"object\",\"properties\":{\"title\":{\"title\":\"Result title\",\"type\":\"string\",\"description\":\"The title of a search result item.\"},\"snippet\":{\"title\":\"Result snippet\",\"type\":\"string\",\"description\":\"A brief summary or excerpt of a search result item.\"},\"url\":{\"title\":\"Result url\",\"type\":\"string\",\"description\":\"The web address of the search result.\"}}}}},\"hasFileOutput\":false,\"populateOutputFields\":true,\"inputFields\":[{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"provider\",\"name\":\"provider\",\"displayName\":\"Search Engine\",\"description\":\"The search engine to use\",\"type\":\"string\",\"sortOrder\":1,\"defaultValue\":\"GoogleCustomSearch\",\"primaryKey\":false,\"enum\":[{\"name\":\"GoogleCustomSearch\",\"value\":\"GoogleCustomSearch\"}],\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"primary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":true,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"body\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":\"\"},{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"query\",\"name\":\"query\",\"displayName\":\"Search\",\"description\":\"The natural language query to search the web for\",\"type\":\"string\",\"sortOrder\":2,\"primaryKey\":false,\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"primary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":true,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"body\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":\"\"},{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"num\",\"name\":\"num\",\"displayName\":\"Number of results\",\"description\":\"The number of results. Default to 10.\",\"type\":\"integer\",\"sortOrder\":3,\"format\":\"int32\",\"defaultValue\":10,\"primaryKey\":false,\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"secondary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":false,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"body\",\"onCanvas\":true,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Int\",\"assemblyQualifiedName\":\"Int\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":-2},{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"siteSearch\",\"name\":\"siteSearch\",\"displayName\":\"Site Search\",\"description\":\"Restrict or exclude results for a domain.\",\"type\":\"string\",\"sortOrder\":4,\"primaryKey\":false,\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"secondary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":false,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"body\",\"onCanvas\":true,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":\"\"},{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"siteSearchFilter\",\"name\":\"siteSearchFilter\",\"displayName\":\"Site Search Filter\",\"description\":\"Either \\\"i\\\" (include) or \\\"e\\\" (exclude).\",\"type\":\"string\",\"sortOrder\":5,\"primaryKey\":false,\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"secondary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":false,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"body\",\"onCanvas\":true,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":\"\"},{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"start\",\"name\":\"start\",\"displayName\":\"Start\",\"description\":\"First result index (pagination).\",\"type\":\"integer\",\"sortOrder\":6,\"format\":\"int32\",\"defaultValue\":1,\"primaryKey\":false,\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"secondary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":false,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"body\",\"onCanvas\":true,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Int\",\"assemblyQualifiedName\":\"Int\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null}],\"outputFields\":[{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"out_formattedResults\",\"name\":\"formattedResults\",\"displayName\":\"FormattedResults\",\"description\":\"The search results string containing title, URL, and snippet\",\"type\":\"string\",\"sortOrder\":1,\"primaryKey\":false,\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":false,\"request\":false,\"response\":true,\"responseCurated\":true,\"fieldLocation\":\"output\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":true,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":\"\"},{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"v2_sub_webSearch\",\"name\":\"v2::webSearch\",\"displayName\":\"Web Search\",\"description\":\"\",\"type\":\"Generatedv2_sub_webSearch\",\"sortOrder\":null,\"format\":null,\"mask\":null,\"defaultValue\":null,\"primaryKey\":false,\"lookup\":null,\"enum\":null,\"design\":null,\"fieldActions\":null,\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"searchableJoins\":null,\"required\":false,\"request\":false,\"response\":true,\"responseCurated\":false,\"fieldLocation\":\"output\",\"onCanvas\":null,\"isJitField\":true,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Object\",\"assemblyQualifiedName\":\"Object\",\"isValueType\":false},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null}],\"jitTypeNeedsRefresh\":false,\"jitInputField\":{\"typeScriptDefinition\":\"{\\\"num\\\":number;\\\"provider\\\":string;\\\"query\\\":string;\\\"siteSearch\\\":string;\\\"siteSearchFilter\\\":string;\\\"start\\\":number}\",\"useUrlInput\":false,\"id\":\"in_v2_sub_webSearch\",\"name\":\"v2::webSearch\",\"displayName\":\"Web Search\",\"description\":\"Web Search input object\",\"type\":\"Generatedv2_sub_webSearch\",\"sortOrder\":null,\"format\":null,\"mask\":null,\"defaultValue\":\"{\\n  \\\"num\\\": null,\\n  \\\"provider\\\": null,\\n  \\\"query\\\": null,\\n  \\\"siteSearch\\\": null,\\n  \\\"siteSearchFilter\\\": null,\\n  \\\"start\\\": null\\n}\",\"primaryKey\":false,\"lookup\":null,\"enum\":null,\"design\":null,\"fieldActions\":null,\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"searchableJoins\":null,\"required\":true,\"request\":false,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"jitObjectInput\",\"onCanvas\":null,\"isJitField\":true,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Object\",\"assemblyQualifiedName\":\"Object\",\"isValueType\":false},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null},\"inputMode\":null,\"searchableFields\":[],\"hasUnifiedTypes\":true,\"jitTypeHash\":null}}}",
+          "configuration": "=jsonString:{\"essentialConfiguration\":{\"connectorVersion\":\"1.81.0\",\"customFieldsRequestDetails\":null,\"instanceParameters\":{\"connectorKey\":\"uipath-uipath-airdk\",\"objectName\":\"v2::webSearch\",\"httpMethod\":\"POST\",\"activityType\":\"Curated\",\"version\":\"1.0.0\",\"supportsStreaming\":false,\"subType\":\"standard\"},\"objectName\":\"v2::webSearch\",\"operation\":\"create\",\"packageVersion\":\"1.0.0\",\"httpMethod\":\"POST\",\"path\":\"/v2/webSearch\",\"unifiedTypesCompatible\":true,\"savedJitInputFieldId\":\"in_v2_sub_webSearch\"},\"optionalConfiguration\":{\"_textBlocks\":[],\"objectActions\":[],\"connectorName\":\"UiPath GenAI Activities\",\"maxPageSize\":200,\"jobArguments\":null,\"isAutopilotInvalidConfig\":false,\"additionalHeaders\":null,\"cachedLookupValues\":[],\"cachedBrowserItems\":[],\"cachedPropertyMappings\":[],\"primaryKeys\":[],\"objectDisplayName\":\"Web Search\",\"eventMode\":null,\"eventOperation\":null,\"hasBreakingChanges\":false,\"fieldsContainer\":{\"outputTypeDefinition\":\"{\\\"formattedResults\\\":string;\\\"results\\\":{\\\"snippet\\\":string;\\\"title\\\":string;\\\"url\\\":string}[]}\",\"outputJsonSchema\":{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"properties\":{\"formattedResults\":{\"title\":\"Formatted results\",\"type\":\"string\",\"description\":\"The search results string containing title, URL, and snippet\"},\"results[*]\":{\"title\":\"Results\",\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/results[*]\"}}},\"definitions\":{\"results[*]\":{\"type\":\"object\",\"properties\":{\"title\":{\"title\":\"Result title\",\"type\":\"string\",\"description\":\"The title of a search result item.\"},\"snippet\":{\"title\":\"Result snippet\",\"type\":\"string\",\"description\":\"A brief summary or excerpt of a search result item.\"},\"url\":{\"title\":\"Result url\",\"type\":\"string\",\"description\":\"The web address of the search result.\"}}}}},\"hasFileOutput\":false,\"populateOutputFields\":true,\"inputFields\":[{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"provider\",\"name\":\"provider\",\"displayName\":\"Search Engine\",\"description\":\"The search engine to use\",\"type\":\"string\",\"sortOrder\":1,\"defaultValue\":\"GoogleCustomSearch\",\"primaryKey\":false,\"enum\":[{\"name\":\"GoogleCustomSearch\",\"value\":\"GoogleCustomSearch\"}],\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"primary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":true,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"body\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":\"\"},{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"query\",\"name\":\"query\",\"displayName\":\"Search\",\"description\":\"The natural language query to search the web for\",\"type\":\"string\",\"sortOrder\":2,\"primaryKey\":false,\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"primary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":true,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"body\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":\"\"},{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"num\",\"name\":\"num\",\"displayName\":\"Number of results\",\"description\":\"The number of results. Default to 10.\",\"type\":\"integer\",\"sortOrder\":3,\"format\":\"int32\",\"defaultValue\":10,\"primaryKey\":false,\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"secondary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":false,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"body\",\"onCanvas\":true,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Int\",\"assemblyQualifiedName\":\"Int\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":-2},{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"siteSearch\",\"name\":\"siteSearch\",\"displayName\":\"Site Search\",\"description\":\"Restrict or exclude results for a domain.\",\"type\":\"string\",\"sortOrder\":4,\"primaryKey\":false,\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"secondary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":false,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"body\",\"onCanvas\":true,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":\"\"},{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"siteSearchFilter\",\"name\":\"siteSearchFilter\",\"displayName\":\"Site Search Filter\",\"description\":\"Either \\\"i\\\" (include) or \\\"e\\\" (exclude).\",\"type\":\"string\",\"sortOrder\":5,\"primaryKey\":false,\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"secondary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":false,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"body\",\"onCanvas\":true,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":\"\"},{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"start\",\"name\":\"start\",\"displayName\":\"Start\",\"description\":\"First result index (pagination).\",\"type\":\"integer\",\"sortOrder\":6,\"format\":\"int32\",\"defaultValue\":1,\"primaryKey\":false,\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"secondary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":false,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"body\",\"onCanvas\":true,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Int\",\"assemblyQualifiedName\":\"Int\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null}],\"outputFields\":[{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"out_formattedResults\",\"name\":\"formattedResults\",\"displayName\":\"FormattedResults\",\"description\":\"The search results string containing title, URL, and snippet\",\"type\":\"string\",\"sortOrder\":1,\"primaryKey\":false,\"design\":{\"loadByDefault\":true,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":false,\"request\":false,\"response\":true,\"responseCurated\":true,\"fieldLocation\":\"output\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":true,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":\"\"},{\"typeScriptDefinition\":null,\"useUrlInput\":false,\"id\":\"v2_sub_webSearch\",\"name\":\"v2::webSearch\",\"displayName\":\"Web Search\",\"description\":\"\",\"type\":\"Generatedv2_sub_webSearch\",\"sortOrder\":null,\"format\":null,\"mask\":null,\"defaultValue\":null,\"primaryKey\":false,\"lookup\":null,\"enum\":null,\"design\":null,\"fieldActions\":null,\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"searchableJoins\":null,\"required\":false,\"request\":false,\"response\":true,\"responseCurated\":false,\"fieldLocation\":\"output\",\"onCanvas\":null,\"isJitField\":true,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Object\",\"assemblyQualifiedName\":\"Object\",\"isValueType\":false},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null}],\"jitTypeNeedsRefresh\":false,\"jitInputField\":{\"typeScriptDefinition\":\"{\\\"num\\\":number;\\\"provider\\\":string;\\\"query\\\":string;\\\"siteSearch\\\":string;\\\"siteSearchFilter\\\":string;\\\"start\\\":number}\",\"useUrlInput\":false,\"id\":\"in_v2_sub_webSearch\",\"name\":\"v2::webSearch\",\"displayName\":\"Web Search\",\"description\":\"Web Search input object\",\"type\":\"Generatedv2_sub_webSearch\",\"sortOrder\":null,\"format\":null,\"mask\":null,\"defaultValue\":\"{\\n  \\\"num\\\": null,\\n  \\\"provider\\\": null,\\n  \\\"query\\\": null,\\n  \\\"siteSearch\\\": null,\\n  \\\"siteSearchFilter\\\": null,\\n  \\\"start\\\": null\\n}\",\"primaryKey\":false,\"lookup\":null,\"enum\":null,\"design\":null,\"fieldActions\":null,\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"searchableJoins\":null,\"required\":true,\"request\":false,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"jitObjectInput\",\"onCanvas\":null,\"isJitField\":true,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Object\",\"assemblyQualifiedName\":\"Object\",\"isValueType\":false},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null},\"inputMode\":null,\"searchableFields\":[],\"hasUnifiedTypes\":true,\"jitTypeHash\":null}}}",
           "uiPathActivityTypeId": "de237ff4-fac6-34dc-b4a5-8d0708c99e15",
           "errorState": {
             "issues": []
@@ -6013,10 +6015,21 @@
       "type": "string",
       "resource": "connection",
       "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
-      "default": "fcd25ecf-785b-49d5-9bfc-5abf0cbb5750",
+      "default": "9e6b90f5-2b61-49f1-afda-c90061443385",
       "propertyAttribute": "ConnectionId"
+    },
+    {
+      "id": "bwHZEswjN",
+      "name": "FolderKey",
+      "type": "string",
+      "resource": "connection",
+      "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
+      "default": "e030afee-a5ae-496a-97c8-1aaa3fff1256",
+      "propertyAttribute": "FolderKey"
     }
   ],
+  "solutionId": "3e054f21-d53a-4f5f-9823-08def396904e",
+  "projectId": "d47d327a-ef17-436b-b5b5-816799f26b2d",
   "layout": {
     "nodes": {
       "noteTitle": {
@@ -6055,29 +6068,29 @@
       "noteQueryLoop": {
         "position": {
           "x": 1680,
-          "y": -672
+          "y": -656
         },
         "size": {
-          "width": 1490,
-          "height": 700
+          "width": 2130,
+          "height": 684
         },
         "collapsed": false
       },
       "noteScreening": {
         "position": {
           "x": 1680,
-          "y": 240
+          "y": 64
         },
         "size": {
           "width": 1110,
-          "height": 500
+          "height": 756
         },
         "collapsed": false
       },
       "noteApprovals": {
         "position": {
           "x": 2832,
-          "y": 80
+          "y": 64
         },
         "size": {
           "width": 990,
@@ -6088,11 +6101,11 @@
       "noteProvisioning": {
         "position": {
           "x": 3856,
-          "y": -256
+          "y": -272
         },
         "size": {
-          "width": 730,
-          "height": 440
+          "width": 778,
+          "height": 488
         },
         "collapsed": false
       },
@@ -6164,7 +6177,7 @@
       },
       "vendorQuery": {
         "position": {
-          "x": 1984,
+          "x": 2368,
           "y": -560
         },
         "size": {
@@ -6175,7 +6188,7 @@
       },
       "delay48h": {
         "position": {
-          "x": 1984,
+          "x": 2368,
           "y": -256
         },
         "size": {
@@ -6186,7 +6199,7 @@
       },
       "checkDeadline": {
         "position": {
-          "x": 2240,
+          "x": 2624,
           "y": -256
         },
         "size": {
@@ -6197,7 +6210,7 @@
       },
       "escalateTimeout": {
         "position": {
-          "x": 2496,
+          "x": 2880,
           "y": -400
         },
         "size": {
@@ -6209,7 +6222,7 @@
       "screeningAgent": {
         "position": {
           "x": 1728,
-          "y": 320
+          "y": 352
         },
         "size": {
           "width": 288,
@@ -6230,7 +6243,7 @@
       },
       "toolWebSearch": {
         "position": {
-          "x": 1936,
+          "x": 1968,
           "y": 560
         },
         "size": {
@@ -6242,7 +6255,7 @@
       "riskScore": {
         "position": {
           "x": 2112,
-          "y": 320
+          "y": 352
         },
         "size": {
           "width": 96,
@@ -6341,7 +6354,7 @@
       "endProvisioned": {
         "position": {
           "x": 4416,
-          "y": -160
+          "y": -176
         },
         "size": {
           "width": 96,
@@ -6373,8 +6386,8 @@
       },
       "endQueryResolved": {
         "position": {
-          "x": 2496,
-          "y": -96
+          "x": 2880,
+          "y": -112
         },
         "size": {
           "width": 96,
@@ -6384,7 +6397,7 @@
       },
       "endEscalated": {
         "position": {
-          "x": 3008,
+          "x": 3392,
           "y": -400
         },
         "size": {
@@ -6395,7 +6408,7 @@
       },
       "setActionRequiredQuerydeadline1": {
         "position": {
-          "x": 1728,
+          "x": 2112,
           "y": -400
         },
         "size": {
@@ -6439,7 +6452,7 @@
       },
       "recordEscalation1": {
         "position": {
-          "x": 2752,
+          "x": 3136,
           "y": -400
         },
         "size": {
@@ -6451,7 +6464,7 @@
       "persistScreeningResult1": {
         "position": {
           "x": 2368,
-          "y": 320
+          "y": 352
         },
         "size": {
           "width": 96,
