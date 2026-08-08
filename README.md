@@ -22,6 +22,12 @@ VendorGate.uipx
 └── VendorPortal      Coded App    — vendor portal + procurement console
 ```
 
+## Watch the demo
+
+[![VendorGate — Vendor Onboarding & Risk Clearance on UiPath Maestro](https://img.youtube.com/vi/1rHno7CtIBk/maxresdefault.jpg)](https://youtu.be/1rHno7CtIBk)
+
+*A portal submission starts a real process instance, three agents clear the packet, and a sanctions hit fans out to parallel approvals.*
+
 | | |
 |---|---|
 | **Demo video** | **<https://youtu.be/1rHno7CtIBk>** |
