@@ -17,7 +17,12 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [sdk] = useState<UiPath>(() => new UiPath());
+  // Explicit redirectUri (takes precedence over the meta tag): the build bakes
+  // the localhost dev value into the page, which breaks login on the deployed
+  // host. Deriving it from the current location is correct in every environment.
+  const [sdk] = useState<UiPath>(
+    () => new UiPath({ redirectUri: window.location.origin + window.location.pathname }),
+  );
   const didInit = useRef(false);
 
   useEffect(() => {
