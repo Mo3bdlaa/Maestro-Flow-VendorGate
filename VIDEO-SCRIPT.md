@@ -4,14 +4,16 @@ One take, screen recording, talk over it. Rehearse once with this open on a seco
 screen. Target 3:30–4:30. **Record 1080p, hide bookmarks bar, close other tabs.**
 
 Before recording (5 min):
-- [ ] Open tabs in order: ① Studio Web designer (flow canvas) · ② Action Center
-      tasks · ③ portal https://moshaker.uipath.host/vendor-portal (signed in) ·
-      ④ terminal in `VendorGate/`
+- [ ] Open tabs in order: ① Studio Web designer (flow canvas) · ② Orchestrator
+      → `Shared/VendorGate Run` → Processes/Instances · ③ Action Center tasks ·
+      ④ portal https://moshaker.uipath.host/vendor-portal (signed in) ·
+      ⑤ terminal in `VendorGate/`
 - [ ] Run the eval sets from the canvas FIRST (agent node → Evaluations → Run) so
       you can show results, not promises.
-- [ ] Terminal ready with:
+- [ ] Terminal ready with the studio run, as the agent-path fallback:
       `uip maestro flow debug ./VendorClearance -i "@test-data/debug-vendor-a-rawtext.json"`
       …but FIRST edit the payload's vendorId to something unused (e.g. VND-A-####).
+- [ ] Have a PDF from `test-data/documents/vendor-a/` ready to upload in the portal.
 
 ---
 
@@ -24,16 +26,28 @@ Before recording (5 min):
 
 Pan slowly across the six colored sections while talking.
 
-### 0:25–1:10 · Live run from RAW TEXT (terminal → canvas)
-Fire the prepared debug command. While it runs:
-> "This payload is raw, unstructured packet text — no JSON. The first agent does
-> generative extraction: four typed documents out of plain text, with extraction
-> notes for anything ambiguous. Its output chains into a validation agent that
-> cross-checks the documents against each other, then a screening agent."
+### 0:25–1:10 · A vendor submits — and the flow wakes up by itself (portal → Orchestrator)
+In the **portal**, fill the submission form and attach the vendor-a PDFs. Submit.
+> "A supplier registers through the portal. The browser reads the PDFs, and the
+> packet lands in Data Fabric. Nobody starts a job."
 
-Switch to the canvas run view as nodes light up. When it completes:
-> "Clean vendor: validated, screened, scored low, auto-provisioned. Note the
-> flow wrote everything back to Data Fabric — that matters in a minute."
+Switch to **Orchestrator → VendorGate Run → instances**. A new instance appears
+on its own (poll interval ~5 minutes — cut here if needed).
+> "A Data Fabric *Record Created* trigger starts the process. It claims the new
+> submission, moves it to extracting, pulls the documents back out, assembles the
+> packet, and hands it to the extraction agent — every step you're seeing ran on
+> deployed infrastructure, not a debug session."
+
+Then switch to the canvas run view for the agent chain (studio run if the deployed
+agent leg is licence-blocked — see Don'ts):
+> "Raw, unstructured packet text — no JSON. The first agent does generative
+> extraction: four typed documents out of plain text, with notes for anything
+> ambiguous. That chains into a validation agent that cross-checks the documents
+> against each other, then a screening agent."
+
+When it completes:
+> "Clean vendor: validated, screened, scored low, auto-provisioned. Everything
+> written back to Data Fabric — that matters in a minute."
 
 ### 1:10–2:00 · The main event: vendor B's query loop (canvas + portal)
 Open the pre-run VND-B-8002 (or run vendor B live if time). On the canvas, point at
@@ -84,6 +98,11 @@ Scroll the README:
 ---
 
 ## Don'ts (each one has burned us)
+- **If the deployed agent node is licence-blocked** (`170002 / LLM provider
+  returned HTTP 403` — robot-executed agents draw on tenant AI Units), show the
+  deployed instance up to the agent hand-off, say so plainly, and roll the studio
+  run for the agent chain. Named licence boundary reads as production literacy;
+  a stalled canvas does not.
 - **Don't complete vendor B's resubmission task on camera** — the form carries no
   corrected data; the flow would re-flag identical issues. Narrate the loop.
 - **Don't click "Add a connection"** on HITL outcome warnings in the canvas.
