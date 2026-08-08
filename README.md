@@ -18,10 +18,27 @@ VendorGate.uipx
 
 | | |
 |---|---|
+| **Demo video** | *link will be posted here* |
 | Flow canvas | [Studio Web designer](https://cloud.uipath.com/moshaker/studio_/designer/d47d327a-ef17-436b-b5b5-816799f26b2d?solutionId=3e054f21-d53a-4f5f-9823-08def396904e) |
 | Live portal | <https://moshaker.uipath.host/vendor-portal> |
 | Demo runbook | [DEMO.md](DEMO.md) |
 | Feature list | [FEATURES.md](FEATURES.md) |
+| License | MIT ([LICENSE](LICENSE)) |
+
+## UiPath components used
+
+| Component | Where |
+|---|---|
+| **Maestro Flow** | The whole orchestration — BPMN-backed long-running flow with timer, parallel gateway, boundary-error compensation |
+| **Inline Agents** (×3) | Generative extraction · cross-document validation · sanctions screening, all with typed input/output schemas chained node-to-node |
+| **Agent tools** (IS connector tools) | Data Fabric `query-entity-records` (sanctions register) + GenAI Web Search (adverse media), called by the screening agent *inside* the flow |
+| **Data Fabric** | `Vendor`, `VendorDocument`, `ScreeningList` entities — durable state the flow writes and the portal reads; file attachments for uploaded documents |
+| **Action Center (HITL)** | Vendor query task, procurement escalation, single + parallel approvals — every task carries the full case context |
+| **Integration Service** | Data Fabric + UiPath GenAI connections backing the connector nodes and agent tools |
+| **Managed HTTP** | Vendor-portal provisioning call (error port wired to compensation) |
+| **Coded App (AppV2)** | `VendorPortal` — React/TS vendor portal + procurement console, registered in the same `.uipx` solution |
+| **Agent Evals** | Ground-truth eval sets per agent, incl. an adversarial trade-name case and fuzzy sanction-variant cases |
+| **Solutions packaging** | `uip solution pack` produces one deployable artifact containing the Flow and the App |
 
 ---
 
