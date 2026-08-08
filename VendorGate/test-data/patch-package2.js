@@ -7,18 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const root = process.argv[2];
 
-const MAP = {
-  // DF activity connection: Vendor Gate -> VendorGate Run
-  '0c89d875-23ba-425a-af78-801786c50537': '7ab4be89-9b69-474d-b123-0a1efd597341',
-  // GenAI/airdk connection: ACME Project -> VendorGate Run
-  '87fce6c9-d681-4f42-b246-ca0959034a22': 'e8dbdd2a-5fa7-48dc-934b-bc22ecefacb1',
-  // folder keys: Vendor Gate + ACME Project -> VendorGate Run
-  'f919e064-57e8-4d56-9a55-c92796fb53c1': '1ec1d1ab-7f34-4c16-832d-3d3828f27fc4',
-  'f919e064-57e8-4d56-9a55-c92796fb53c1': '1ec1d1ab-7f34-4c16-832d-3d3828f27fc4',
-  // rename trigger -> new trigger-resource hash -> installer creates a FRESH
-  // IS registration (the old one was destroyed by the 1.2.0 upgrade; enable 404s)
-  'Vendor Submitted (Portal - Data Fabric)': 'Vendor Submitted via Portal (Data Fabric)',
-};
+const MAP = {};
 
 function remapText(s) {
   for (const [from, to] of Object.entries(MAP)) s = s.split(from).join(to);
@@ -84,29 +73,29 @@ const have = (cid) =>
   p.resource.runtimeDependencies.some(
     (d) => d.bindingType === 'connection' && d.bindingValues.connectionId.defaultValue === cid,
   );
-const RUN_FOLDER = '1ec1d1ab-7f34-4c16-832d-3d3828f27fc4';
-if (!have('7ab4be89-9b69-474d-b123-0a1efd597341')) {
+const RUN_FOLDER = 'f919e064-57e8-4d56-9a55-c92796fb53c1';
+if (!have('0c89d875-23ba-425a-af78-801786c50537')) {
   p.resource.runtimeDependencies.unshift({
     bindingType: 'connection',
-    bindingKey: '7ab4be89-9b69-474d-b123-0a1efd597341',
-    bindingValues: { connectionId: { defaultValue: '7ab4be89-9b69-474d-b123-0a1efd597341' } },
+    bindingKey: '0c89d875-23ba-425a-af78-801786c50537',
+    bindingValues: { connectionId: { defaultValue: '0c89d875-23ba-425a-af78-801786c50537' } },
     bindingMetadata: { activityName: 'Sanctions & Debarment Lookup (Data Fabric)', bindingsVersion: '2.2', connector: 'uipath-uipath-dataservice', useConnectionService: 'true' },
     resourceKind: 'Connection',
     resourceType: 'uipath-uipath-dataservice',
-    resourceKey: '7ab4be89-9b69-474d-b123-0a1efd597341',
+    resourceKey: '0c89d875-23ba-425a-af78-801786c50537',
     resourceName: 'mohamed.shaker@barqsystems.com',
     folderKey: RUN_FOLDER,
   });
 }
-if (!have('e8dbdd2a-5fa7-48dc-934b-bc22ecefacb1')) {
+if (!have('87fce6c9-d681-4f42-b246-ca0959034a22')) {
   p.resource.runtimeDependencies.unshift({
     bindingType: 'connection',
-    bindingKey: 'e8dbdd2a-5fa7-48dc-934b-bc22ecefacb1',
-    bindingValues: { connectionId: { defaultValue: 'e8dbdd2a-5fa7-48dc-934b-bc22ecefacb1' } },
+    bindingKey: '87fce6c9-d681-4f42-b246-ca0959034a22',
+    bindingValues: { connectionId: { defaultValue: '87fce6c9-d681-4f42-b246-ca0959034a22' } },
     bindingMetadata: { activityName: 'Adverse Media Web Search', bindingsVersion: '2.2', connector: 'uipath-uipath-airdk', useConnectionService: 'true' },
     resourceKind: 'Connection',
     resourceType: 'uipath-uipath-airdk',
-    resourceKey: 'e8dbdd2a-5fa7-48dc-934b-bc22ecefacb1',
+    resourceKey: '87fce6c9-d681-4f42-b246-ca0959034a22',
     resourceName: 'UiPath GenAI Activities',
     folderKey: RUN_FOLDER,
   });
