@@ -1,0 +1,7 @@
+{
+  "vendorId": "VND-C-3003",
+  "legalName": "Crimson Horizon Trading FZE",
+  "country": "AE",
+  "docsJson": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Crimson Horizon Trading FZE\",\"licenceNo\":\"AJ-330912\",\"issueDate\":\"2024-05-20\",\"expiryDate\":\"2027-05-19\",\"jurisdiction\":\"Ajman, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Crimson Horizon Trading FZE\",\"policyNo\":\"PL-77120\",\"coverageAmount\":1800000,\"expiryDate\":\"2027-02-28\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Crimson Horizon Trading FZE\",\"iban\":\"AE330550008877665544332\",\"bankName\":\"RAKBANK\",\"swift\":\"NRAKAEAK\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Crimson Horizon Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-11207\",\"expiryDate\":\"2027-12-01\"}]",
+  "packetText": ""
+}

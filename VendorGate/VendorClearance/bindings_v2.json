@@ -1,0 +1,62 @@
+{
+  "version": "2.0",
+  "resources": [
+    {
+      "resource": "connection",
+      "key": "127fb909-ac85-4c93-938f-135ab0398a6c",
+      "id": "connection127fb909-ac85-4c93-938f-135ab0398a6c",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "isExpression": false,
+          "displayName": "uipath-uipath-dataservice connection"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Write Vendor Record",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "uipath-uipath-dataservice connection",
+        "UseConnectionService": "true",
+        "Connector": "uipath-uipath-dataservice"
+      }
+    },
+    {
+      "resource": "connection",
+      "key": "9e6b90f5-2b61-49f1-afda-c90061443385",
+      "id": "connection9e6b90f5-2b61-49f1-afda-c90061443385",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "9e6b90f5-2b61-49f1-afda-c90061443385",
+          "isExpression": false,
+          "displayName": "uipath-uipath-airdk connection"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Adverse Media Web Search",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "uipath-uipath-airdk connection",
+        "UseConnectionService": "true",
+        "Connector": "uipath-uipath-airdk"
+      }
+    },
+    {
+      "resource": "connection",
+      "key": "",
+      "id": "connection",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "ImplicitConnection",
+          "isExpression": false,
+          "displayName": "uipath-uipath-http connection"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Write Vendor Record",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "uipath-uipath-http connection",
+        "UseConnectionService": "true",
+        "Connector": "uipath-uipath-dataservice"
+      }
+    }
+  ]
+}

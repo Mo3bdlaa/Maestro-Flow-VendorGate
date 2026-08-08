@@ -1,0 +1,8 @@
+{
+  "clientId": "e0e3d12f-12fe-4539-bda5-56b0e17f25bf",
+  "scope": "DataFabric.Schema.Read DataFabric.Data.Read DataFabric.Data.Write",
+  "orgName": "moshaker",
+  "tenantName": "DefaultTenant",
+  "baseUrl": "https://api.uipath.com",
+  "redirectUri": "http://localhost:5173"
+}

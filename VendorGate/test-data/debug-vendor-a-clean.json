@@ -1,0 +1,7 @@
+{
+  "vendorId": "VND-A-1001",
+  "legalName": "Aurora Steel Industries LLC",
+  "country": "AE",
+  "docsJson": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]",
+  "packetText": ""
+}

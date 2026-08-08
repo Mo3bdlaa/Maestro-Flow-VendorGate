@@ -1,0 +1,10 @@
+{
+  "ProjectType": "AppV2",
+  "WebAppSettings": {
+    "AppId": null,
+    "IsCoreProject": false
+  },
+  "Name": "VendorPortal",
+  "Description": "Vendor-facing submission and tracking portal, plus the procurement review console.",
+  "MainFile": null
+}

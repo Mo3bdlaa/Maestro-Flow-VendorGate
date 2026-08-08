@@ -1,0 +1,47 @@
+{
+  "scope": "tenant",
+  "note": "Entities live at TENANT level - IS Data Fabric connector cannot see folder-scoped entities. Folder copies deleted 2026-08-07.",
+  "connection": {
+    "id": "127fb909-ac85-4c93-938f-135ab0398a6c",
+    "connector": "uipath-uipath-dataservice",
+    "folder": "Vendor Gate",
+    "folderKey": "cd671762-f695-48f8-ac4b-f849efe70464"
+  },
+  "entities": {
+    "Vendor": "a78eb607-7792-f111-b338-000d3ab4d3b7",
+    "VendorDocument": "d350af0d-7792-f111-b338-000d3ab4d3b7"
+  },
+  "choiceSets": {
+    "VendorStatus": {
+      "id": "6590addf-7692-f111-b338-000d3ab4d3b7",
+      "values": {
+        "submitted": 0,
+        "extracting": 1,
+        "action_required": 2,
+        "screening": 3,
+        "pending_approval": 4,
+        "approved": 5,
+        "rejected": 6,
+        "provisioned": 7,
+        "failed": 8
+      }
+    },
+    "RiskTier": {
+      "id": "766255e6-7692-f111-b338-000d3ab4d3b7",
+      "values": {
+        "low": 0,
+        "medium": 1,
+        "high": 2
+      }
+    },
+    "DocType": {
+      "id": "836255e6-7692-f111-b338-000d3ab4d3b7",
+      "values": {
+        "trade_licence": 0,
+        "insurance": 1,
+        "bank_letter": 2,
+        "iso_cert": 3
+      }
+    }
+  }
+}

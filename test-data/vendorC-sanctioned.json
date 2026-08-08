@@ -1,0 +1,6 @@
+{
+  "vendorId": "V-1003",
+  "legalName": "Crimson Horizon Trading LLC",
+  "country": "AE",
+  "docsJson": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Crimson Horizon Trading LLC\",\"licenceNo\":\"CN-663019\",\"issueDate\":\"2024-01-10\",\"expiryDate\":\"2027-01-09\",\"jurisdiction\":\"Sharjah, AE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Crimson Horizon Trading LLC\",\"policyNo\":\"PL-3347120\",\"coverageAmount\":3000000,\"expiryDate\":\"2027-06-30\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Crimson Horizon Trading LLC\",\"iban\":\"AE440150112233445566778\",\"bankName\":\"Gulf Mercantile Bank\",\"swift\":\"GMBKAEAV\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Crimson Horizon Trading LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-51299\",\"expiryDate\":\"2027-09-30\"}]"
+}

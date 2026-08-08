@@ -1,0 +1,23 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "VendorClearance",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "403a5984-485d-4ef9-a480-7278013c988e",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "name": "VendorClearance"
+    },
+    "locks": [],
+    "key": "f88b6faa-7e72-44c3-a47b-3373bd737c51",
+    "files": []
+  }
+}

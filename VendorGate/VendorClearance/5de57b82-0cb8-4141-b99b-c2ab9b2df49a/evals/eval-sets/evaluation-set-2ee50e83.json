@@ -1,0 +1,109 @@
+{
+  "fileName": "evaluation-set-2ee50e83.json",
+  "id": "2ee50e83-8b65-4353-b302-33fcef3b9b90",
+  "name": "Validation Ground Truth",
+  "batchSize": 10,
+  "evaluatorRefs": [
+    "a8ff2864-2a15-4212-8d5f-2a6354333298",
+    "aecb5747-8662-4e86-b589-427fd94bb1da"
+  ],
+  "evaluations": [
+    {
+      "id": "4b282098-f0a8-488c-aedf-c266fedac260",
+      "name": "vendor-a-clean",
+      "inputs": {
+        "extractDocs__output__docsJson": "{\"asOfDate\":\"2026-08-07\",\"documents\":[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Aurora Steel Industries LLC\",\"licenceNo\":\"CN-1042288\",\"issueDate\":\"2024-09-15\",\"expiryDate\":\"2027-09-14\",\"jurisdiction\":\"Abu Dhabi, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Aurora Steel Industries LLC\",\"policyNo\":\"PL-88421\",\"coverageAmount\":2000000,\"expiryDate\":\"2027-01-31\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Aurora Steel Industries LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"Emirates NBD\",\"swift\":\"EBILAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Aurora Steel Industries LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-55311\",\"expiryDate\":\"2028-05-20\"}]}"
+      },
+      "expectedOutput": {
+        "passed": true,
+        "issues": [],
+        "nameVariants": [
+          "Aurora Steel Industries LLC"
+        ],
+        "expiringWithin30Days": false
+      },
+      "simulationInstructions": "",
+      "expectedAgentBehavior": "Must cross-check the entity name on all four documents, verify no expiry date is before or within 30 days of 2026-08-07, confirm the bank account holder matches the licensed entity, and report zero issues with passed=true.",
+      "simulateInput": false,
+      "inputGenerationInstructions": "",
+      "simulateTools": false,
+      "evalSetId": "2ee50e83-8b65-4353-b302-33fcef3b9b90",
+      "createdAt": "2026-08-07T16:29:56.423Z",
+      "updatedAt": "2026-08-07T16:29:56.423Z",
+      "source": "manual"
+    },
+    {
+      "id": "ca77733a-0905-4130-af98-925420554e80",
+      "name": "vendor-b-defective",
+      "inputs": {
+        "extractDocs__output__docsJson": "{\"asOfDate\":\"2026-08-07\",\"documents\":[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Zenith Gulf Trading FZE\",\"licenceNo\":\"DL-774210\",\"issueDate\":\"2023-03-02\",\"expiryDate\":\"2027-03-01\",\"jurisdiction\":\"Dubai, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Zenith Gulf Trading FZE\",\"policyNo\":\"PL-44902\",\"coverageAmount\":1000000,\"expiryDate\":\"2026-03-14\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Zenith Gulf General Trading LLC\",\"iban\":\"AE210260001015333444555\",\"bankName\":\"Mashreq Bank\",\"swift\":\"BOMLAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Zenith Gulf Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-88102\",\"expiryDate\":\"2027-06-30\"}]}"
+      },
+      "expectedOutput": {
+        "passed": false,
+        "issues": [
+          {
+            "docType": "insurance",
+            "field": "expiryDate",
+            "severity": "blocking",
+            "note": "Certificate expired 2026-03-14"
+          },
+          {
+            "docType": "bank_letter",
+            "field": "accountHolderName",
+            "severity": "blocking",
+            "note": "Account holder Zenith Gulf General Trading LLC does not match licensed entity Zenith Gulf Trading FZE"
+          },
+          {
+            "docType": "packet",
+            "field": "entityName",
+            "severity": "blocking",
+            "note": "Entity name mismatch across documents: Zenith Gulf Trading FZE vs Zenith Gulf General Trading LLC"
+          }
+        ],
+        "nameVariants": [
+          "Zenith Gulf Trading FZE",
+          "Zenith Gulf General Trading LLC"
+        ]
+      },
+      "simulationInstructions": "",
+      "expectedAgentBehavior": "Must detect three blocking issues: the expired insurance certificate (2026-03-14 is in the past), the bank account holder name mismatch against the licence, and the entity name inconsistency across documents (FZE vs General Trading LLC). Must list both name variants and set passed=false. The bank-holder mismatch and cross-document name mismatch may be reported as two issues or merged into related issues - what matters is that both the expiry and the naming problems are flagged blocking.",
+      "simulateInput": false,
+      "inputGenerationInstructions": "",
+      "simulateTools": false,
+      "evalSetId": "2ee50e83-8b65-4353-b302-33fcef3b9b90",
+      "createdAt": "2026-08-07T16:29:58.110Z",
+      "updatedAt": "2026-08-07T16:29:58.110Z",
+      "source": "manual"
+    },
+    {
+      "id": "1089e2a1-35ff-44f4-9354-8247b31461fd",
+      "name": "adversarial-trade-name",
+      "inputs": {
+        "extractDocs__output__docsJson": "{\"asOfDate\":\"2026-08-07\",\"documents\":[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Falcon Ridge General Trading LLC\",\"registeredTradeName\":\"FR BuildMart\",\"licenceNo\":\"SH-556677\",\"issueDate\":\"2024-01-10\",\"expiryDate\":\"2027-11-30\",\"jurisdiction\":\"Sharjah, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Falcon Ridge General Trading LLC\",\"policyNo\":\"PL-90233\",\"coverageAmount\":1500000,\"expiryDate\":\"2027-04-15\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Falcon Ridge General Trading LLC\",\"iban\":\"AE480440009912223334445\",\"bankName\":\"ADCB\",\"swift\":\"ADCBAEAA\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"FR BuildMart (Falcon Ridge General Trading LLC)\",\"standard\":\"ISO 14001:2015\",\"certificateNo\":\"EMS-30987\",\"expiryDate\":\"2027-10-01\"}]}"
+      },
+      "expectedOutput": {
+        "passed": true,
+        "issues": [],
+        "nameVariants": [
+          "Falcon Ridge General Trading LLC",
+          "FR BuildMart"
+        ]
+      },
+      "simulationInstructions": "",
+      "expectedAgentBehavior": "Must recognize that FR BuildMart is the registered trade name declared on the trade licence itself, so the name difference on the ISO certificate is legitimate and NOT a blocking issue. passed must be true.",
+      "simulateInput": false,
+      "inputGenerationInstructions": "",
+      "simulateTools": false,
+      "evalSetId": "2ee50e83-8b65-4353-b302-33fcef3b9b90",
+      "createdAt": "2026-08-07T16:29:59.762Z",
+      "updatedAt": "2026-08-07T16:29:59.762Z",
+      "source": "manual"
+    }
+  ],
+  "modelSettings": [],
+  "agentMemoryEnabled": false,
+  "agentMemorySettings": [],
+  "lineByLineEvaluation": false,
+  "createdAt": "2026-08-07T16:29:32.567Z",
+  "updatedAt": "2026-08-07T16:29:32.567Z"
+}

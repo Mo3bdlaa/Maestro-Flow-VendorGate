@@ -1,0 +1,82 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "VendorClearance",
+    "kind": "process",
+    "type": "flow",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "403a5984-485d-4ef9-a480-7278013c988e",
+    "isOverridable": true,
+    "dependencies": [
+      {
+        "kind": "package",
+        "name": "VendorClearance"
+      }
+    ],
+    "runtimeDependencies": [
+      {
+        "bindingType": "connection",
+        "bindingKey": "127fb909-ac85-4c93-938f-135ab0398a6c",
+        "bindingValues": {
+          "connectionId": {
+            "defaultValue": "127fb909-ac85-4c93-938f-135ab0398a6c",
+            "isExpression": false
+          }
+        },
+        "bindingMetadata": {
+          "activityName": "Write Vendor Record",
+          "bindingsVersion": "2.2",
+          "connector": "uipath-uipath-dataservice",
+          "useConnectionService": "true"
+        },
+        "resourceKind": "Connection",
+        "resourceType": "uipath-uipath-dataservice",
+        "resourceKey": "127fb909-ac85-4c93-938f-135ab0398a6c",
+        "resourceName": "mohamed.shaker@barqsystems.com",
+        "folderKey": "cd671762-f695-48f8-ac4b-f849efe70464"
+      },
+      {
+        "bindingType": "connection",
+        "bindingKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
+        "bindingValues": {
+          "connectionId": {
+            "defaultValue": "9e6b90f5-2b61-49f1-afda-c90061443385",
+            "isExpression": false
+          }
+        },
+        "bindingMetadata": {
+          "activityName": "Adverse Media Web Search",
+          "bindingsVersion": "2.2",
+          "connector": "uipath-uipath-airdk",
+          "useConnectionService": "true"
+        },
+        "resourceKind": "Connection",
+        "resourceType": "uipath-uipath-airdk",
+        "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
+        "resourceName": "UiPath GenAI Activities",
+        "folderKey": "e030afee-a5ae-496a-97c8-1aaa3fff1256"
+      }
+    ],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "type": "Flow",
+      "name": "VendorClearance",
+      "package": {
+        "key": "f88b6faa-7e72-44c3-a47b-3373bd737c51"
+      },
+      "packageName": "VendorGate.flow.VendorClearance",
+      "targetFrameworkValue": "Portable",
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180
+    },
+    "locks": [],
+    "key": "37fdcb89-ef1e-4749-afc9-2420f00d749f",
+    "files": []
+  }
+}

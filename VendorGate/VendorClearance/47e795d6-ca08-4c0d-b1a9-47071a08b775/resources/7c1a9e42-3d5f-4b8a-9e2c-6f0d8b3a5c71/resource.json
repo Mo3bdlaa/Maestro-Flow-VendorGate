@@ -1,0 +1,187 @@
+{
+  "$resourceType": "tool",
+  "name": "Sanctions & Debarment Lookup (Data Fabric)",
+  "description": "Retrieves the sanctions and debarment register from the ScreeningList Data Fabric entity. Each record has: entityName, listType ('sanctions' or 'debarment'), country, reason. Call with no queryExpression to retrieve the full register for fuzzy matching.",
+  "location": "external",
+  "type": "integration",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "entityName": {
+        "type": "string",
+        "title": "Entity",
+        "description": "Always 'ScreeningList'"
+      },
+      "queryExpression": {
+        "type": "string",
+        "title": "Query",
+        "description": "Optional CEQL query. Omit to retrieve all records."
+      }
+    },
+    "required": [
+      "entityName"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "settings": {},
+  "properties": {
+    "toolPath": "/v2/{entityName}/qer",
+    "objectName": "QueryEntityRecordsCurated",
+    "toolDisplayName": "Query Entity Records",
+    "toolDescription": "Retrieves the sanctions and debarment register from the ScreeningList Data Fabric entity. Each record has: entityName, listType ('sanctions' or 'debarment'), country, reason. Call with no queryExpression to retrieve the full register for fuzzy matching.",
+    "method": "POST",
+    "connection": {
+      "id": "127fb909-ac85-4c93-938f-135ab0398a6c",
+      "name": "UiPath Data Fabric",
+      "elementInstanceId": 0,
+      "apiBaseUri": "",
+      "state": "enabled",
+      "isDefault": false,
+      "connector": {
+        "key": "uipath-uipath-dataservice",
+        "name": "UiPath Data Fabric",
+        "image": ""
+      },
+      "folder": {
+        "key": "cd671762-f695-48f8-ac4b-f849efe70464",
+        "path": ""
+      }
+    },
+    "parameters": [
+      {
+        "name": "entityName",
+        "displayName": "Entity",
+        "type": "string",
+        "fieldLocation": "path",
+        "fieldVariant": "static",
+        "value": "ScreeningList",
+        "description": "Enter entity name",
+        "dynamic": false,
+        "position": "primary",
+        "sortOrder": 1,
+        "required": true,
+        "enumValues": null,
+        "loadReferenceOptionsByDefault": null,
+        "dynamicBehavior": [],
+        "reference": null,
+        "isCascading": false
+      },
+      {
+        "name": "queryExpression",
+        "displayName": "Query",
+        "type": "string",
+        "fieldLocation": "query",
+        "fieldVariant": "dynamic",
+        "value": "{{prompt}}",
+        "description": "Enter CEQL query to filter entity records",
+        "dynamic": true,
+        "position": "primary",
+        "sortOrder": 2,
+        "required": false,
+        "enumValues": null,
+        "loadReferenceOptionsByDefault": null,
+        "dynamicBehavior": [],
+        "reference": null,
+        "isCascading": false
+      },
+      {
+        "name": "start",
+        "displayName": "Skip",
+        "type": "integer",
+        "fieldLocation": "query",
+        "fieldVariant": "static",
+        "value": 0,
+        "description": "Specify the number of records to skip from the start",
+        "dynamic": false,
+        "position": "secondary",
+        "sortOrder": 3,
+        "required": false,
+        "enumValues": null,
+        "loadReferenceOptionsByDefault": null,
+        "dynamicBehavior": [],
+        "reference": null,
+        "isCascading": false
+      },
+      {
+        "name": "limit",
+        "displayName": "Top",
+        "type": "integer",
+        "fieldLocation": "query",
+        "fieldVariant": "static",
+        "value": 1000,
+        "description": "Specify number of records to return at most. Range: 1-1000. Default: 100.",
+        "dynamic": false,
+        "position": "secondary",
+        "sortOrder": 4,
+        "required": false,
+        "enumValues": null,
+        "loadReferenceOptionsByDefault": null,
+        "dynamicBehavior": [],
+        "reference": null,
+        "isCascading": false
+      },
+      {
+        "name": "expansionLevel",
+        "displayName": "Related record depth",
+        "type": "integer",
+        "fieldLocation": "query",
+        "fieldVariant": "static",
+        "value": 3,
+        "description": "Specify the depth of related records to be retrieved from the service. Range: 1-3. Default: 3.",
+        "dynamic": false,
+        "position": "secondary",
+        "sortOrder": 5,
+        "required": false,
+        "enumValues": [
+          {
+            "name": "1",
+            "value": 1
+          },
+          {
+            "name": "2",
+            "value": 2
+          },
+          {
+            "name": "3",
+            "value": 3
+          }
+        ],
+        "loadReferenceOptionsByDefault": null,
+        "dynamicBehavior": [],
+        "reference": null,
+        "isCascading": false
+      },
+      {
+        "name": "isAscending",
+        "displayName": "Sort ascending",
+        "type": "boolean",
+        "fieldLocation": "query",
+        "fieldVariant": "static",
+        "value": false,
+        "description": "Specify whether to sort in ascending (true) or descending (false) order",
+        "dynamic": false,
+        "position": "secondary",
+        "sortOrder": 6,
+        "required": false,
+        "enumValues": null,
+        "loadReferenceOptionsByDefault": null,
+        "dynamicBehavior": [],
+        "reference": null,
+        "isCascading": false
+      }
+    ],
+    "bodyStructure": {
+      "contentType": "json"
+    }
+  },
+  "guardrail": {
+    "policies": []
+  },
+  "iconUrl": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+  "id": "7c1a9e42-3d5f-4b8a-9e2c-6f0d8b3a5c71",
+  "isEnabled": true,
+  "canvasNodeId": "toolScreeningList"
+}

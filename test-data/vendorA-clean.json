@@ -1,0 +1,6 @@
+{
+  "vendorId": "V-1001",
+  "legalName": "Desert Palm Facilities Management LLC",
+  "country": "AE",
+  "docsJson": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Desert Palm Facilities Management LLC\",\"licenceNo\":\"CN-771204\",\"issueDate\":\"2023-05-14\",\"expiryDate\":\"2027-05-13\",\"jurisdiction\":\"Abu Dhabi, AE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Desert Palm Facilities Management LLC\",\"policyNo\":\"PL-2298871\",\"coverageAmount\":5000000,\"expiryDate\":\"2027-02-28\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Desert Palm Facilities Management LLC\",\"iban\":\"AE070331234567890123456\",\"bankName\":\"First Gulf Commercial Bank\",\"swift\":\"FGCBAEAA\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Desert Palm Facilities Management LLC\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-44821\",\"expiryDate\":\"2028-01-31\"}]"
+}

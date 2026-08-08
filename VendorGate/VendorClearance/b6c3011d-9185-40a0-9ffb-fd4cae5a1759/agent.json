@@ -1,0 +1,85 @@
+{
+  "version": "1.1.0",
+  "settings": {
+    "model": "gpt-5.4",
+    "maxTokens": 128000,
+    "temperature": 0,
+    "engine": "basic-v2",
+    "maxIterations": 5,
+    "mode": "standard"
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "start__output__packetText": {
+        "type": "string",
+        "description": "Bound from $vars.start.output.packetText"
+      },
+      "start__output__docsJson": {
+        "type": "string",
+        "description": "Bound from $vars.start.output.docsJson"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "docsJson": {
+        "type": "string"
+      },
+      "count": {
+        "type": "number"
+      },
+      "mode": {
+        "type": "string"
+      },
+      "extractionNotes": {
+        "type": "string"
+      }
+    }
+  },
+  "metadata": {
+    "storageVersion": "50.0.0",
+    "isConversational": false,
+    "showProjectCreationExperience": false
+  },
+  "type": "lowCode",
+  "guardrails": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are the document extraction agent in a vendor onboarding workflow. Your job is generative extraction: turn a raw vendor registration packet into structured document records. You never validate, judge or screen - extraction only.\n\nInput priority:\n1. If raw packet text is supplied (non-empty), extract from it. Set mode = 'generative'.\n2. Otherwise, if a pre-structured docsJson is supplied, parse it, normalise field names, and pass it through. Set mode = 'structured'.\n3. If both are empty, return docsJson with an empty documents array, count 0, and explain in extractionNotes.\n\nThe packet contains up to four document types. Extract these exact fields:\n- trade_licence: legalEntityName, registeredTradeName (only if explicitly declared), licenceNo, issueDate, expiryDate, jurisdiction\n- insurance: insuredEntityName, policyNo, coverageAmount (number), expiryDate\n- bank_letter: accountHolderName, iban, bankName, swift\n- iso_cert: certifiedEntityName, standard, certificateNo, expiryDate\n\nRules:\n- Dates in ISO format YYYY-MM-DD.\n- Copy names EXACTLY as written - do not normalise legal suffixes (FZE vs LLC differences are meaningful downstream).\n- Never invent a value. If a field is absent or illegible, omit the key and mention it in extractionNotes.\n- Each document object must carry its docType.\n- Output docsJson as a compact JSON string: {\"asOfDate\":\"<today YYYY-MM-DD>\",\"documents\":[...]}.\n- Output only the structured result.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "You are the document extraction agent in a vendor onboarding workflow. Your job is generative extraction: turn a raw vendor registration packet into structured document records. You never validate, judge or screen - extraction only.\n\nInput priority:\n1. If raw packet text is supplied (non-empty), extract from it. Set mode = 'generative'.\n2. Otherwise, if a pre-structured docsJson is supplied, parse it, normalise field names, and pass it through. Set mode = 'structured'.\n3. If both are empty, return docsJson with an empty documents array, count 0, and explain in extractionNotes.\n\nThe packet contains up to four document types. Extract these exact fields:\n- trade_licence: legalEntityName, registeredTradeName (only if explicitly declared), licenceNo, issueDate, expiryDate, jurisdiction\n- insurance: insuredEntityName, policyNo, coverageAmount (number), expiryDate\n- bank_letter: accountHolderName, iban, bankName, swift\n- iso_cert: certifiedEntityName, standard, certificateNo, expiryDate\n\nRules:\n- Dates in ISO format YYYY-MM-DD.\n- Copy names EXACTLY as written - do not normalise legal suffixes (FZE vs LLC differences are meaningful downstream).\n- Never invent a value. If a field is absent or illegible, omit the key and mention it in extractionNotes.\n- Each document object must carry its docType.\n- Output docsJson as a compact JSON string: {\"asOfDate\":\"<today YYYY-MM-DD>\",\"documents\":[...]}.\n- Output only the structured result."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Raw packet text (may be empty):\n{{input.start__output__packetText}}\n\nPre-structured docsJson (may be empty):\n{{input.start__output__docsJson}}",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "Raw packet text (may be empty):\n"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.start__output__packetText"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\n\nPre-structured docsJson (may be empty):\n"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.start__output__docsJson"
+        }
+      ]
+    }
+  ],
+  "projectId": "b6c3011d-9185-40a0-9ffb-fd4cae5a1759",
+  "id": "b6c3011d-9185-40a0-9ffb-fd4cae5a1759",
+  "name": "Extraction Agent (generative)"
+}

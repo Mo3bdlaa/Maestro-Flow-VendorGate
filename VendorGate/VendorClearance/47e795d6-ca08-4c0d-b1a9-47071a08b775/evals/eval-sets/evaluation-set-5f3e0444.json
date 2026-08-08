@@ -1,0 +1,119 @@
+{
+  "fileName": "evaluation-set-5f3e0444.json",
+  "id": "5f3e0444-cf2b-4932-84ab-cbe6bd9cceb5",
+  "name": "Screening Ground Truth",
+  "batchSize": 10,
+  "evaluatorRefs": [
+    "1d41eeb8-080f-4622-97e5-2a40f7e49b7c",
+    "b3482424-1d08-441e-b1bf-c8eef4012fe7"
+  ],
+  "evaluations": [
+    {
+      "id": "0ce42983-30fc-4d1a-b2d0-13e54afe9d18",
+      "name": "vendor-c-sanctions-hit",
+      "inputs": {
+        "start__output__legalName": "Crimson Horizon Trading FZE",
+        "start__output__country": "AE",
+        "validationAgent__output__nameVariants": [
+          "Crimson Horizon Trading FZE"
+        ]
+      },
+      "expectedOutput": {
+        "sanctionsHit": true,
+        "debarmentHit": false,
+        "recommendedTier": "high"
+      },
+      "simulationInstructions": "",
+      "expectedAgentBehavior": "Must call the Query Entity Records tool to fetch the ScreeningList register, find Crimson Horizon Trading FZE on the sanctions list, call Web Search for adverse media, and recommend tier high with the matched record quoted in rationale.",
+      "simulateInput": false,
+      "inputGenerationInstructions": "",
+      "simulateTools": false,
+      "evalSetId": "5f3e0444-cf2b-4932-84ab-cbe6bd9cceb5",
+      "createdAt": "2026-08-07T16:30:21.624Z",
+      "updatedAt": "2026-08-07T16:30:21.624Z",
+      "source": "manual"
+    },
+    {
+      "id": "33bdfb9d-7162-4473-8930-44b0d9159750",
+      "name": "vendor-a-clean",
+      "inputs": {
+        "start__output__legalName": "Aurora Steel Industries LLC",
+        "start__output__country": "AE",
+        "validationAgent__output__nameVariants": [
+          "Aurora Steel Industries LLC"
+        ]
+      },
+      "expectedOutput": {
+        "sanctionsHit": false,
+        "debarmentHit": false,
+        "adverseMedia": [],
+        "recommendedTier": "low"
+      },
+      "simulationInstructions": "",
+      "expectedAgentBehavior": "Must call the Query Entity Records tool, find no match for Aurora Steel Industries LLC, call Web Search, report no relevant adverse media, and recommend tier low.",
+      "simulateInput": false,
+      "inputGenerationInstructions": "",
+      "simulateTools": false,
+      "evalSetId": "5f3e0444-cf2b-4932-84ab-cbe6bd9cceb5",
+      "createdAt": "2026-08-07T16:30:23.424Z",
+      "updatedAt": "2026-08-07T16:30:23.424Z",
+      "source": "manual"
+    },
+    {
+      "id": "c02900f7-358a-410e-955c-df42084d6f76",
+      "name": "suffix-variant-hit",
+      "inputs": {
+        "start__output__legalName": "Crimson Horizon Trading LLC",
+        "start__output__country": "AE",
+        "validationAgent__output__nameVariants": [
+          "Crimson Horizon Trading LLC",
+          "Crimson Horizon Trading FZE"
+        ]
+      },
+      "expectedOutput": {
+        "sanctionsHit": true,
+        "recommendedTier": "high"
+      },
+      "simulationInstructions": "",
+      "expectedAgentBehavior": "Must treat Crimson Horizon Trading LLC as a close suffix variant of the sanctioned entity Crimson Horizon Trading FZE from the ScreeningList register and set sanctionsHit true with tier high.",
+      "simulateInput": false,
+      "inputGenerationInstructions": "",
+      "simulateTools": false,
+      "evalSetId": "5f3e0444-cf2b-4932-84ab-cbe6bd9cceb5",
+      "createdAt": "2026-08-07T16:30:25.251Z",
+      "updatedAt": "2026-08-07T16:30:25.251Z",
+      "source": "manual"
+    },
+    {
+      "id": "e421a1fa-3ae7-45db-95de-ff7865e9d1fe",
+      "name": "debarment-hit",
+      "inputs": {
+        "start__output__legalName": "Alpine Star Contracting L.L.C.",
+        "start__output__country": "AE",
+        "validationAgent__output__nameVariants": [
+          "Alpine Star Contracting L.L.C."
+        ]
+      },
+      "expectedOutput": {
+        "sanctionsHit": false,
+        "debarmentHit": true,
+        "recommendedTier": "high"
+      },
+      "simulationInstructions": "",
+      "expectedAgentBehavior": "Must match Alpine Star Contracting L.L.C. against the debarment record Alpine Star Contracting LLC despite punctuation differences, set debarmentHit true and tier high.",
+      "simulateInput": false,
+      "inputGenerationInstructions": "",
+      "simulateTools": false,
+      "evalSetId": "5f3e0444-cf2b-4932-84ab-cbe6bd9cceb5",
+      "createdAt": "2026-08-07T16:30:27.136Z",
+      "updatedAt": "2026-08-07T16:30:27.136Z",
+      "source": "manual"
+    }
+  ],
+  "modelSettings": [],
+  "agentMemoryEnabled": false,
+  "agentMemorySettings": [],
+  "lineByLineEvaluation": false,
+  "createdAt": "2026-08-07T16:30:19.900Z",
+  "updatedAt": "2026-08-07T16:30:19.900Z"
+}

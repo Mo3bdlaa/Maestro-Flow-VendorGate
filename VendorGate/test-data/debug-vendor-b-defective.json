@@ -1,0 +1,7 @@
+{
+  "vendorId": "VND-B-2002",
+  "legalName": "Zenith Gulf Trading FZE",
+  "country": "AE",
+  "docsJson": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Zenith Gulf Trading FZE\",\"licenceNo\":\"DL-774210\",\"issueDate\":\"2023-03-02\",\"expiryDate\":\"2027-03-01\",\"jurisdiction\":\"Dubai, UAE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Zenith Gulf Trading FZE\",\"policyNo\":\"PL-44902\",\"coverageAmount\":1000000,\"expiryDate\":\"2026-03-14\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Zenith Gulf General Trading LLC\",\"iban\":\"AE210260001015333444555\",\"bankName\":\"Mashreq Bank\",\"swift\":\"BOMLAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Zenith Gulf Trading FZE\",\"standard\":\"ISO 9001:2015\",\"certificateNo\":\"QMS-88102\",\"expiryDate\":\"2027-06-30\"}]",
+  "packetText": ""
+}

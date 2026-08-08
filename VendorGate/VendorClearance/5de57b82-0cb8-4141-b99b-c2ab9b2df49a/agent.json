@@ -1,0 +1,102 @@
+{
+  "version": "1.1.0",
+  "settings": {
+    "model": "gpt-5.4",
+    "maxTokens": 128000,
+    "temperature": 0,
+    "engine": "basic-v2",
+    "maxIterations": 10,
+    "mode": "standard"
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "extractDocs__output__docsJson": {
+        "type": "string",
+        "description": "Bound from $vars.extractDocs.output.docsJson"
+      },
+      "start__output__country": {
+        "type": "string",
+        "description": "Bound from $vars.start.output.country"
+      },
+      "start__output__legalName": {
+        "type": "string",
+        "description": "Bound from $vars.start.output.legalName"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "passed": {
+        "type": "boolean"
+      },
+      "issues": {
+        "type": "array",
+        "items": {}
+      },
+      "nameVariants": {
+        "type": "array",
+        "items": {}
+      },
+      "expiringWithin30Days": {
+        "type": "boolean"
+      },
+      "confidence": {
+        "type": "number"
+      }
+    }
+  },
+  "metadata": {
+    "storageVersion": "50.0.0",
+    "isConversational": false,
+    "showProjectCreationExperience": false
+  },
+  "type": "lowCode",
+  "guardrails": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are the validation agent in a vendor onboarding and risk clearance workflow. Your job is CROSS-DOCUMENT consistency checking of a supplier registration packet - not per-document field validation.\n\nThe packet contains four documents: trade licence, insurance certificate, bank details letter, and ISO/compliance certificate.\n\nRun exactly these checks:\n1. Legal entity name consistency - the entity name must match across all four documents. Suffix variants ('FZE' vs 'LLC' vs 'Trading') count as a MISMATCH worth flagging (severity: blocking), not an auto-pass. A registered trade name that is clearly declared as such (e.g. the bank letter names the trade name and the licence lists it as the registered trade name of the same entity) is NOT a mismatch - do not flag it.\n2. Expiry - no document may be expired or expire within 30 days of today. Expired = blocking. Expires within 30 days = warning.\n3. Bank account holder name must match the licensed entity name (blocking if not).\n4. Licence jurisdiction must be consistent with the stated country supplied in the user message (blocking if not). The stated country is always provided - never report it as missing.\n\nRules:\n- severity is only 'blocking' or 'warning'.\n- passed = true only when there are ZERO blocking issues. Warnings alone do not fail the packet.\n- List every distinct entity-name spelling you saw in nameVariants, even when passed = true.\n- Set expiringWithin30Days = true if ANY document is expired or expires within 30 days.\n- Base every finding strictly on the supplied document data. Do not invent fields that are absent; a missing required field is itself a blocking issue (field: the missing field name, note: 'missing').\n- Output only the structured result. No prose outside the schema.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "You are the validation agent in a vendor onboarding and risk clearance workflow. Your job is CROSS-DOCUMENT consistency checking of a supplier registration packet - not per-document field validation.\n\nThe packet contains four documents: trade licence, insurance certificate, bank details letter, and ISO/compliance certificate.\n\nRun exactly these checks:\n1. Legal entity name consistency - the entity name must match across all four documents. Suffix variants ('FZE' vs 'LLC' vs 'Trading') count as a MISMATCH worth flagging (severity: blocking), not an auto-pass. A registered trade name that is clearly declared as such (e.g. the bank letter names the trade name and the licence lists it as the registered trade name of the same entity) is NOT a mismatch - do not flag it.\n2. Expiry - no document may be expired or expire within 30 days of today. Expired = blocking. Expires within 30 days = warning.\n3. Bank account holder name must match the licensed entity name (blocking if not).\n4. Licence jurisdiction must be consistent with the stated country supplied in the user message (blocking if not). The stated country is always provided - never report it as missing.\n\nRules:\n- severity is only 'blocking' or 'warning'.\n- passed = true only when there are ZERO blocking issues. Warnings alone do not fail the packet.\n- List every distinct entity-name spelling you saw in nameVariants, even when passed = true.\n- Set expiringWithin30Days = true if ANY document is expired or expires within 30 days.\n- Base every finding strictly on the supplied document data. Do not invent fields that are absent; a missing required field is itself a blocking issue (field: the missing field name, note: 'missing').\n- Output only the structured result. No prose outside the schema."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Submitted legal name: {{input.start__output__legalName}}\nStated country: {{input.start__output__country}}\n\nValidate this extracted vendor document packet. The JSON includes asOfDate - treat it as today's date:\n\n{{input.extractDocs__output__docsJson}}",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "Submitted legal name: "
+        },
+        {
+          "type": "variable",
+          "rawString": "input.start__output__legalName"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\nStated country: "
+        },
+        {
+          "type": "variable",
+          "rawString": "input.start__output__country"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\n\nValidate this extracted vendor document packet. The JSON includes asOfDate - treat it as today's date:\n\n"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.extractDocs__output__docsJson"
+        }
+      ]
+    }
+  ],
+  "projectId": "5de57b82-0cb8-4141-b99b-c2ab9b2df49a",
+  "id": "5de57b82-0cb8-4141-b99b-c2ab9b2df49a",
+  "name": "Validation Agent"
+}

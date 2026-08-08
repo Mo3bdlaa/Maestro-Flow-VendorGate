@@ -1,0 +1,539 @@
+{
+  "version": "1.1.0",
+  "settings": {
+    "model": "gpt-5.4",
+    "maxTokens": 128000,
+    "temperature": 0,
+    "engine": "basic-v2",
+    "maxIterations": 10,
+    "mode": "standard"
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "start__output__legalName": {
+        "type": "string",
+        "description": "Bound from $vars.start.output.legalName"
+      },
+      "start__output__country": {
+        "type": "string",
+        "description": "Bound from $vars.start.output.country"
+      },
+      "validationAgent__output__nameVariants": {
+        "type": "array",
+        "description": "Bound from $vars.validationAgent.output.nameVariants",
+        "items": {}
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "sanctionsHit": {
+        "type": "boolean"
+      },
+      "debarmentHit": {
+        "type": "boolean"
+      },
+      "adverseMedia": {
+        "type": "array",
+        "items": {}
+      },
+      "recommendedTier": {
+        "type": "string"
+      },
+      "rationale": {
+        "type": "string"
+      },
+      "confidence": {
+        "type": "number"
+      }
+    }
+  },
+  "metadata": {
+    "storageVersion": "50.0.0",
+    "isConversational": false,
+    "showProjectCreationExperience": false
+  },
+  "type": "lowCode",
+  "guardrails": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are the screening agent in a vendor onboarding and risk clearance workflow. You screen the vendor entity (and every name variant supplied) against sanctions, procurement debarment, and adverse media using your tools. Never answer from memory - every finding must come from a tool result.\n\nProcedure (follow in order):\n1. Call the 'Sanctions & Debarment Lookup (Data Fabric)' tool with entityName = 'ScreeningList' and NO queryExpression, to retrieve the full register. Each record has: entityName, listType ('sanctions' or 'debarment'), country, reason.\n2. Match the submitted legalName AND every supplied name variant against the retrieved records. Match case-insensitively and on close variants (suffix changes like FZE/LLC/Trading, minor spelling differences, word reordering). A close-variant match IS a hit - set sanctionsHit or debarmentHit per the record's listType and quote the matched entityName and reason in rationale.\n3. Call the 'Adverse Media Web Search' tool once with query: '<legalName> fraud OR sanctions OR investigation OR lawsuit' (num = 5). Only report an adverse media item if the result clearly refers to THIS vendor. Generic or unrelated results are NOT adverse media - in that case adverseMedia = []. Severity: fraud/sanctions/criminal = high, regulatory/litigation = medium, commercial disputes = low.\n4. If no register match and no relevant media: sanctionsHit = false, debarmentHit = false, adverseMedia = [].\n\nRecommended tier policy:\n- sanctions or debarment hit -> high\n- adverse media severity high -> high; medium -> medium\n- only low-severity or no findings -> low\n\nBe precise. Never invent findings that are not in tool results. Output only the structured result.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "You are the screening agent in a vendor onboarding and risk clearance workflow. You screen the vendor entity (and every name variant supplied) against sanctions, procurement debarment, and adverse media using your tools. Never answer from memory - every finding must come from a tool result.\n\nProcedure (follow in order):\n1. Call the 'Sanctions & Debarment Lookup (Data Fabric)' tool with entityName = 'ScreeningList' and NO queryExpression, to retrieve the full register. Each record has: entityName, listType ('sanctions' or 'debarment'), country, reason.\n2. Match the submitted legalName AND every supplied name variant against the retrieved records. Match case-insensitively and on close variants (suffix changes like FZE/LLC/Trading, minor spelling differences, word reordering). A close-variant match IS a hit - set sanctionsHit or debarmentHit per the record's listType and quote the matched entityName and reason in rationale.\n3. Call the 'Adverse Media Web Search' tool once with query: '<legalName> fraud OR sanctions OR investigation OR lawsuit' (num = 5). Only report an adverse media item if the result clearly refers to THIS vendor. Generic or unrelated results are NOT adverse media - in that case adverseMedia = []. Severity: fraud/sanctions/criminal = high, regulatory/litigation = medium, commercial disputes = low.\n4. If no register match and no relevant media: sanctionsHit = false, debarmentHit = false, adverseMedia = [].\n\nRecommended tier policy:\n- sanctions or debarment hit -> high\n- adverse media severity high -> high; medium -> medium\n- only low-severity or no findings -> low\n\nBe precise. Never invent findings that are not in tool results. Output only the structured result."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Screen this vendor:\nLegal name: {{input.start__output__legalName}}\nCountry: {{input.start__output__country}}\nName variants found in packet: {{input.validationAgent__output__nameVariants}}",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "Screen this vendor:\nLegal name: "
+        },
+        {
+          "type": "variable",
+          "rawString": "input.start__output__legalName"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\nCountry: "
+        },
+        {
+          "type": "variable",
+          "rawString": "input.start__output__country"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\nName variants found in packet: "
+        },
+        {
+          "type": "variable",
+          "rawString": "input.validationAgent__output__nameVariants"
+        }
+      ]
+    }
+  ],
+  "projectId": "47e795d6-ca08-4c0d-b1a9-47071a08b775",
+  "id": "47e795d6-ca08-4c0d-b1a9-47071a08b775",
+  "name": "Screening Agent",
+  "resources": [
+    {
+      "$resourceType": "tool",
+      "name": "Adverse Media Web Search",
+      "description": "Web search executes a search of the public domain using a natural language search query. The search results are available in the output. Web search offers near-real time search results, but certain time sensitive data like stock prices or weather will not consistently be current. There could be a few days lag. Be sure to pass in date/time and/or location as arguments in the query if required.",
+      "location": "external",
+      "type": "integration",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "title": "Search Engine",
+            "description": "The search engine to use",
+            "enum": [
+              "GoogleCustomSearch"
+            ],
+            "oneOf": [
+              {
+                "const": "GoogleCustomSearch",
+                "title": "GoogleCustomSearch"
+              }
+            ]
+          },
+          "query": {
+            "type": "string",
+            "title": "Search",
+            "description": "The natural language query to search the web for"
+          },
+          "num": {
+            "type": "integer",
+            "title": "Number of results",
+            "description": "The number of results. Default to 10."
+          },
+          "siteSearch": {
+            "type": "string",
+            "title": "Site Search",
+            "description": "Restrict or exclude results for a domain."
+          },
+          "siteSearchFilter": {
+            "type": "string",
+            "title": "Site Search Filter",
+            "description": "Either \"i\" (include) or \"e\" (exclude)."
+          },
+          "start": {
+            "type": "integer",
+            "title": "Start",
+            "description": "First result index (pagination)."
+          }
+        },
+        "required": [
+          "provider",
+          "query"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "formattedResults": {
+            "type": "string",
+            "title": "Formatted results",
+            "description": "The search results string containing title, URL, and snippet"
+          },
+          "results[*]": {
+            "type": "array",
+            "title": "Results",
+            "items": {
+              "$ref": "#/definitions/results[*]"
+            }
+          }
+        },
+        "definitions": {
+          "results[*]": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "Result title",
+                "description": "The title of a search result item."
+              },
+              "snippet": {
+                "type": "string",
+                "title": "Result snippet",
+                "description": "A brief summary or excerpt of a search result item."
+              },
+              "url": {
+                "type": "string",
+                "title": "Result url",
+                "description": "The web address of the search result."
+              }
+            }
+          }
+        }
+      },
+      "settings": {},
+      "properties": {
+        "toolPath": "/v2/webSearch",
+        "objectName": "v2::webSearch",
+        "toolDisplayName": "Web Search",
+        "toolDescription": "Web search executes a search of the public domain using a natural language search query. The search results are available in the output. Web search offers near-real time search results, but certain time sensitive data like stock prices or weather will not consistently be current. There could be a few days lag. Be sure to pass in date/time and/or location as arguments in the query if required.",
+        "method": "POST",
+        "connection": {
+          "id": "9e6b90f5-2b61-49f1-afda-c90061443385",
+          "name": "UiPath GenAI Activities",
+          "elementInstanceId": 0,
+          "apiBaseUri": "",
+          "state": "enabled",
+          "isDefault": false,
+          "connector": {
+            "key": "uipath-uipath-airdk",
+            "name": "UiPath GenAI Activities",
+            "image": ""
+          },
+          "folder": {
+            "key": "e030afee-a5ae-496a-97c8-1aaa3fff1256",
+            "path": ""
+          }
+        },
+        "parameters": [
+          {
+            "name": "provider",
+            "displayName": "Search Engine",
+            "type": "string",
+            "fieldLocation": "body",
+            "fieldVariant": "static",
+            "value": "GoogleCustomSearch",
+            "description": "The search engine to use",
+            "dynamic": false,
+            "position": "primary",
+            "sortOrder": 1,
+            "required": true,
+            "enumValues": [
+              {
+                "name": "GoogleCustomSearch",
+                "value": "GoogleCustomSearch"
+              }
+            ],
+            "loadReferenceOptionsByDefault": null,
+            "dynamicBehavior": [],
+            "reference": null,
+            "isCascading": false
+          },
+          {
+            "name": "query",
+            "displayName": "Search",
+            "type": "string",
+            "fieldLocation": "body",
+            "fieldVariant": "dynamic",
+            "value": "{{prompt: \"The natural language query to search the web for\"}}",
+            "description": "The natural language query to search the web for",
+            "dynamic": true,
+            "position": "primary",
+            "sortOrder": 2,
+            "required": true,
+            "enumValues": null,
+            "loadReferenceOptionsByDefault": null,
+            "dynamicBehavior": [],
+            "reference": null,
+            "isCascading": false
+          },
+          {
+            "name": "num",
+            "displayName": "Number of results",
+            "type": "integer",
+            "fieldLocation": "body",
+            "fieldVariant": "static",
+            "value": 10,
+            "description": "The number of results. Default to 10.",
+            "dynamic": false,
+            "position": "secondary",
+            "sortOrder": 3,
+            "required": false,
+            "enumValues": null,
+            "loadReferenceOptionsByDefault": null,
+            "dynamicBehavior": [],
+            "reference": null,
+            "isCascading": false
+          },
+          {
+            "name": "siteSearch",
+            "displayName": "Site Search",
+            "type": "string",
+            "fieldLocation": "body",
+            "fieldVariant": "dynamic",
+            "value": "{{prompt: \"Restrict or exclude results for a domain.\"}}",
+            "description": "Restrict or exclude results for a domain.",
+            "dynamic": true,
+            "position": "secondary",
+            "sortOrder": 4,
+            "required": false,
+            "enumValues": null,
+            "loadReferenceOptionsByDefault": null,
+            "dynamicBehavior": [],
+            "reference": null,
+            "isCascading": false
+          },
+          {
+            "name": "siteSearchFilter",
+            "displayName": "Site Search Filter",
+            "type": "string",
+            "fieldLocation": "body",
+            "fieldVariant": "dynamic",
+            "value": "{{prompt: \"Either \"i\" (include) or \"e\" (exclude).\"}}",
+            "description": "Either \"i\" (include) or \"e\" (exclude).",
+            "dynamic": true,
+            "position": "secondary",
+            "sortOrder": 5,
+            "required": false,
+            "enumValues": null,
+            "loadReferenceOptionsByDefault": null,
+            "dynamicBehavior": [],
+            "reference": null,
+            "isCascading": false
+          },
+          {
+            "name": "start",
+            "displayName": "Start",
+            "type": "integer",
+            "fieldLocation": "body",
+            "fieldVariant": "static",
+            "value": 1,
+            "description": "First result index (pagination).",
+            "dynamic": false,
+            "position": "secondary",
+            "sortOrder": 6,
+            "required": false,
+            "enumValues": null,
+            "loadReferenceOptionsByDefault": null,
+            "dynamicBehavior": [],
+            "reference": null,
+            "isCascading": false
+          }
+        ],
+        "bodyStructure": {
+          "contentType": "json"
+        }
+      },
+      "guardrail": {
+        "policies": []
+      },
+      "iconUrl": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/d93eefff0af32b964a4ce6fe3823de1d4c7ed71962c6f878520b57ebf8f4497a.svg",
+      "id": "2f8b4c6d-9a1e-4d3f-8c5b-7e2a9f4d6b83",
+      "isEnabled": true,
+      "canvasNodeId": "toolWebSearch"
+    },
+    {
+      "$resourceType": "tool",
+      "name": "Sanctions & Debarment Lookup (Data Fabric)",
+      "description": "Retrieves the sanctions and debarment register from the ScreeningList Data Fabric entity. Each record has: entityName, listType ('sanctions' or 'debarment'), country, reason. Call with no queryExpression to retrieve the full register for fuzzy matching.",
+      "location": "external",
+      "type": "integration",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "entityName": {
+            "type": "string",
+            "title": "Entity",
+            "description": "Always 'ScreeningList'"
+          },
+          "queryExpression": {
+            "type": "string",
+            "title": "Query",
+            "description": "Optional CEQL query to filter records. Omit to retrieve all records."
+          }
+        },
+        "required": [
+          "entityName"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {}
+      },
+      "settings": {},
+      "properties": {
+        "toolPath": "/v2/{entityName}/qer",
+        "objectName": "QueryEntityRecordsCurated",
+        "toolDisplayName": "Query Entity Records",
+        "toolDescription": "Retrieves the sanctions and debarment register from the ScreeningList Data Fabric entity. Each record has: entityName, listType ('sanctions' or 'debarment'), country, reason. Call with no queryExpression to retrieve the full register for fuzzy matching.",
+        "method": "POST",
+        "connection": {
+          "id": "127fb909-ac85-4c93-938f-135ab0398a6c",
+          "name": "UiPath Data Fabric",
+          "elementInstanceId": 0,
+          "apiBaseUri": "",
+          "state": "enabled",
+          "isDefault": false,
+          "connector": {
+            "key": "uipath-uipath-dataservice",
+            "name": "UiPath Data Fabric",
+            "image": ""
+          },
+          "folder": {
+            "key": "cd671762-f695-48f8-ac4b-f849efe70464",
+            "path": ""
+          }
+        },
+        "parameters": [
+          {
+            "name": "entityName",
+            "displayName": "Entity",
+            "type": "string",
+            "fieldLocation": "path",
+            "fieldVariant": "static",
+            "value": "ScreeningList",
+            "description": "Enter entity name",
+            "dynamic": false,
+            "position": "primary",
+            "sortOrder": 1,
+            "required": true,
+            "enumValues": null,
+            "loadReferenceOptionsByDefault": null,
+            "dynamicBehavior": [],
+            "reference": null,
+            "isCascading": false
+          },
+          {
+            "name": "queryExpression",
+            "displayName": "Query",
+            "type": "string",
+            "fieldLocation": "query",
+            "fieldVariant": "dynamic",
+            "value": "{{prompt}}",
+            "description": "Enter CEQL query to filter entity records",
+            "dynamic": true,
+            "position": "primary",
+            "sortOrder": 2,
+            "required": false,
+            "enumValues": null,
+            "loadReferenceOptionsByDefault": null,
+            "dynamicBehavior": [],
+            "reference": null,
+            "isCascading": false
+          },
+          {
+            "name": "start",
+            "displayName": "Skip",
+            "type": "integer",
+            "fieldLocation": "query",
+            "fieldVariant": "static",
+            "value": 0,
+            "description": "Specify the number of records to skip from the start",
+            "dynamic": false,
+            "position": "secondary",
+            "sortOrder": 3,
+            "required": false,
+            "enumValues": null,
+            "loadReferenceOptionsByDefault": null,
+            "dynamicBehavior": [],
+            "reference": null,
+            "isCascading": false
+          },
+          {
+            "name": "limit",
+            "displayName": "Top",
+            "type": "integer",
+            "fieldLocation": "query",
+            "fieldVariant": "static",
+            "value": 100,
+            "description": "Specify number of records to return at most. Range: 1-1000. Default: 100.",
+            "dynamic": false,
+            "position": "secondary",
+            "sortOrder": 4,
+            "required": false,
+            "enumValues": null,
+            "loadReferenceOptionsByDefault": null,
+            "dynamicBehavior": [],
+            "reference": null,
+            "isCascading": false
+          },
+          {
+            "name": "expansionLevel",
+            "displayName": "Related record depth",
+            "type": "integer",
+            "fieldLocation": "query",
+            "fieldVariant": "static",
+            "value": 1,
+            "description": "Specify the depth of related records to be retrieved from the service. Range: 1-3.",
+            "dynamic": false,
+            "position": "secondary",
+            "sortOrder": 5,
+            "required": false,
+            "enumValues": [
+              {
+                "name": "1",
+                "value": 1
+              },
+              {
+                "name": "2",
+                "value": 2
+              },
+              {
+                "name": "3",
+                "value": 3
+              }
+            ],
+            "loadReferenceOptionsByDefault": null,
+            "dynamicBehavior": [],
+            "reference": null,
+            "isCascading": false
+          },
+          {
+            "name": "isAscending",
+            "displayName": "Sort ascending",
+            "type": "boolean",
+            "fieldLocation": "query",
+            "fieldVariant": "static",
+            "value": false,
+            "description": "Specify whether to sort in ascending (true) or descending (false) order",
+            "dynamic": false,
+            "position": "secondary",
+            "sortOrder": 6,
+            "required": false,
+            "enumValues": null,
+            "loadReferenceOptionsByDefault": null,
+            "dynamicBehavior": [],
+            "reference": null,
+            "isCascading": false
+          }
+        ],
+        "bodyStructure": {
+          "contentType": "json"
+        }
+      },
+      "guardrail": {
+        "policies": []
+      },
+      "iconUrl": "https://cloud.uipath.com/686f994e-6d37-46c3-916d-770e0bc23c28/studio_/typecache/icons/98381fa079bbcf73264f551006d6ef7580fb53992f3d9f94361eb5d9e06040cb.svg",
+      "id": "7c1a9e42-3d5f-4b8a-9e2c-6f0d8b3a5c71",
+      "isEnabled": true,
+      "canvasNodeId": "toolScreeningList"
+    }
+  ],
+  "features": []
+}

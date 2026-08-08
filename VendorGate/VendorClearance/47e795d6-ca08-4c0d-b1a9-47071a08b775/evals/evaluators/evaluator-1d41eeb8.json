@@ -1,0 +1,13 @@
+{
+  "fileName": "evaluator-1d41eeb8.json",
+  "id": "1d41eeb8-080f-4622-97e5-2a40f7e49b7c",
+  "name": "tool-trajectory",
+  "description": "Checks the agent actually called the ScreeningList lookup and Web Search tools",
+  "category": 3,
+  "type": 7,
+  "prompt": "You are an evaluation judge. Analyze the agent's run trajectory.\nScore from 0 to 1 based on how well the agent followed the expected behavior.\n\nAgent Run History:\n{{AgentRunHistory}}\n\nExpected Behavior:\n{{ExpectedBehavior}}\n\nReturn a JSON object with:\n- \"score\": a number between 0 and 1\n- \"reason\": a brief explanation",
+  "model": "same-as-agent",
+  "targetOutputKey": "*",
+  "createdAt": "2026-08-07T16:30:18.172Z",
+  "updatedAt": "2026-08-07T16:30:18.172Z"
+}

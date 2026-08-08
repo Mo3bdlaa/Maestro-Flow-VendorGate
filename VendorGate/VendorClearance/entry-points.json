@@ -1,0 +1,20 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "content/VendorClearance.bpmn#manualTrigger1",
+      "uniqueId": "32f5a4ea-79a8-4c32-904e-fda99ef6c384",
+      "type": "processorchestration",
+      "input": {
+        "type": "object",
+        "properties": {}
+      },
+      "output": {
+        "type": "object",
+        "properties": {}
+      },
+      "displayName": "Packet Submitted (API)"
+    }
+  ]
+}

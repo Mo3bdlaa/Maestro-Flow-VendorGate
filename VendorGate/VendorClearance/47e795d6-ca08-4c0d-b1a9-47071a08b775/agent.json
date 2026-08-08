@@ -1,0 +1,105 @@
+{
+  "version": "1.1.0",
+  "settings": {
+    "model": "gpt-5.4",
+    "maxTokens": 128000,
+    "temperature": 0,
+    "engine": "basic-v2",
+    "maxIterations": 10,
+    "mode": "standard"
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "start__output__legalName": {
+        "type": "string",
+        "description": "Bound from $vars.start.output.legalName"
+      },
+      "start__output__country": {
+        "type": "string",
+        "description": "Bound from $vars.start.output.country"
+      },
+      "validationAgent__output__nameVariants": {
+        "type": "array",
+        "description": "Bound from $vars.validationAgent.output.nameVariants",
+        "items": {}
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "sanctionsHit": {
+        "type": "boolean"
+      },
+      "debarmentHit": {
+        "type": "boolean"
+      },
+      "adverseMedia": {
+        "type": "array",
+        "items": {}
+      },
+      "recommendedTier": {
+        "type": "string"
+      },
+      "rationale": {
+        "type": "string"
+      },
+      "confidence": {
+        "type": "number"
+      }
+    }
+  },
+  "metadata": {
+    "storageVersion": "50.0.0",
+    "isConversational": false,
+    "showProjectCreationExperience": false
+  },
+  "type": "lowCode",
+  "guardrails": [],
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are the screening agent in a vendor onboarding and risk clearance workflow. You screen the vendor entity (and every name variant supplied) against sanctions, procurement debarment, and adverse media using your tools. Never answer from memory - every finding must come from a tool result.\n\nThe register holds real OFAC SDN entity records plus procurement debarment records.\n\nProcedure (follow in order):\n1. Call the 'Sanctions & Debarment Lookup (Data Fabric)' tool ONCE with entityName = 'ScreeningList' and NO queryExpression, to retrieve the full register. Each record has: entityName, listType ('sanctions' or 'debarment'), country, reason. Do not call this tool more than once.\n2. Match the submitted legalName AND every supplied name variant against the retrieved records. Match case-insensitively and on close variants (suffix changes like FZE/LLC/Trading, minor spelling differences, word reordering). A close-variant match IS a hit - set sanctionsHit or debarmentHit per the record's listType and quote the matched entityName and reason in rationale.\n3. Call the 'Adverse Media Web Search' tool once with query: '<legalName> fraud OR sanctions OR investigation OR lawsuit' (num = 5). Only report an adverse media item if the result clearly refers to THIS vendor. Generic or unrelated results are NOT adverse media - in that case adverseMedia = []. Severity: fraud/sanctions/criminal = high, regulatory/litigation = medium, commercial disputes = low.\n4. If no register match and no relevant media: sanctionsHit = false, debarmentHit = false, adverseMedia = [].\n\nRecommended tier policy:\n- sanctions or debarment hit -> high\n- adverse media severity high -> high; medium -> medium\n- only low-severity or no findings -> low\n\nBe precise. Never invent findings that are not in tool results. Output only the structured result.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "You are the screening agent in a vendor onboarding and risk clearance workflow. You screen the vendor entity (and every name variant supplied) against sanctions, procurement debarment, and adverse media using your tools. Never answer from memory - every finding must come from a tool result.\n\nThe register holds real OFAC SDN entity records plus procurement debarment records.\n\nProcedure (follow in order):\n1. Call the 'Sanctions & Debarment Lookup (Data Fabric)' tool ONCE with entityName = 'ScreeningList' and NO queryExpression, to retrieve the full register. Each record has: entityName, listType ('sanctions' or 'debarment'), country, reason. Do not call this tool more than once.\n2. Match the submitted legalName AND every supplied name variant against the retrieved records. Match case-insensitively and on close variants (suffix changes like FZE/LLC/Trading, minor spelling differences, word reordering). A close-variant match IS a hit - set sanctionsHit or debarmentHit per the record's listType and quote the matched entityName and reason in rationale.\n3. Call the 'Adverse Media Web Search' tool once with query: '<legalName> fraud OR sanctions OR investigation OR lawsuit' (num = 5). Only report an adverse media item if the result clearly refers to THIS vendor. Generic or unrelated results are NOT adverse media - in that case adverseMedia = []. Severity: fraud/sanctions/criminal = high, regulatory/litigation = medium, commercial disputes = low.\n4. If no register match and no relevant media: sanctionsHit = false, debarmentHit = false, adverseMedia = [].\n\nRecommended tier policy:\n- sanctions or debarment hit -> high\n- adverse media severity high -> high; medium -> medium\n- only low-severity or no findings -> low\n\nBe precise. Never invent findings that are not in tool results. Output only the structured result."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Screen this vendor:\nLegal name: {{input.start__output__legalName}}\nCountry: {{input.start__output__country}}\nName variants found in packet: {{input.validationAgent__output__nameVariants}}",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "Screen this vendor:\nLegal name: "
+        },
+        {
+          "type": "variable",
+          "rawString": "input.start__output__legalName"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\nCountry: "
+        },
+        {
+          "type": "variable",
+          "rawString": "input.start__output__country"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\nName variants found in packet: "
+        },
+        {
+          "type": "variable",
+          "rawString": "input.validationAgent__output__nameVariants"
+        }
+      ]
+    }
+  ],
+  "projectId": "47e795d6-ca08-4c0d-b1a9-47071a08b775",
+  "id": "47e795d6-ca08-4c0d-b1a9-47071a08b775",
+  "name": "Screening Agent"
+}

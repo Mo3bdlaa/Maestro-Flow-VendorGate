@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 250" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <style>
+    .box{rx:12;stroke-width:1.5}
+    .t{font-size:14px;font-weight:600;fill:#0f172a}
+    .s{font-size:11px;fill:#475569}
+    .arrow{stroke:#64748b;stroke-width:1.6;fill:none;marker-end:url(#a)}
+  </style>
+
+  <rect x="10" y="70" width="150" height="86" class="box" fill="#eff6ff" stroke="#3b82f6" rx="12"/>
+  <text x="85" y="102" text-anchor="middle" class="t">1 · Intake</text>
+  <text x="85" y="122" text-anchor="middle" class="s">Packet submitted</text>
+  <text x="85" y="137" text-anchor="middle" class="s">Vendor + docs → Data Fabric</text>
+
+  <rect x="205" y="70" width="150" height="86" class="box" fill="#fefce8" stroke="#eab308" rx="12"/>
+  <text x="280" y="102" text-anchor="middle" class="t">2 · Validation</text>
+  <text x="280" y="122" text-anchor="middle" class="s">Agent cross-checks</text>
+  <text x="280" y="137" text-anchor="middle" class="s">names · expiries · bank</text>
+
+  <rect x="400" y="10" width="170" height="86" class="box" fill="#fff7ed" stroke="#f97316" rx="12"/>
+  <text x="485" y="42" text-anchor="middle" class="t">3 · Vendor query loop</text>
+  <text x="485" y="62" text-anchor="middle" class="s">48h timer vs response</text>
+  <text x="485" y="77" text-anchor="middle" class="s">timeout → escalation</text>
+
+  <rect x="400" y="130" width="170" height="86" class="box" fill="#faf5ff" stroke="#a855f7" rx="12"/>
+  <text x="485" y="162" text-anchor="middle" class="t">4 · Screening</text>
+  <text x="485" y="182" text-anchor="middle" class="s">OFAC register + web search</text>
+  <text x="485" y="197" text-anchor="middle" class="s">tools called by the agent</text>
+
+  <rect x="615" y="130" width="150" height="86" class="box" fill="#f8fafc" stroke="#64748b" rx="12"/>
+  <text x="690" y="162" text-anchor="middle" class="t">Risk score</text>
+  <text x="690" y="182" text-anchor="middle" class="s">deterministic code</text>
+  <text x="690" y="197" text-anchor="middle" class="s">sanctions ⇒ high</text>
+
+  <rect x="810" y="130" width="160" height="86" class="box" fill="#f0fdf4" stroke="#22c55e" rx="12"/>
+  <text x="890" y="157" text-anchor="middle" class="t">5 · Approvals</text>
+  <text x="890" y="177" text-anchor="middle" class="s">low auto · medium single</text>
+  <text x="890" y="192" text-anchor="middle" class="s">high: Legal ∥ Security</text>
+
+  <rect x="1015" y="130" width="155" height="86" class="box" fill="#fef2f2" stroke="#ef4444" rx="12"/>
+  <text x="1092" y="157" text-anchor="middle" class="t">6 · Provisioning</text>
+  <text x="1092" y="177" text-anchor="middle" class="s">vendor master + portal API</text>
+  <text x="1092" y="192" text-anchor="middle" class="s">failure ⇒ compensation</text>
+
+  <path class="arrow" d="M160 113 H205"/>
+  <path class="arrow" d="M355 96 Q375 80 400 62"/>
+  <path class="arrow" d="M355 130 Q375 150 400 165"/>
+  <path class="arrow" d="M400 40 Q300 -14 235 62" stroke-dasharray="5 4"/>
+  <text x="290" y="18" class="s">resubmission → re-extract</text>
+  <path class="arrow" d="M570 173 H615"/>
+  <path class="arrow" d="M765 173 H810"/>
+  <path class="arrow" d="M970 173 H1015"/>
+</svg>

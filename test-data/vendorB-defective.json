@@ -1,0 +1,6 @@
+{
+  "vendorId": "V-1002",
+  "legalName": "Falcon Ridge Technical Services LLC",
+  "country": "AE",
+  "docsJson": "[{\"docType\":\"trade_licence\",\"legalEntityName\":\"Falcon Ridge Technical Services LLC\",\"licenceNo\":\"CN-580442\",\"issueDate\":\"2022-09-01\",\"expiryDate\":\"2027-08-31\",\"jurisdiction\":\"Dubai, AE\"},{\"docType\":\"insurance\",\"insuredEntityName\":\"Falcon Ridge Technical Services LLC\",\"policyNo\":\"PL-1130877\",\"coverageAmount\":2000000,\"expiryDate\":\"2026-03-14\"},{\"docType\":\"bank_letter\",\"accountHolderName\":\"Falcon Ridge Tech Services FZE\",\"iban\":\"AE210260987654321098765\",\"bankName\":\"Emirates Crescent Bank\",\"swift\":\"EMCRAEAD\"},{\"docType\":\"iso_cert\",\"certifiedEntityName\":\"Falcon Ridge Technical Services LLC\",\"standard\":\"ISO 45001:2018\",\"certificateNo\":\"OHS-90311\",\"expiryDate\":\"2027-11-30\"}]"
+}

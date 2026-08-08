@@ -1,0 +1,13 @@
+{
+  "fileName": "evaluator-aecb5747.json",
+  "id": "aecb5747-8662-4e86-b589-427fd94bb1da",
+  "name": "output-match",
+  "description": "Compares agent output against ground-truth issue list",
+  "category": 1,
+  "type": 5,
+  "prompt": "You are an evaluation judge. Compare the Expected Output with the Actual Output.\nScore from 0 to 1 based on semantic similarity.\n\nExpected Output:\n{{ExpectedOutput}}\n\nActual Output:\n{{ActualOutput}}\n\nReturn a JSON object with:\n- \"score\": a number between 0 and 1\n- \"reason\": a brief explanation",
+  "model": "same-as-agent",
+  "targetOutputKey": "*",
+  "createdAt": "2026-08-07T16:29:29.154Z",
+  "updatedAt": "2026-08-07T16:29:29.154Z"
+}

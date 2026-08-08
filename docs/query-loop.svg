@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 290" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <style>
+    .t{font-size:14px;font-weight:600;fill:#0f172a}
+    .s{font-size:11px;fill:#475569}
+    .arrow{stroke:#64748b;stroke-width:1.6;fill:none;marker-end:url(#b)}
+    .lbl{font-size:11px;font-weight:600;fill:#334155}
+  </style>
+
+  <rect x="15" y="105" width="165" height="80" rx="12" fill="#fefce8" stroke="#eab308" stroke-width="1.5"/>
+  <text x="97" y="137" text-anchor="middle" class="t">Blocking issues</text>
+  <text x="97" y="156" text-anchor="middle" class="s">validation agent output</text>
+
+  <rect x="235" y="105" width="185" height="80" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="327" y="132" text-anchor="middle" class="t">Persist to Data Fabric</text>
+  <text x="327" y="151" text-anchor="middle" class="s">status = action_required</text>
+  <text x="327" y="166" text-anchor="middle" class="s">issues + 48h queryDeadline</text>
+
+  <rect x="480" y="25" width="185" height="80" rx="12" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="572" y="55" text-anchor="middle" class="t">Vendor task</text>
+  <text x="572" y="74" text-anchor="middle" class="s">Action Center + portal</text>
+  <text x="572" y="89" text-anchor="middle" class="s">fix &amp; resubmit</text>
+
+  <rect x="480" y="185" width="185" height="80" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+  <text x="572" y="215" text-anchor="middle" class="t">48-hour timer</text>
+  <text x="572" y="234" text-anchor="middle" class="s">runs in parallel —</text>
+  <text x="572" y="249" text-anchor="middle" class="s">whichever fires first wins</text>
+
+  <rect x="760" y="25" width="235" height="80" rx="12" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="877" y="55" text-anchor="middle" class="t">Loop back to Extract</text>
+  <text x="877" y="74" text-anchor="middle" class="s">corrected packet re-read —</text>
+  <text x="877" y="89" text-anchor="middle" class="s">not re-validated blind</text>
+
+  <rect x="760" y="185" width="235" height="80" rx="12" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="877" y="215" text-anchor="middle" class="t">Escalate to procurement</text>
+  <text x="877" y="234" text-anchor="middle" class="s">never a silent failure —</text>
+  <text x="877" y="249" text-anchor="middle" class="s">escalation noted on the record</text>
+
+  <path class="arrow" d="M180 145 H235"/>
+  <path class="arrow" d="M420 128 Q450 100 480 75"/>
+  <path class="arrow" d="M420 162 Q450 190 480 215"/>
+  <path class="arrow" d="M665 65 H760"/>
+  <text x="700" y="55" class="lbl">responded</text>
+  <path class="arrow" d="M665 225 H760"/>
+  <text x="695" y="215" class="lbl">timed out</text>
+</svg>
