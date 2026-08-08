@@ -249,21 +249,34 @@
               "label": "Vendor reference",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.vendorId"
+              "binding": "vars.buildPacket.output.vendorId"
             },
             {
               "id": "legalname",
               "label": "Legal entity name",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.legalName"
+              "binding": "vars.buildPacket.output.legalName"
             },
             {
-              "id": "issuesummary",
-              "label": "Blocking issues found",
+              "id": "whatswrong",
+              "label": "What we need corrected",
               "type": "text",
               "direction": "input",
-              "binding": "vars.validationAgent.output.issues"
+              "binding": "vars.caseSummary.output.issueLines"
+            },
+            {
+              "id": "variants",
+              "label": "Entity name consistency",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.variantLine"
+            },
+            {
+              "id": "vendorResponse",
+              "label": "Your response",
+              "type": "text",
+              "direction": "output"
             }
           ],
           "outcomes": [
@@ -364,21 +377,34 @@
               "label": "Vendor reference",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.vendorId"
+              "binding": "vars.buildPacket.output.vendorId"
             },
             {
               "id": "legalname",
               "label": "Legal entity name",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.legalName"
+              "binding": "vars.buildPacket.output.legalName"
             },
             {
-              "id": "openissues",
-              "label": "Open issues (unanswered 48h)",
+              "id": "country",
+              "label": "Country",
               "type": "text",
               "direction": "input",
-              "binding": "vars.validationAgent.output.issues"
+              "binding": "vars.buildPacket.output.country"
+            },
+            {
+              "id": "whatswrong",
+              "label": "Outstanding issues the vendor never answered",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.issueLines"
+            },
+            {
+              "id": "escalationNote",
+              "label": "Procurement decision note",
+              "type": "text",
+              "direction": "output"
             }
           ],
           "outcomes": [
@@ -689,25 +715,46 @@
           "schemaId": "a1c47d90-2e85-4f6b-b3d2-08e97f514c63",
           "fields": [
             {
+              "id": "headline",
+              "label": "Register screening result",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.headline"
+            },
+            {
+              "id": "whyhere",
+              "label": "Why this needs your decision",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.why"
+            },
+            {
               "id": "vendorref",
               "label": "Vendor reference",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.vendorId"
+              "binding": "vars.buildPacket.output.vendorId"
             },
             {
               "id": "legalname",
               "label": "Legal entity name",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.legalName"
+              "binding": "vars.buildPacket.output.legalName"
             },
             {
               "id": "country",
               "label": "Country",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.country"
+              "binding": "vars.buildPacket.output.country"
+            },
+            {
+              "id": "scoreline",
+              "label": "Risk assessment",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.scoreLine"
             },
             {
               "id": "riskscore",
@@ -743,6 +790,54 @@
               "type": "text",
               "direction": "input",
               "binding": "vars.screeningAgent.output.rationale"
+            },
+            {
+              "id": "media",
+              "label": "Adverse media findings",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.mediaLines"
+            },
+            {
+              "id": "issues",
+              "label": "Validation issues",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.issueLines"
+            },
+            {
+              "id": "variants",
+              "label": "Entity name consistency",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.variantLine"
+            },
+            {
+              "id": "doccount",
+              "label": "Documents received",
+              "type": "number",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.docCount"
+            },
+            {
+              "id": "vconf",
+              "label": "Validation agent confidence",
+              "type": "number",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.validationConfidence"
+            },
+            {
+              "id": "sconf",
+              "label": "Screening agent confidence",
+              "type": "number",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.screeningConfidence"
+            },
+            {
+              "id": "decisionNote",
+              "label": "Procurement decision note (recorded on the vendor record)",
+              "type": "text",
+              "direction": "output"
             }
           ],
           "outcomes": [
@@ -836,25 +931,46 @@
           "schemaId": "5b82f6e1-9c30-4d7a-a4f8-71d0b6c92e54",
           "fields": [
             {
+              "id": "headline",
+              "label": "Register screening result",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.headline"
+            },
+            {
+              "id": "whyhere",
+              "label": "Why this needs your decision",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.why"
+            },
+            {
               "id": "vendorref",
               "label": "Vendor reference",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.vendorId"
+              "binding": "vars.buildPacket.output.vendorId"
             },
             {
               "id": "legalname",
               "label": "Legal entity name",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.legalName"
+              "binding": "vars.buildPacket.output.legalName"
             },
             {
               "id": "country",
               "label": "Country",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.country"
+              "binding": "vars.buildPacket.output.country"
+            },
+            {
+              "id": "scoreline",
+              "label": "Risk assessment",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.scoreLine"
             },
             {
               "id": "riskscore",
@@ -890,6 +1006,54 @@
               "type": "text",
               "direction": "input",
               "binding": "vars.screeningAgent.output.rationale"
+            },
+            {
+              "id": "media",
+              "label": "Adverse media findings",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.mediaLines"
+            },
+            {
+              "id": "issues",
+              "label": "Validation issues",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.issueLines"
+            },
+            {
+              "id": "variants",
+              "label": "Entity name consistency",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.variantLine"
+            },
+            {
+              "id": "doccount",
+              "label": "Documents received",
+              "type": "number",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.docCount"
+            },
+            {
+              "id": "vconf",
+              "label": "Validation agent confidence",
+              "type": "number",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.validationConfidence"
+            },
+            {
+              "id": "sconf",
+              "label": "Screening agent confidence",
+              "type": "number",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.screeningConfidence"
+            },
+            {
+              "id": "decisionNote",
+              "label": "Legal decision note (recorded on the vendor record)",
+              "type": "text",
+              "direction": "output"
             }
           ],
           "outcomes": [
@@ -965,25 +1129,46 @@
           "schemaId": "c6d19b4e-0f72-48a5-9e63-3a85d417f0b9",
           "fields": [
             {
+              "id": "headline",
+              "label": "Register screening result",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.headline"
+            },
+            {
+              "id": "whyhere",
+              "label": "Why this needs your decision",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.why"
+            },
+            {
               "id": "vendorref",
               "label": "Vendor reference",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.vendorId"
+              "binding": "vars.buildPacket.output.vendorId"
             },
             {
               "id": "legalname",
               "label": "Legal entity name",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.legalName"
+              "binding": "vars.buildPacket.output.legalName"
             },
             {
               "id": "country",
               "label": "Country",
               "type": "text",
               "direction": "input",
-              "binding": "vars.pickVendor.output.country"
+              "binding": "vars.buildPacket.output.country"
+            },
+            {
+              "id": "scoreline",
+              "label": "Risk assessment",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.scoreLine"
             },
             {
               "id": "riskscore",
@@ -1019,6 +1204,54 @@
               "type": "text",
               "direction": "input",
               "binding": "vars.screeningAgent.output.rationale"
+            },
+            {
+              "id": "media",
+              "label": "Adverse media findings",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.mediaLines"
+            },
+            {
+              "id": "issues",
+              "label": "Validation issues",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.issueLines"
+            },
+            {
+              "id": "variants",
+              "label": "Entity name consistency",
+              "type": "text",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.variantLine"
+            },
+            {
+              "id": "doccount",
+              "label": "Documents received",
+              "type": "number",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.docCount"
+            },
+            {
+              "id": "vconf",
+              "label": "Validation agent confidence",
+              "type": "number",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.validationConfidence"
+            },
+            {
+              "id": "sconf",
+              "label": "Screening agent confidence",
+              "type": "number",
+              "direction": "input",
+              "binding": "vars.caseSummary.output.screeningConfidence"
+            },
+            {
+              "id": "decisionNote",
+              "label": "Security decision note (recorded on the vendor record)",
+              "type": "text",
+              "direction": "output"
             }
           ],
           "outcomes": [
@@ -2203,6 +2436,78 @@
           "var": "error"
         }
       }
+    },
+    {
+      "id": "caseSummary",
+      "type": "core.action.script",
+      "typeVersion": "1.1",
+      "display": {
+        "label": "Build Reviewer Case File",
+        "icon": "code"
+      },
+      "inputs": {
+        "script": "// Flatten the agents' structured findings into lines a reviewer can act on.\nconst v = $vars.validationAgent.output || {};\nconst s = $vars.screeningAgent.output || {};\nconst r = $vars.riskScore.output || {};\nconst p = $vars.buildPacket.output || {};\n\nconst issues = (v.issues || []);\nconst blocking = issues.filter(i => i.severity === 'blocking');\nconst issueLines = issues.length\n  ? issues.map(i => '- [' + (i.severity || 'info').toUpperCase() + '] ' + (i.docType || 'packet') + '.' + (i.field || '') + ': ' + (i.note || '')).join('\\n')\n  : 'No validation issues raised.';\n\nconst media = (s.adverseMedia || []);\nconst mediaLines = media.length\n  ? media.map(m => '- [' + (m.severity || 'low') + '] ' + (m.summary || '') + ' (' + (m.source || 'source not given') + ')').join('\\n')\n  : 'No adverse media found.';\n\nconst variants = (v.nameVariants || []);\nconst variantLine = variants.length > 1\n  ? 'Entity name is not consistent across documents: ' + variants.join(' | ')\n  : 'Entity name is consistent across all documents.';\n\nconst hits = [];\nif (s.sanctionsHit) hits.push('SANCTIONS MATCH');\nif (s.debarmentHit) hits.push('DEBARMENT MATCH');\nconst headline = hits.length ? hits.join(' + ') : 'No register match';\n\n// Why this landed on a human desk, in one line.\nconst reasons = [];\nif (hits.length) reasons.push('a register match forces high risk regardless of score');\nif (blocking.length) reasons.push(blocking.length + ' blocking validation issue(s)');\nif (variants.length > 1) reasons.push('inconsistent entity naming');\nif (v.expiringWithin30Days) reasons.push('a document expires within 30 days');\nif (media.length) reasons.push(media.length + ' adverse media item(s)');\nconst why = reasons.length\n  ? 'Routed for review because ' + reasons.join('; ') + '.'\n  : 'Routed by risk tier only; no exceptions were raised.';\n\nconst scoreLine = 'Score ' + (r.score != null ? r.score : '?') + '/100 -> tier ' + (r.tier || '?')\n  + ' (screening agent recommended ' + (s.recommendedTier || 'n/a') + ')';\n\nreturn {\n  headline: headline,\n  why: why,\n  scoreLine: scoreLine,\n  issueLines: issueLines,\n  mediaLines: mediaLines,\n  variantLine: variantLine,\n  blockingCount: blocking.length,\n  docCount: p.docCount || 0,\n  validationConfidence: v.confidence != null ? v.confidence : null,\n  screeningConfidence: s.confidence != null ? s.confidence : null\n};"
+      },
+      "outputs": {
+        "output": {
+          "type": "object",
+          "description": "The return value of the script",
+          "source": "=result.response",
+          "var": "output",
+          "schema": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "properties": {
+              "headline": {
+                "type": "string",
+                "description": "Register match headline"
+              },
+              "why": {
+                "type": "string",
+                "description": "Why this case needs a human"
+              },
+              "scoreLine": {
+                "type": "string",
+                "description": "Score, tier and the agent recommendation"
+              },
+              "issueLines": {
+                "type": "string",
+                "description": "Validation issues, one per line"
+              },
+              "mediaLines": {
+                "type": "string",
+                "description": "Adverse media findings, one per line"
+              },
+              "variantLine": {
+                "type": "string",
+                "description": "Entity-name consistency across documents"
+              },
+              "blockingCount": {
+                "type": "number",
+                "description": "Count of blocking validation issues"
+              },
+              "docCount": {
+                "type": "number",
+                "description": "Documents received"
+              },
+              "validationConfidence": {
+                "type": "number",
+                "description": "Validation agent confidence"
+              },
+              "screeningConfidence": {
+                "type": "number",
+                "description": "Screening agent confidence"
+              }
+            }
+          }
+        },
+        "error": {
+          "type": "object",
+          "description": "Error information if the script fails",
+          "source": "=Error",
+          "var": "error"
+        }
+      }
     }
   ],
   "edges": [
@@ -2420,7 +2725,7 @@
       "id": "e-persistScreening-tierSwitch",
       "sourceNodeId": "persistScreeningResult1",
       "sourcePort": "output",
-      "targetNodeId": "tierSwitch",
+      "targetNodeId": "caseSummary",
       "targetPort": "input"
     },
     {
@@ -2568,6 +2873,13 @@
       "sourceNodeId": "pickVendor",
       "sourcePort": "success",
       "targetNodeId": "portalGuard",
+      "targetPort": "input"
+    },
+    {
+      "id": "e-caseSummary-tierSwitch",
+      "sourceNodeId": "caseSummary",
+      "sourcePort": "success",
+      "targetNodeId": "tierSwitch",
       "targetPort": "input"
     }
   ],
@@ -6610,6 +6922,70 @@
           "nodeId": "pickVendor",
           "outputId": "error"
         }
+      },
+      {
+        "id": "caseSummary.output",
+        "type": "object",
+        "description": "Reviewer case file",
+        "schema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "headline": {
+              "type": "string",
+              "description": "Register match headline"
+            },
+            "why": {
+              "type": "string",
+              "description": "Why this case needs a human"
+            },
+            "scoreLine": {
+              "type": "string",
+              "description": "Score, tier and the agent recommendation"
+            },
+            "issueLines": {
+              "type": "string",
+              "description": "Validation issues, one per line"
+            },
+            "mediaLines": {
+              "type": "string",
+              "description": "Adverse media findings, one per line"
+            },
+            "variantLine": {
+              "type": "string",
+              "description": "Entity-name consistency across documents"
+            },
+            "blockingCount": {
+              "type": "number",
+              "description": "Count of blocking validation issues"
+            },
+            "docCount": {
+              "type": "number",
+              "description": "Documents received"
+            },
+            "validationConfidence": {
+              "type": "number",
+              "description": "Validation agent confidence"
+            },
+            "screeningConfidence": {
+              "type": "number",
+              "description": "Screening agent confidence"
+            }
+          }
+        },
+        "binding": {
+          "nodeId": "caseSummary",
+          "outputId": "output"
+        }
+      },
+      {
+        "id": "caseSummary.error",
+        "type": "object",
+        "description": "Error information if the script fails",
+        "binding": {
+          "nodeId": "caseSummary",
+          "outputId": "error"
+        }
       }
     ]
   },
@@ -7143,6 +7519,17 @@
         "position": {
           "x": 480,
           "y": 0
+        },
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "collapsed": false
+      },
+      "caseSummary": {
+        "position": {
+          "x": 3232,
+          "y": 480
         },
         "size": {
           "width": 96,
