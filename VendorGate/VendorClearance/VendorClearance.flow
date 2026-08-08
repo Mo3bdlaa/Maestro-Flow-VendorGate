@@ -281,7 +281,8 @@
       "typeVersion": "1.3",
       "display": {
         "label": "Extraction Agent (generative)",
-        "icon": "autonomous-agent"
+        "icon": "autonomous-agent",
+        "subLabel": ""
       },
       "inputs": {
         "source": "b6c3011d-9185-40a0-9ffb-fd4cae5a1759",
@@ -1269,7 +1270,7 @@
       "typeVersion": "2.3",
       "display": {
         "label": "Provision Vendor Portal API",
-        "icon": "https://cloud.uipath.com/elements_/scaleunit_/a6827719-5651-4da8-a093-6b3e05f247c7/v3/element/elements/uipath-uipath-http/image"
+        "icon": "app-window"
       },
       "inputs": {
         "branches": [],
@@ -6012,10 +6013,12 @@
       "type": "string",
       "resource": "connection",
       "resourceKey": "9e6b90f5-2b61-49f1-afda-c90061443385",
-      "propertyAttribute": "ConnectionId",
-      "default": "fcd25ecf-785b-49d5-9bfc-5abf0cbb5750"
+      "default": "fcd25ecf-785b-49d5-9bfc-5abf0cbb5750",
+      "propertyAttribute": "ConnectionId"
     }
   ],
+  "solutionId": "3e054f21-d53a-4f5f-9823-08def396904e",
+  "projectId": "d47d327a-ef17-436b-b5b5-816799f26b2d",
   "layout": {
     "nodes": {
       "noteTitle": {
@@ -6031,11 +6034,11 @@
       },
       "noteIntake": {
         "position": {
-          "x": -48,
+          "x": 0,
           "y": -96
         },
         "size": {
-          "width": 1170,
+          "width": 1042,
           "height": 280
         },
         "collapsed": false
@@ -6097,7 +6100,7 @@
       },
       "start": {
         "position": {
-          "x": 0,
+          "x": 48,
           "y": 0
         },
         "size": {
@@ -6108,7 +6111,7 @@
       },
       "writeVendorRecord1": {
         "position": {
-          "x": 256,
+          "x": 304,
           "y": 0
         },
         "size": {
@@ -6119,7 +6122,7 @@
       },
       "writeDocumentRecords1": {
         "position": {
-          "x": 512,
+          "x": 560,
           "y": 0
         },
         "size": {
@@ -6130,7 +6133,7 @@
       },
       "extractDocs": {
         "position": {
-          "x": 768,
+          "x": 720,
           "y": 0
         },
         "size": {
