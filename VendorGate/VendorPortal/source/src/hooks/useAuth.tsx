@@ -25,10 +25,10 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const path = window.location.pathname.replace(/\/+$/, '');
     const local = window.location.hostname === 'localhost';
     return new UiPath({
-      clientId: 'e0e3d12f-12fe-4539-bda5-56b0e17f25bf',
-      orgName: 'moshaker',
-      tenantName: 'DefaultTenant',
-      baseUrl: 'https://api.uipath.com',
+      clientId: 'c6ed6d50-97fd-4705-8753-b3e211128cf7',
+      orgName: 'shakertechs',
+      tenantName: 'Shaker_Techs',
+      baseUrl: 'https://staging.api.uipath.com',
       scope: 'DataFabric.Schema.Read DataFabric.Data.Read DataFabric.Data.Write',
       redirectUri: local ? 'http://localhost:5173' : window.location.origin + path,
     });

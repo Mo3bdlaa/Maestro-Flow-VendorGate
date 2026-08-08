@@ -1,5 +1,5 @@
 {
-  "clientId": "e0e3d12f-12fe-4539-bda5-56b0e17f25bf",
+  "clientId": "c6ed6d50-97fd-4705-8753-b3e211128cf7",
   "scope": "DataFabric.Schema.Read DataFabric.Data.Read DataFabric.Data.Write",
   "orgName": "moshaker",
   "tenantName": "DefaultTenant",
